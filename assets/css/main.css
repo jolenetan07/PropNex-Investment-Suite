@@ -1533,7 +1533,7 @@ button,
   input[type="button"].fit,
   button.fit,
   .button.fit {
-    width: calc(100vw - 4.5em); }
+    width: calc(100vw - 6em); }
   input[type="submit"].small,
   input[type="reset"].small,
   input[type="button"].small,
