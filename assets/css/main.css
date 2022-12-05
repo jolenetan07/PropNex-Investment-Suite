@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1; }
 
-ol, ul {
+ol, ul, li {
   list-style: none; }
 
 blockquote, q {
@@ -1533,7 +1533,7 @@ button,
   input[type="button"].fit,
   button.fit,
   .button.fit {
-    width: 100%; }
+    width: calc(100vw - 4.5em); }
   input[type="submit"].small,
   input[type="reset"].small,
   input[type="button"].small,
@@ -1548,6 +1548,9 @@ button,
     font-size: 1em;
     height: 3.65em;
     line-height: 3.65em; }
+  input[type="submit"].primary,
+  input[type="reset"].primary,
+  input[type="button"].primary,
   input[type="submit"].primary,
   input[type="reset"].primary,
   input[type="button"].primary,
