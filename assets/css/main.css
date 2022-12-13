@@ -1866,6 +1866,8 @@ button,
       border-top: solid 2px rgba(210, 215, 217, 0.75); }
       #main > .inner > section:first-of-type {
         border-top: 0 !important; }
+      #main > .inner > h2 {
+        text-align: center; }
   @media screen and (max-width: 1680px) {
     #main > .inner {
       padding: 0 5em 0.1em 5em ; }
@@ -2307,16 +2309,16 @@ button,
       margin-bottom: 0;
     }
 
-    /* .spotlight .content header.major {
-      margin: 0 0 2em 0;
-    } */
+  .spotlight .major {
+    margin: 0 0 2em 0;
+  }
 
   .spotlight .image {
     display: inline-block;
     margin-left: 4em;
     padding: 0.65em;
     border-radius: 100%;
-    border: solid 1px;
+    /* border: solid 1px; */
   }
 
     .spotlight .image img {

@@ -10,3 +10,24 @@
 
 ## Testing notes
 * test both potrait and landscape mode
+
+## Notes
+#### Database
+* user login information
+* user profile information
+* user favourites information
+* user recommendations information
+* property (postal, details)
+
+* users can edit profile
+* buyers can add/remove favourites
+* sellers can update property information
+
+#### Input Checks
+* login 
+* profile information
+* property information
+* postal code search
+
+#### Others
+* different app interface for buyers and sellers
