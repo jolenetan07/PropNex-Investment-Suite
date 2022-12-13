@@ -2092,6 +2092,13 @@ button,
     color: inherit;
     font-family: "Roboto Slab", serif;
     font-size: 1.125em; }
+  #header .title {
+    margin-top: 50%;
+    border-bottom: 0;
+    color: inherit;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.5em;
+    text-align: center; }
   #header .icons {
     text-align: right; }
   @media screen and (max-width: 1680px) {
@@ -2319,3 +2326,5 @@ button,
       margin-left: auto;
       margin-right: auto;
     }
+
+    
