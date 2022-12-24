@@ -10,7 +10,7 @@
 **Web**
 * `ionic serve` runs app on browser (localhost) with live reload feature
 
-**Mobile**  
+**Mobile**\
 *Method 1*
 * run app on Chrome browser
 * (right click) 'Inspect'
