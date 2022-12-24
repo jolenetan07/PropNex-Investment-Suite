@@ -1,33 +1,40 @@
 # propnex-fyp
 
-## To test on mobile device
-* go to 'https://jolenetan07.github.io/' on your device browser
+* PropNex Investment suite 
+* Built using the ionic-angular framework
+* Supports both web and mobile (ios & android) platforms.
 
-## To test on emulator
-* go to 'https://jolenetan07.github.io/' on chrome
-* right click 'Inspect'
-* 'Dimensions: iPhone 12 Pro' or any other desired emulator
+## How to Run
+* In a fresh pull of the repo, `cd propnex-investment-suite`
 
-## Testing notes
-* test both potrait and landscape mode
+**Web**
+* `ionic serve` runs app on browser (localhost) with live reload feature
 
-## Notes
-#### Database
-* user login information
-* user profile information
-* user favourites information
-* user recommendations information
-* property (postal, details)
+**Mobile**
+*Method 1*
+* run app on Chrome browser
+* (right click) 'Inspect'
+* 'Dimensions: ' select desired device from dropdown list (eg. iPhone 12 Pro)
 
-* users can edit profile
-* buyers can add/remove favourites
-* sellers can update property information
+*Method 2 - android only (Android Studio)*
+* `ng build`
+* `ionic capacitor add android`
+* `ionic capacitor copy android` 
+* alternatively, `ionic capacitor run android` or `ionic capacitor run android -l`
 
-#### Input Checks
-* login 
-* profile information
-* property information
-* postal code search
+*Method 3 - ios only (XCode)*
+* `ng build`
+* `ionic capacitor add ios`
+* `ionic capacitor copy ios` 
+* alternatively, `ionic capacitor run ios` or `ionic capacitor run ios -l`
 
-#### Others
-* different app interface for buyers and sellers
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+{
+  "name": "propnex-investment-suite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
