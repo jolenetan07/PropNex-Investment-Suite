@@ -1,5 +1,7 @@
 # propnex-fyp
 
+*** This branch is the original app adapted from a template (editorial) on html5 up  using vanilla html, css, javascript ***
+
 ## To test on mobile device
 * go to 'https://jolenetan07.github.io/' on your device browser
 
