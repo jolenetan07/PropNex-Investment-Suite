@@ -53,7 +53,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/home/tabs/home',
+        redirectTo: '/home/tabs/main',
         pathMatch: 'full'
       }
     ]
@@ -63,14 +63,6 @@ const routes: Routes = [
     redirectTo: '/home/tabs/main',
     pathMatch: 'full'
   },
-  {
-    path: 'place-detail',
-    loadChildren: () => import('./place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
-  },
-  {
-    path: 'search-place',
-    loadChildren: () => import('./search-place/search-place.module').then( m => m.SearchPlacePageModule)
-  }
 ];
 
 @NgModule({
