@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../home.service';
+import { Place } from '../place.model';
 
 @Component({
   selector: 'app-favourites',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favourites.page.scss'],
 })
 export class FavouritesPage implements OnInit {
+  loadedPlaces?: Place[];
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.loadedPlaces = this.homeService.favPlaces;
+
   }
 
 }

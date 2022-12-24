@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header class="ion-text-center">
+            <ion-card-subtitle class="ion-text-left ion-margin-bottom">Welcome Back,</ion-card-subtitle>
+            <ion-card-title>Jerry Liu</ion-card-title>
+            <ion-icon name="person-circle"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content class="ion-text-center">
+            <ion-button fill="clear" color="primary">Edit Profile</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Favourites</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item class="ion-no-padding" detail>
+                <ion-thumbnail slot="start">
+                  <ion-img [src]="loadedFavPlaces[0].imageUrl"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ loadedFavPlaces[0].name }}</h2>
+                  <p>Singapore {{ loadedFavPlaces[0].postal}}</p>
+                </ion-label>
+              </ion-item>
+
+
+              <ion-item class="ion-no-padding" detail>
+                <ion-thumbnail slot="start">
+                  <ion-img [src]="loadedFavPlaces[1].imageUrl"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ loadedFavPlaces[1].name }}</h2>
+                  <p>Singapore {{ loadedFavPlaces[1].postal}}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+
+          <div
+            class="ion-text-center"
+            [routerLink]="[
+            '/',
+            'home',
+            'tabs',
+            'favourites',
+            ]"
+          >
+            <ion-button fill="clear" color="primary">View More</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Recommended For You</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list>
+              <ion-item class="ion-no-padding" detail>
+                <ion-thumbnail slot="start">
+                  <ion-img [src]="loadedRecPlaces[0].imageUrl"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ loadedRecPlaces[0].name }}</h2>
+                  <p>Singapore {{ loadedRecPlaces[0].postal}}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item class="ion-no-padding" detail>
+                <ion-thumbnail slot="start">
+                  <ion-img [src]="loadedRecPlaces[1].imageUrl"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ loadedRecPlaces[1].name }}</h2>
+                  <p>Singapore {{ loadedRecPlaces[1].postal}}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+
+          <div
+            class="ion-text-center"
+            [routerLink]="[
+            '/',
+            'home',
+            'tabs',
+            'recommendations',
+            ]"
+          >
+            <ion-button fill="clear" color="primary">View More</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
