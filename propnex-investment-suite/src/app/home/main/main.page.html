@@ -57,10 +57,19 @@
             </ion-list>
           </ion-card-content>
 
-          <div
-            class="ion-text-center"
-          >
-            <ion-button fill="clear" color="primary">View More</ion-button>
+          <div class="ion-text-center">
+            <ion-button 
+              fill="clear" 
+              color="primary"
+              [routerLink]="[
+              '/', 
+              'home', 
+              'tabs', 
+              'favourites'
+              ]"
+            >
+            View More
+            </ion-button>
           </div>
         </ion-card>
       </ion-col>
@@ -97,10 +106,19 @@
             </ion-list>
           </ion-card-content>
 
-          <div
-            class="ion-text-center"
-          >
-            <ion-button fill="clear" color="primary">View More</ion-button>
+          <div class="ion-text-center">
+            <ion-button 
+              fill="clear" 
+              color="primary"
+              [routerLink]="[
+              '/', 
+              'home', 
+              'tabs', 
+              'recommendations'
+              ]"
+            >
+            View More
+          </ion-button>
           </div>
         </ion-card>
       </ion-col>
