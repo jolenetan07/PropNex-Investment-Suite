@@ -1,11 +1,109 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Authenticate</ion-title>
+    <ion-title>{{ isLogin? 'Login' : 'Sign Up'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button color="primary" (click)="onLogin()">
-    Login
-  </ion-button>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input 
+                type="text" 
+                ngModel 
+                name="username"
+                required 
+                #usernameCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item 
+              *ngIf="!usernameCtrl.valid && usernameCtrl.touched"
+              lines="none"
+            >
+              <ion-label>
+                Invalid username.
+              </ion-label>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input 
+                type="password"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+                #passwordCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item 
+              *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
+              lines="none"
+            >
+              <ion-label>
+                Invalid password.
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">User Type</ion-label>
+            <ion-select 
+              ngModel 
+              name="usertype" 
+              #usertypeCtrl="ngModel" 
+              required
+            >
+              <ion-select-option value="1">Buyer</ion-select-option>
+              <ion-select-option value="2">Seller</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item 
+          *ngIf="!usertypeCtrl.valid && usertypeCtrl.touched"
+          lines="none"
+        >
+          <ion-label>
+            Please select an option.
+          </ion-label>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-button 
+            type="button" 
+            color="tertiary" 
+            fill="clear" 
+            expand="block"
+            (click)="onSwitchAuthMode()"
+            >{{ isLogin ? 
+              'Don\'t have an account? Sign Up' : 
+              'Already have an account? Login'}}
+          </ion-button>
+  
+          <ion-button 
+            type="submit" 
+            (click)="onLogin()" 
+            expand="block"
+            [disabled]="!f.valid"
+            >{{ isLogin ? 
+              'Login' : 
+              'Sign Up'}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

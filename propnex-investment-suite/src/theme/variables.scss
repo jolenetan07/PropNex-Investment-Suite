@@ -20,9 +20,10 @@
   --ion-color-secondary-shade: #0bb8cc;
   --ion-color-secondary-tint: #24d6ea;
 
-  /** tertiary **/
-  --ion-color-tertiary: #7044ff;
-  --ion-color-tertiary-rgb: 112, 68, 255;
+  /** tertiary - for buttons with text only (no fill) **/
+  // --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary: #7B5BF2;
+  --ion-color-tertiary-rgb: 255, 255, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
   --ion-color-tertiary-shade: #633ce0;
