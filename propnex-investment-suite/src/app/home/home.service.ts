@@ -5,8 +5,8 @@ import { Place } from './place.model';
   providedIn: 'root'
 })
 export class HomeService {
-  private targetPlace: Place;
   private _allPlaces: Place[];
+  private _recPlaces: Place[];
 
   private _favPlaces: Place[] = [
     new Place(
@@ -31,14 +31,16 @@ export class HomeService {
       )
   ]
 
-  private _recPlaces: Place[] = [
+  private _personalRecPlaces: Place[] = [
     new Place(
       'p1',
       '412 Woodlands St 41',
       '730412',
       'https://hybecorp.com/archive/YyQ6AuOnVuWtyBcnSPWW7UCNE7iZNNEDk9x8r01Eo0kOAWgMvS2hExwGhRFHZByiAtdJdOJS8NM4CjIXlkNHx016KMlDqmKfTJ8R8Tf7W8PuRxisViOGRFszt7ELmq9u.jpg',
       ),
+  ]
 
+  private _trendRecPlaces: Place[] = [
     new Place(
       'p2',
       '424B Yishun Ave 11',
@@ -60,9 +62,18 @@ export class HomeService {
     return [...this._favPlaces];
   }
 
-  get recPlaces() {
-    return [...this._recPlaces];
+  get personalRecPlaces() {
+    return [...this._personalRecPlaces];
   }
+
+  get trendRecPlaces() {
+    return [...this._trendRecPlaces];
+  }
+
+  get recPlaces() {
+    return [...this._personalRecPlaces.concat(...this._trendRecPlaces)];
+  }
+
 
   get allPlaces() {
     return this._allPlaces = [...this._favPlaces.concat(...this._recPlaces)];
@@ -73,7 +84,6 @@ export class HomeService {
     result = this._allPlaces.filter(
       place => place.postal === postal
     );
-    //console.log(result.length);
     if (result.length === 1) {
       return result[0];
     } 
