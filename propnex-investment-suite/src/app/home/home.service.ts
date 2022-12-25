@@ -5,6 +5,9 @@ import { Place } from './place.model';
   providedIn: 'root'
 })
 export class HomeService {
+  private targetPlace: Place;
+  private _allPlaces: Place[];
+
   private _favPlaces: Place[] = [
     new Place(
       'p4',
@@ -60,4 +63,19 @@ export class HomeService {
   get recPlaces() {
     return [...this._recPlaces];
   }
+
+  get allPlaces() {
+    return this._allPlaces = [...this._favPlaces.concat(...this._recPlaces)];
+  }
+
+  // searchPlace(postal: string) {
+  //   let result;
+  //   result = this._allPlaces.filter(
+  //     place => place.postal === postal
+  //   );
+  //   console.log(result);
+  //   console.log(result.postal);
+  //   console.log(result.name);
+  //   return result;
+  // } 
 }

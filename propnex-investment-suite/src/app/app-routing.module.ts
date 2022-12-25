@@ -8,15 +8,23 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule) },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canLoad: [AuthGuard] 
   },
   {
     path: 'stats',
-    loadChildren: () => import('./stats/stats.module').then( m => m.StatsPageModule)
+    loadChildren: () => import('./stats/stats.module').then( m => m.StatsPageModule),
+    canLoad: [AuthGuard] 
   },
   {
     path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule),
+    canLoad: [AuthGuard] 
+  },
+  {
+    path: 'units',
+    loadChildren: () => import('./units/units.module').then( m => m.UnitsPageModule),
+    canLoad: [AuthGuard] 
   }
 ];
 
