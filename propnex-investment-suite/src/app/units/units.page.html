@@ -20,43 +20,24 @@
       </ion-col>
     </ion-row>
 
-    <!-- <ion-row>
+    <ion-row>
       <ion-col>
         <ion-list>
-          <ion-item *ngIf="result" detail>
-            <ion-thumbnail slot="start">
+          <ion-item *ngIf="result">
+            <ion-label *ngIf="result.name === undefined">
+              <h2>No results found</h2>
+            </ion-label>
+
+            <ion-thumbnail *ngIf="result.name !== undefined" slot="start">
               <ion-img [src]="result.imageUrl"></ion-img>
             </ion-thumbnail>
-            <ion-label>
+            <ion-label *ngIf="result.name !== undefined">
               <h2>{{ result.name }}</h2>
               <p>Singapore {{ result.postal}}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
-    </ion-row> -->
-
-    <ion-row>
-      <ion-col>
-        <ion-list>
-          <ion-item *ngFor="let place of loadedPlaces" detail>
-            <ion-thumbnail slot="start">
-              <ion-img [src]="place.imageUrl"></ion-img>
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{ place.name }}</h2>
-              <p>Singapore {{ place.postal}}</p>
-            </ion-label>
-          </ion-item>
-      </ion-list>
-      </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
-
-
-
-
 </ion-content>

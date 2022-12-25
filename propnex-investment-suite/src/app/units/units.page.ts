@@ -9,7 +9,7 @@ import { Place } from '../home/place.model';
 })
 export class UnitsPage implements OnInit {
   loadedPlaces: Place[];
-  //result: Place;
+  result: Place;
 
   constructor(private homeService: HomeService) { }
 
@@ -20,8 +20,7 @@ export class UnitsPage implements OnInit {
 
   handleChange(event) {
     const query = event.target.value;
-    console.log(query);
-    // this.result = this.homeService.searchPlace(query);
+    this.result  = this.homeService.searchPlace(query);
   }
 
 }

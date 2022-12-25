@@ -68,14 +68,15 @@ export class HomeService {
     return this._allPlaces = [...this._favPlaces.concat(...this._recPlaces)];
   }
 
-  // searchPlace(postal: string) {
-  //   let result;
-  //   result = this._allPlaces.filter(
-  //     place => place.postal === postal
-  //   );
-  //   console.log(result);
-  //   console.log(result.postal);
-  //   console.log(result.name);
-  //   return result;
-  // } 
+  searchPlace(postal: string) {
+    let result: Place[];
+    result = this._allPlaces.filter(
+      place => place.postal === postal
+    );
+    //console.log(result.length);
+    if (result.length === 1) {
+      return result[0];
+    } 
+    return result;
+  } 
 }
