@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: UnitsPage
+  },
+  {
+    path: 'block-detail',
+    loadChildren: () => import('./block-detail/block-detail.module').then( m => m.BlockDetailPageModule)
   }
 ];
 

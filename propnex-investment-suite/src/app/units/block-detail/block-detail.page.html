@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/units"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Block Detail</ion-title>
+    <!-- <ion-title>{{ places[0].name }}</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="places[0].imageUrl"></ion-img>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center ion-no-padding">
+        <h6>{{ places[0].name }}, Singapore {{ places[0].postal }}</h6>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-select 
+          interface="popover" 
+          placeholder="Select floor range"
+          (ionChange)="handleChange($event)"
+
+        >
+          <ion-select-option value="1">1 - 3</ion-select-option>
+          <ion-select-option value="2">4 - 6</ion-select-option>
+          <ion-select-option value="3">7 - 9</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

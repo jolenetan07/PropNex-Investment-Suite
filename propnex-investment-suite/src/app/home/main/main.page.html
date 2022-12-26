@@ -40,7 +40,12 @@
                 </ion-label>
               </ion-item>
 
-              <ion-item class="ion-no-padding" detail *ngIf="loadedFavPlaces.length > 0">
+              <ion-item 
+                class="ion-no-padding" 
+                detail 
+                *ngIf="loadedFavPlaces.length > 0"
+                [routerLink]="['/', 'units', 'block-detail']"
+              >
                 <ion-thumbnail slot="start">
                   <ion-img [src]="loadedFavPlaces[0].imageUrl"></ion-img>
                 </ion-thumbnail>
