@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 
 @Component({
-  selector: 'app-floor-detail',
-  templateUrl: './floor-detail.page.html',
-  styleUrls: ['./floor-detail.page.scss'],
+  selector: 'app-unit-detail',
+  templateUrl: './unit-detail.page.html',
+  styleUrls: ['./unit-detail.page.scss'],
 })
-export class FloorDetailPage implements OnInit {
+export class UnitDetailPage implements OnInit {
   places: Place[];
-  floorDetails: string[] = [
-    'Floor Range: ',
+  unitDetails: string[] = [
+    'Unit Number: ',
     'Flat Type: ',
     'Floor area (sqm): ',
     'Resale price ($): '
@@ -19,7 +18,7 @@ export class FloorDetailPage implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private router: Router
+    //private router: Router
   ) { }
 
   ngOnInit() {
@@ -29,7 +28,7 @@ export class FloorDetailPage implements OnInit {
 
   handleChange(event) {
     console.log(event.detail.value);
-    this.router.navigate(['/', 'units', 'block-detail', 'floor-detail', 'unit-detail']);
   }
+
 
 }

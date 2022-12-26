@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: FloorDetailPage
+  },
+  {
+    path: 'unit-detail',
+    loadChildren: () => import('./unit-detail/unit-detail.module').then( m => m.UnitDetailPageModule)
   }
 ];
 
