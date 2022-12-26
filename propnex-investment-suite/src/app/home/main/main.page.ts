@@ -15,7 +15,7 @@ export class MainPage implements OnInit {
 
   ngOnInit() {
     this.loadedFavPlaces = this.homeService.favPlaces;
-    this.loadedRecPlaces = this.homeService.recPlaces;
+    this.loadedRecPlaces = this.homeService.personalRecPlaces;
   }
 
 }

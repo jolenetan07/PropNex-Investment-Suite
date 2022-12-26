@@ -15,7 +15,6 @@ export class UnitsPage implements OnInit {
 
   ngOnInit() {
     this.loadedPlaces = this.homeService.allPlaces;
-    //this.result = [...this.loadedPlaces];
   }
 
   handleChange(event) {
