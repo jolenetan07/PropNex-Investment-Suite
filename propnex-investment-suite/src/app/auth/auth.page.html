@@ -61,28 +61,18 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">User Type</ion-label>
-            <ion-select 
-              ngModel 
-              name="usertype" 
-              #usertypeCtrl="ngModel" 
-              required
-            >
-              <ion-select-option value="1">Buyer</ion-select-option>
-              <ion-select-option value="2">Seller</ion-select-option>
-            </ion-select>
-          </ion-item>
-
-          <ion-item 
-          *ngIf="!usertypeCtrl.valid && usertypeCtrl.touched"
-          lines="none"
-        >
-          <ion-label>
-            Please select an option.
-          </ion-label>
-        </ion-item>
+        <ion-col class="ion-margin-top">
+          <ion-select 
+            placeholder="Select User Type"
+            interface="popover"
+            ngModel 
+            name="usertype" 
+            #usertypeCtrl="ngModel" 
+            required
+          >
+            <ion-select-option value="1">Buyer</ion-select-option>
+            <ion-select-option value="2">Seller</ion-select-option>
+          </ion-select>
         </ion-col>
       </ion-row>
   
