@@ -6,7 +6,7 @@ import { UnitsPage } from './units.page';
 const routes: Routes = [
   {
     path: '',
-    component: UnitsPage
+    component: UnitsPage,
   },
   {
     path: 'block-detail',

@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: BlockDetailPage
+  },
+  {
+    path: 'floor-detail',
+    loadChildren: () => import('./floor-detail/floor-detail.module').then( m => m.FloorDetailPageModule)
   }
 ];
 

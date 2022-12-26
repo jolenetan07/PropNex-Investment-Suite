@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 
@@ -9,10 +10,10 @@ import { Place } from 'src/app/home/place.model';
 })
 export class BlockDetailPage implements OnInit {
   places: Place[];
-  logs: string[] = [];
 
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class BlockDetailPage implements OnInit {
 
   handleChange(event) {
     console.log(event.detail.value);
+    this.router.navigate(['/', 'units', 'block-detail', 'floor-detail']);
   }
 
 }
