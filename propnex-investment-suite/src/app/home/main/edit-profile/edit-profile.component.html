@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button fill="clear" color="danger" (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="username"
+              ></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input 
+                type="password"
+                formControlName="password"
+                minlength="6"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item
+              *ngIf="!form.get('password').valid && form.get('password').touched"
+            >
+              <p>Password must be at least 6 characters.</p>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">First Name</ion-label>
+              <ion-input 
+                type="text"
+                formControlName="firstname"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Last Name</ion-label>
+              <ion-input 
+                type="text"
+                formControlName="lastname"
+              ></ion-input>
+            </ion-item>
+
+            <ion-row>
+              <ion-col class="ion-margin-top">
+                <ion-item>
+                  <ion-select 
+                    placeholder="Household Income Range"
+                    interface="popover"
+                    ngModel 
+                    name="incomerange">
+                    <ion-select-option value="1">Below $8,000</ion-select-option>
+                    <ion-select-option value="2">Between $8,000 to $20,000</ion-select-option>
+                    <ion-select-option value="3">Above $20,000</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-button 
+                type="submit" 
+                (click)="onEditProfile()" 
+                expand="block"
+                >Save Changes
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
