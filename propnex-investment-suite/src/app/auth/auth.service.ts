@@ -33,4 +33,19 @@ export class AuthService {
   get currentUser() {
     return this._currUser;
   }
+
+  editUser(
+    current: User,
+    _username: string,
+    _password: string,
+    _firstname: string,
+    _lastname: string,
+    _income: number
+  ) {
+    current.username = _username;
+    current.password = _password;
+    current.firstname = _firstname;
+    current.lastname = _lastname;
+    current.income = _income;
+  }
 }

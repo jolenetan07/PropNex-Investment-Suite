@@ -54,21 +54,13 @@
               ></ion-input>
             </ion-item>
 
-            <ion-row>
-              <ion-col class="ion-margin-top">
-                <ion-item>
-                  <ion-select 
-                    placeholder="Household Income Range"
-                    interface="popover"
-                    ngModel 
-                    name="incomerange">
-                    <ion-select-option value="1">Below $8,000</ion-select-option>
-                    <ion-select-option value="2">Between $8,000 to $20,000</ion-select-option>
-                    <ion-select-option value="3">Above $20,000</ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-col>
-            </ion-row>
+            <ion-item>
+              <ion-label position="floating">Household Income</ion-label>
+              <ion-input 
+                type="number"
+                formControlName="incomerange"
+              ></ion-input>
+            </ion-item>
 
             <ion-row>
               <ion-col>
