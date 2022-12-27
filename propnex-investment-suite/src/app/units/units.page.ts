@@ -9,7 +9,7 @@ import { Place } from '../home/place.model';
 })
 export class UnitsPage implements OnInit {
   loadedPlaces: Place[];
-  result: Place;
+  result;
 
   constructor(private homeService: HomeService) { }
 
