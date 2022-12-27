@@ -43,9 +43,15 @@ export class AuthPage implements OnInit {
     }
     const username = form.value.username;
     const password = form.value.password;
-    const usertype = form.value.usertype
+    const usertype = form.value.usertype;
+
+    const firstname = form.value.firstname;
+    const lastname = form.value.lastname;
+    const income = form.value.income;
+
     form.reset();
     console.log(username, password, usertype);
+    console.log(firstname, lastname, income);
 
     if (this.isLogin) {
       // send request to login servers

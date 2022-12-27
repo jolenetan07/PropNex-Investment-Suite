@@ -57,6 +57,7 @@ export class EditProfileComponent implements OnInit {
       this.form.value.lastname,
       this.form.value.incomerange,
     );
+    
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 }
