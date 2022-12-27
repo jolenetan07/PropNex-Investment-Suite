@@ -48,7 +48,7 @@ export class EditProfileComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-    console.log(this.form);
+    // console.log(this.form);
     this.authService.editUser(
       this.authService.currentUser,
       this.form.value.username,
