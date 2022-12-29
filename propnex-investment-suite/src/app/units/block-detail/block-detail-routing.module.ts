@@ -9,8 +9,8 @@ const routes: Routes = [
     component: BlockDetailPage
   },
   {
-    path: 'floor-detail',
-    loadChildren: () => import('./floor-detail/floor-detail.module').then( m => m.FloorDetailPageModule)
+    path: 'unit-detail',
+    loadChildren: () => import('./unit-detail/unit-detail.module').then( m => m.UnitDetailPageModule)
   }
 ];
 

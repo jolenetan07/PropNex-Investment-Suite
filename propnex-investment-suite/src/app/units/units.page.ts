@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
+import { Unit } from './units.model';
 
 @Component({
   selector: 'app-units',

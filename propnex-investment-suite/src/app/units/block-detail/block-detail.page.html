@@ -24,15 +24,33 @@
 
     <ion-row>
       <ion-col>
-        <ion-select 
-          interface="popover" 
-          placeholder="Select floor range"
-          (ionChange)="handleChange($event)"
-        >
-          <ion-select-option value="1">1 - 3</ion-select-option>
-          <ion-select-option value="2">4 - 6</ion-select-option>
-          <ion-select-option value="3">7 - 9</ion-select-option>
-        </ion-select>
+        <ion-searchbar 
+        color="light"
+        placeholder="Enter unit number (Eg. 01-01)"
+        [debounce]="500"
+        (ionChange)="handleChange($event)"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngIf="result">
+            <ion-label *ngIf="result.unitNum === undefined">
+              <h2>No results found</h2>
+            </ion-label>
+
+            <ion-label 
+              *ngIf="result.unitNum !== undefined"
+              (click) = "onSelectUnit()"
+            >
+              <h2>#{{ result.unitNum }}</h2>
+              <p>{{ result.address }}</p>
+              <p>Singapore {{ result.postal }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
 

@@ -6,7 +6,7 @@ import { Place } from './place.model';
 })
 export class HomeService {
   private _allPlaces: Place[];
-  private _recPlaces: Place[];
+  //private _recPlaces: Place[];
 
   private _favPlaces: Place[] = [
     new Place(
@@ -70,13 +70,16 @@ export class HomeService {
     return [...this._trendRecPlaces];
   }
 
-  get recPlaces() {
-    return [...this._personalRecPlaces.concat(...this._trendRecPlaces)];
-  }
-
+  // get recPlaces() {
+  //   return [...this._personalRecPlaces.concat(...this._trendRecPlaces)];
+  // }
 
   get allPlaces() {
-    return this._allPlaces = [...this._favPlaces.concat(...this._recPlaces)];
+    return this._allPlaces = [...this._favPlaces.concat(...this._personalRecPlaces, ...this._trendRecPlaces)];
+  }
+
+  getPlace(id: string) {
+    return {...this._allPlaces.find(p => p.id === id)};
   }
 
   searchPlace(postal: string) {
