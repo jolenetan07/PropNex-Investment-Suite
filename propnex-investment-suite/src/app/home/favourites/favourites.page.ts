@@ -14,9 +14,12 @@ export class FavouritesPage implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.loadedPlaces = this.homeService.favPlaces;
-
+    
   }
+
+  ionViewWillEnter() {
+    this.loadedPlaces = this.homeService.favPlaces;
+  } 
 
   onRemovePlace(postal: string, slidingEl: IonItemSliding) {
     slidingEl.close();

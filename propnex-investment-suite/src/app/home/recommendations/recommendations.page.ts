@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 import { Place } from '../place.model';
 import { SegmentChangeEventDetail } from '@ionic/core';
+import { IonItemSliding } from '@ionic/angular';
 
 @Component({
   selector: 'app-recommendations',
@@ -11,6 +12,7 @@ import { SegmentChangeEventDetail } from '@ionic/core';
 export class RecommendationsPage implements OnInit {
   loadedPlaces?: Place[];
   displayedPlaces?: Place[];
+  //result;
 
   constructor(private homeService: HomeService) { }
 
@@ -25,6 +27,11 @@ export class RecommendationsPage implements OnInit {
     } else {
       this.displayedPlaces = this.homeService.trendRecPlaces;
     }
+  }
+
+  onAddPlace(postal: string, slidingEl: IonItemSliding) {
+    slidingEl.close();
+    this.homeService.addFavPlace(postal);
   }
 
 }

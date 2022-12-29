@@ -70,9 +70,9 @@ export class HomeService {
     return [...this._trendRecPlaces];
   }
 
-  // get recPlaces() {
-  //   return [...this._personalRecPlaces.concat(...this._trendRecPlaces)];
-  // }
+  get recPlaces() {
+    return [...this._personalRecPlaces.concat(...this._trendRecPlaces)];
+  }
 
   get allPlaces() {
     return this._allPlaces = [...this._favPlaces.concat(...this._personalRecPlaces, ...this._trendRecPlaces)];
@@ -99,6 +99,14 @@ export class HomeService {
       place => place.postal !== postal
     );
     return updatePlaces;
+  }
+
+  addFavPlace(postal: string) {
+    let targetPlace: Place[];
+    targetPlace = this.recPlaces.filter(
+      place => place.postal === postal
+    );
+    return this._favPlaces = this._favPlaces.concat(targetPlace);
   }
 
   
