@@ -78,10 +78,6 @@ export class HomeService {
     return this._allPlaces = [...this._favPlaces.concat(...this._personalRecPlaces, ...this._trendRecPlaces)];
   }
 
-  getPlace(id: string) {
-    return {...this._allPlaces.find(p => p.id === id)};
-  }
-
   searchPlace(postal: string) {
     let result: Place[];
     result = this._allPlaces.filter(
@@ -92,4 +88,19 @@ export class HomeService {
     } 
     return result;
   } 
+
+  // getPlace(id: string) {
+  //   return {...this._allPlaces.find(p => p.id === id)};
+  // }
+
+  removeFavPlace(postal: string) {
+    let updatePlaces: Place[];
+    updatePlaces = this._favPlaces.filter(
+      place => place.postal !== postal
+    );
+    return updatePlaces;
+  }
+
+  
+
 }
