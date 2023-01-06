@@ -28,7 +28,7 @@ export class BlockDetailPage implements OnInit {
 
   handleChange(event) {
     const query = event.target.value;
-    console.log(query);
+    //console.log(query);
     //this.units = this.homeService.getBlockUnits(query);
     this.result  = this.homeService.searchUnit('470142',query);
   }
