@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Unit } from '../units/units.model';
 import { Place } from './place.model';
 
 @Injectable({
@@ -14,6 +15,52 @@ export class HomeService {
       '142 Bedok Reservoir Rd',
       '470142',
       'https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/09/Jewel_Changi_airport.jpg?q=50&fit=contain&w=943&h=&dpr=1.5',
+      [
+        new Unit(
+          'u1',
+          '03-01',
+          '142 Bedok Reservoir Rd',
+          134,
+          '2018-04',
+          '',
+          5,
+          1,
+          'Public',
+          'Freehold',
+          1700000,
+          'HDB'
+          ),
+    
+        new Unit(
+          'u2',
+          '03-02',
+          '142 Bedok Reservoir Rd',
+          134,
+          '2018-04',
+          '',
+          5,
+          1,
+          'Public',
+          'Freehold',
+          1700000,
+          'HDB'
+          ),
+    
+          new Unit(
+            'u3',
+            '03-01',
+            '142 Bedok Reservoir Rd',
+            134,
+            '2018-04',
+            '',
+            5,
+            1,
+            'Public',
+            'Freehold',
+            1700000,
+            'HDB'
+            ),
+        ]
       ),
 
     new Place(
@@ -108,6 +155,24 @@ export class HomeService {
     );
     return this._favPlaces = this._favPlaces.concat(targetPlace);
   }
+
+  getBlockUnits(postal: string = '470142') {
+    let blockUnits: Unit[];
+    let targetPlace: Place;
+    targetPlace = this._allPlaces.find(p => p.postal === postal);
+    blockUnits = targetPlace.units;
+    //console.log(blockUnits);
+    return blockUnits;
+  }
+
+  searchUnit(postal: string = '470142', unitNo: string) {
+    let blockUnits: Unit[];
+    let targetUnit: Unit;
+    blockUnits = this.getBlockUnits(postal);
+    targetUnit = blockUnits.find(p => p.unitNum === unitNo);
+    //console.log(targetUnit);
+    return targetUnit;
+  } 
 
   
 

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 import { Unit } from '../units.model';
-import { UnitsService } from '../units.service';
 
 @Component({
   selector: 'app-block-detail',
@@ -13,24 +12,25 @@ import { UnitsService } from '../units.service';
 export class BlockDetailPage implements OnInit {
   places: Place[];
   units: Unit[];
-  result;
+  result: Unit;
 
   constructor(
     private homeService: HomeService,
-    private unitService: UnitsService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.places = this.homeService.allPlaces;
-    this.units = this.unitService.allUnits;
+    this.units = this.homeService.getBlockUnits();
+    
   }
 
 
   handleChange(event) {
     const query = event.target.value;
     console.log(query);
-    this.result  = this.unitService.searchUnit(query);
+    //this.units = this.homeService.getBlockUnits(query);
+    this.result  = this.homeService.searchUnit('470142',query);
   }
 
   onSelectUnit() {
