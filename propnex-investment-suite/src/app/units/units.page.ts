@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
 import { Unit } from './units.model';
@@ -12,7 +13,10 @@ export class UnitsPage implements OnInit {
   loadedPlaces: Place[];
   result;
 
-  constructor(private homeService: HomeService) { }
+  constructor(
+    private homeService: HomeService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loadedPlaces = this.homeService.allPlaces;
@@ -23,4 +27,7 @@ export class UnitsPage implements OnInit {
     this.result  = this.homeService.searchPlace(query);
   }
 
+  onSelectPlace() {
+    this.router.navigate(['/', 'units', 'block-detail']);
+  }
 }

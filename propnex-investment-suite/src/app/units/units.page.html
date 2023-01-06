@@ -31,7 +31,10 @@
             <ion-thumbnail *ngIf="result.name !== undefined" slot="start">
               <ion-img [src]="result.imageUrl"></ion-img>
             </ion-thumbnail>
-            <ion-label *ngIf="result.name !== undefined">
+            <ion-label 
+              *ngIf="result.name !== undefined"
+              (click) = "onSelectPlace()"
+            >
               <h2>{{ result.name }}</h2>
               <p>Singapore {{ result.postal}}</p>
             </ion-label>

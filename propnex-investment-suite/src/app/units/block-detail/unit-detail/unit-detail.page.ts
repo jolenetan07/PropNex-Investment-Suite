@@ -11,9 +11,16 @@ export class UnitDetailPage implements OnInit {
   places: Place[];
   unitDetails: string[] = [
     'Unit Number: ',
-    'Flat Type: ',
-    'Floor area (sqm): ',
-    'Resale price ($): '
+    'Project Name: ',
+    'Floor Area (sqm): ',
+    'Date Of Sale: ',
+    'Flat Model: ',
+    'Max Floor: ',
+    'Min Floor: ',
+    'Private/Public: ',
+    'Remaining Lease (2022): ',
+    'Sale price ($): ',
+    'Type: '
   ]
 
   constructor(

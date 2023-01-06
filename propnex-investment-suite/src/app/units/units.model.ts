@@ -13,5 +13,5 @@ export class Unit {
       public salePrice: number,
       public type: string
     ) {}
-  }
+}
   
