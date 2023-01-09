@@ -126,10 +126,14 @@ export class HomeService {
   }
 
   searchPlace(postal: string) {
-    let targetPlace: Place;
-    targetPlace = this._allPlaces.find(p => p.postal === postal);
-    //console.log(targetPlace);
-    return targetPlace;
+    let result: Place[];
+    result = this._allPlaces.filter(
+      place => place.postal === postal
+    );
+    if (result.length === 1) {
+      return result[0];
+    } 
+    return result;
   } 
 
   // getPlace(id: string) {
