@@ -44,7 +44,7 @@
                 class="ion-no-padding" 
                 detail 
                 *ngIf="loadedFavPlaces.length > 0"
-                [routerLink]="['/', 'units', 'block-detail']"
+                [routerLink]="['/', 'units', loadedFavPlaces[0].postal]"
               >
                 <ion-thumbnail slot="start">
                   <ion-img [src]="loadedFavPlaces[0].imageUrl"></ion-img>

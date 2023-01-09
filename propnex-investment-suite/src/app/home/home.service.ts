@@ -125,16 +125,16 @@ export class HomeService {
     return this._allPlaces = [...this._favPlaces.concat(...this._personalRecPlaces, ...this._trendRecPlaces)];
   }
 
+  getPlace(postal: string) {
+    return {...this._allPlaces.find(p => p.postal === postal)};
+  }
+
   searchPlace(postal: string) {
     let targetPlace: Place;
     targetPlace = this._allPlaces.find(p => p.postal === postal);
     //console.log(targetPlace);
     return targetPlace;
   } 
-
-  // getPlace(id: string) {
-  //   return {...this._allPlaces.find(p => p.id === id)};
-  // }
 
   removeFavPlace(postal: string) {
     let updatePlaces: Place[];

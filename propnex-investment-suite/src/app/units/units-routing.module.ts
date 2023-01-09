@@ -9,7 +9,7 @@ const routes: Routes = [
     component: UnitsPage,
   },
   {
-    path: 'block-detail',
+    path: ':postalId',
     loadChildren: () => import('./block-detail/block-detail.module').then( m => m.BlockDetailPageModule)
   }
 ];

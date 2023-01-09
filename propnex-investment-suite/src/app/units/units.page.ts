@@ -24,10 +24,13 @@ export class UnitsPage implements OnInit {
 
   handleChange(event) {
     const query = event.target.value;
+    console.log(query);
     this.result  = this.homeService.searchPlace(query);
+    console.log(this.result);
   }
 
   onSelectPlace() {
+    // to change
     this.router.navigate(['/', 'units', 'block-detail']);
   }
 }
