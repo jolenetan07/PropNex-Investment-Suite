@@ -11,7 +11,7 @@ import { Unit } from './units.model';
 })
 export class UnitsPage implements OnInit {
   loadedPlaces: Place[];
-  result;
+  result: Place;
 
   constructor(
     private homeService: HomeService,
@@ -24,13 +24,13 @@ export class UnitsPage implements OnInit {
 
   handleChange(event) {
     const query = event.target.value;
-    console.log(query);
-    this.result  = this.homeService.searchPlace(query);
-    console.log(this.result);
+    //console.log(query);
+    this.result  = this.homeService.getPlace(query);
+    //console.log(this.result);
   }
 
   onSelectPlace() {
-    // to change
-    this.router.navigate(['/', 'units', 'block-detail']);
+    // this.router.navigate(['/', 'units', 'block-detail']);
+    this.router.navigate(['/', 'units', this.result.postal]);
   }
 }

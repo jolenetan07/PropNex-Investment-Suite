@@ -32,7 +32,7 @@ export class BlockDetailPage implements OnInit {
       }
       this.isLoading = true;
       this.place = this.homeService.getPlace(paramMap.get('postalId'));
-      console.log('found', this.place);
+      //console.log('found', this.place);
       this.isLoading = false;
       
     });
