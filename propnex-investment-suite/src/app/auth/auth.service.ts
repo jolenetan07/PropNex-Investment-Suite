@@ -82,8 +82,7 @@ export class AuthService {
             if (resData.hasOwnProperty(key)) {
               users.push(
                 new fbUser(
-                  key,
-                  // resData[key].email,
+                  resData[key].email,
                   resData[key].firstName,
                   resData[key].householdIncome,
                   resData[key].lastName,
