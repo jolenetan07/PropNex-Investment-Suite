@@ -48,6 +48,7 @@ export class BlockDetailPage implements OnInit {
     //console.log(query);
     //this.units = this.homeService.getBlockUnits(query);
     this.result  = this.homeService.searchUnit('470142',query);
+    //console.log(this.result);
   }
 
   onSelectUnit() {

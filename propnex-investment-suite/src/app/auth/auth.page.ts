@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AuthService } from './auth.service';
+import { fbUser } from './user.model';
 
 @Component({
   selector: 'app-auth',
@@ -12,6 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthPage implements OnInit {
   isLoading = false;
   isLogin = true;
+  loadedFBUsers: fbUser[];
 
   constructor(
     private authService: AuthService, 
@@ -20,6 +22,16 @@ export class AuthPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.authService.fbUsers.subscribe(fbUsers => {
+      this.loadedFBUsers = fbUsers;
+    })
+  }
+
+  ionViewWillEnter() {
+    //this.isLoading = true;
+    this.authService.fetchFBUsers().subscribe(() => {
+      //this.isLoading = false;
+    });
   }
 
   onLogin() {
@@ -62,5 +74,9 @@ export class AuthPage implements OnInit {
 
   onSwitchAuthMode() {
     this.isLogin = !this.isLogin;
+  }
+
+  fetchFBUsers() {
+    console.log(this.loadedFBUsers);
   }
 }

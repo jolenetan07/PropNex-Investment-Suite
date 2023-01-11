@@ -1,5 +1,18 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { User, fbUser } from './user.model';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, of } from 'rxjs';
+import { take, map, tap, delay, switchMap } from 'rxjs/operators';
+
+interface fbUserData {
+  email: string;
+  firstName: string;
+  householdIncome: number;
+  lastName: string;
+  password: string;
+  type: string;
+  username: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +33,15 @@ export class AuthService {
     return this._userIsAuthenticated;
   }
 
-  constructor() {}
+  private _fbUsers = new BehaviorSubject<fbUser[]>([]);
+
+  get fbUsers() {
+    return this._fbUsers.asObservable();
+  }
+
+  constructor(
+    private http: HttpClient
+  ) {}
 
   login() {
     this._userIsAuthenticated = true;
@@ -47,5 +68,37 @@ export class AuthService {
     current.firstname = _firstname;
     current.lastname = _lastname;
     current.income = _income;
+  }
+
+  fetchFBUsers() {
+    return this.http
+      .get<{ [key: string]: fbUserData }>(
+        'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
+      )
+      .pipe(
+        map(resData => {
+          const users = [];
+          for (const key in resData) {
+            if (resData.hasOwnProperty(key)) {
+              users.push(
+                new fbUser(
+                  key,
+                  // resData[key].email,
+                  resData[key].firstName,
+                  resData[key].householdIncome,
+                  resData[key].lastName,
+                  resData[key].password,
+                  resData[key].type,
+                  resData[key].username,
+                )
+              );
+            }
+          }
+          return users;
+        }),
+        tap(users => {
+          this._fbUsers.next(users);
+        })
+      );
   }
 }

@@ -6,7 +6,7 @@ export class Unit {
       public areaSqm: number,
       public dateOfSale: string,
       public flatModel: string,
-      public floorMax: number,
+      public floorMax: number, 
       public floorMin: number,
       public privatePublic: string,
       public remainingLease2022: string,
