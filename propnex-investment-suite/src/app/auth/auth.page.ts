@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { AuthService } from './auth.service';
 import { fbUser } from './user.model';
 
@@ -10,10 +11,11 @@ import { fbUser } from './user.model';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-export class AuthPage implements OnInit {
+export class AuthPage implements OnInit, OnDestroy {
   isLoading = false;
   isLogin = true;
   loadedFBUsers: fbUser[];
+  private fbUsersSub: Subscription;
 
   constructor(
     private authService: AuthService, 
@@ -22,7 +24,7 @@ export class AuthPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.fbUsers.subscribe(fbUsers => {
+    this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
       this.loadedFBUsers = fbUsers;
     })
   }
@@ -78,5 +80,11 @@ export class AuthPage implements OnInit {
 
   fetchFBUsers() {
     console.log(this.loadedFBUsers);
+  }
+
+  ngOnDestroy() {
+    if (this.fbUsersSub) {
+      this.fbUsersSub.unsubscribe();
+    }
   }
 }
