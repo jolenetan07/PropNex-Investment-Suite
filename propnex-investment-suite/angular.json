@@ -39,7 +39,7 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": ["src/assets/plotly-2.17.1.min.js"]
           },
           "configurations": {
             "production": {
@@ -99,7 +99,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [],
-            "scripts": [],
+            "scripts": ["src/assets/plotly-2.17.1.min.js"],
             "assets": [
               {
                 "glob": "favicon.ico",

@@ -7,6 +7,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-no-padding">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-no-padding">
+          <ion-grid class="ion-no-padding">
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-title slot="start">
+                    Price Trends
+                  </ion-title>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-no-padding">
+              <ion-col class="ion-no-padding">
+                <ion-item id="price-trends-graph" class="ion-no-padding"></ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
