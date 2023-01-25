@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { fbUser, fbPostal, fbTrans } from './firebase.model';
 
@@ -28,7 +30,8 @@ export class AuthPage implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService, 
     private router: Router,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -104,6 +107,7 @@ export class AuthPage implements OnInit, OnDestroy {
 
   fetchFBUsers() {
     console.log(this.loadedFBUsers);
+    //console.log(this.loadedFBUsers[0].email);
   }
 
   fetchFBPostals() {

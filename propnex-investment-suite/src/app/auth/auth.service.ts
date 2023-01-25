@@ -133,7 +133,7 @@ export class AuthService {
 
   fetchFBPostals() {
     return this.http
-      .get<{ [key: string]: fbPostalData }>(
+      .get(
         `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
       )
       .pipe(
@@ -141,12 +141,7 @@ export class AuthService {
           const postals = [];
           for (const key in resData) {
             if (resData.hasOwnProperty(key)) {
-              postals.push(
-                new fbPostal(
-                  resData[key].name,
-                  resData[key].postal,
-                )
-              );
+              postals.push(resData[key]);
             }
           }
           return postals;
@@ -157,26 +152,9 @@ export class AuthService {
       );
   }
 
-  fetchFBPostal(postalId: number) {
-    return this.http
-      .get<{ [key: string]: fbPostalData }>(
-        `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/${postalId}.json`
-      )
-      .pipe(
-        take(1),
-        map(resData => {
-          return new fbPostal(
-            resData[0].name,
-            resData[1].postal
-          )
-
-        }),
-      );
-  }
-
   fetchFBTrans() {
     return this.http
-      .get<{ [key: string]: fbTransData }>(
+      .get(
         'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
       )
       .pipe(
@@ -184,21 +162,7 @@ export class AuthService {
           const trans = [];
           for (const key in resData) {
             if (resData.hasOwnProperty(key)) {
-              trans.push(
-                new fbTrans(
-                  resData[key].area,
-                  resData[key].dateOfSale,
-                  resData[key].flatModel,
-                  resData[key].floorMax,
-                  resData[key].floorMin,
-                  resData[key].privatePublic,
-                  resData[key].projectName,
-                  resData[key].remainingLease,
-                  resData[key].salePrice,
-                  resData[key].type,
-                  resData[key].transID
-                )
-              );
+              trans.push(resData[key]);
             }
           }
           return trans;
