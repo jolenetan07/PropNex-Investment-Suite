@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from './auth.service';
-import { fbUser } from './user.model';
+import { fbUser, fbPostal, fbTrans } from './firebase.model';
 
 @Component({
   selector: 'app-auth',
@@ -14,8 +14,16 @@ import { fbUser } from './user.model';
 export class AuthPage implements OnInit, OnDestroy {
   isLoading = false;
   isLogin = true;
+
   loadedFBUsers: fbUser[];
   private fbUsersSub: Subscription;
+
+  loadedFBPostals: fbPostal[];
+  private fbPostalsSub: Subscription;
+
+  loadedFBTrans: fbTrans[];
+  private fbPTransSub: Subscription;
+
 
   constructor(
     private authService: AuthService, 
@@ -27,13 +35,29 @@ export class AuthPage implements OnInit, OnDestroy {
     this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
       this.loadedFBUsers = fbUsers;
     })
+
+    this.fbPostalsSub = this.authService.fbPostals.subscribe(fbPostals => {
+      this.loadedFBPostals = fbPostals;
+    })
+
+    this.fbPTransSub = this.authService.fbTrans.subscribe(fbTrans => {
+      this.loadedFBTrans = fbTrans;
+    })
   }
 
   ionViewWillEnter() {
-    //this.isLoading = true;
     this.authService.fetchFBUsers().subscribe(() => {
-      //this.isLoading = false;
+
     });
+
+    this.authService.fetchFBPostals().subscribe(() => {
+
+    });
+
+    this.authService.fetchFBTrans().subscribe(() => {
+
+    });
+
   }
 
   onLogin() {
@@ -82,9 +106,23 @@ export class AuthPage implements OnInit, OnDestroy {
     console.log(this.loadedFBUsers);
   }
 
+  fetchFBPostals() {
+    console.log(this.loadedFBPostals);
+  }
+
+  fetchFBTrans() {
+    console.log(this.loadedFBTrans);
+  }
+
   ngOnDestroy() {
     if (this.fbUsersSub) {
       this.fbUsersSub.unsubscribe();
+    }
+    if (this.fbPostalsSub) {
+      this.fbPostalsSub.unsubscribe();
+    }
+    if (this.fbPTransSub) {
+      this.fbPTransSub.unsubscribe();
     }
   }
 }

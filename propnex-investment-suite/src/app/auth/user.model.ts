@@ -8,15 +8,3 @@ export class User {
       public income: number
     ) {}
   }
-  
-  export class fbUser {
-    constructor(
-      public email: string,
-      public firstName: string,
-      public householdIncome: number,
-      public lastName: string,
-      public password: string,
-      public type: string,
-      public username: string
-    ) {}
-  }
