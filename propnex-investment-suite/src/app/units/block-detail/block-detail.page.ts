@@ -31,8 +31,8 @@ export class BlockDetailPage implements OnInit {
         return;
       }
       this.isLoading = true;
-      this.place = this.homeService.getPlace(paramMap.get('postalId'));
-      //console.log('found', this.place);
+      //this.place = this.homeService.getPlace(paramMap.get('postalId'));
+      this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
       this.isLoading = false;
       
     });
@@ -48,6 +48,7 @@ export class BlockDetailPage implements OnInit {
     //console.log(query);
     //this.units = this.homeService.getBlockUnits(query);
     this.result  = this.homeService.searchUnit('470142',query);
+    //console.log(this.result);
   }
 
   onSelectUnit() {

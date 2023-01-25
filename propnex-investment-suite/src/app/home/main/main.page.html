@@ -25,7 +25,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="currUser.type === 'buyer'">
       <ion-col>
         <ion-card>
           <ion-card-header>
@@ -94,7 +94,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="currUser.type === 'buyer'">
       <ion-col>
         <ion-card>
           <ion-card-header>
