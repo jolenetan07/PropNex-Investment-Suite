@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user.model';
+import { Unit } from 'src/app/units/units.model';
 import { HomeService } from '../home.service';
 import { Place } from '../place.model';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -14,6 +15,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 export class MainPage implements OnInit {
   loadedFavPlaces: Place[];
   loadedRecPlaces: Place[];
+  loadedListings?: Unit[];
   currUser: User;
 
   constructor(
@@ -26,6 +28,7 @@ export class MainPage implements OnInit {
     this.currUser = this.authService.currentUser;
     this.loadedFavPlaces = this.homeService.favPlaces;
     this.loadedRecPlaces = this.homeService.personalRecPlaces;
+    this.loadedListings = this.authService.currentUser.units;
   }
 
   onEditProfile() {

@@ -9,6 +9,6 @@ export class User {
       public lastname: string,
       public income: number,
       public type: string,
-      //public units?: Unit
+      public units?: Unit[]
     ) {}
   }

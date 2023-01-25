@@ -3,8 +3,19 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/units"></ion-back-button>
     </ion-buttons>
+
     <ion-title>Unit Detail</ion-title>
-    <!-- <ion-title>{{ places[0].name }}</ion-title> -->
+
+    <ion-button 
+      *ngIf="currUser.type === 'seller'"
+      size="small" 
+      color="primary"
+      slot="end" 
+      (click)="onEditPlace()"
+    >
+      <ion-icon slot="icon-only" name="pencil"></ion-icon>
+  </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 

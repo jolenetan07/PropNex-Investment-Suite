@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, delay, switchMap } from 'rxjs/operators';
 import { fbTrans, fbPostal, fbUser } from './firebase.model';
+import { Unit } from '../units/units.model';
 
 interface fbUserData {
   email: string;
@@ -40,6 +41,18 @@ interface fbTransData {
 export class AuthService {
   private _userIsAuthenticated = true;
 
+  // // dummy buyer
+  // private _currUser = new User(
+  //   'u1',
+  //   'jerryliu123',
+  //   'password321',
+  //   'Jerry',
+  //   'Liu',
+  //   10000,
+  //   'buyer'
+  // );
+
+  // dummy seller
   private _currUser = new User(
     'u1',
     'jerryliu123',
@@ -47,7 +60,53 @@ export class AuthService {
     'Jerry',
     'Liu',
     10000,
-    'seller'
+    'seller',
+    [
+      new Unit(
+        'u1',
+        '03-01',
+        '142 Bedok Reservoir Rd',
+        134,
+        '2018-04',
+        '',
+        5,
+        1,
+        'Public',
+        'Freehold',
+        1700000,
+        'HDB'
+        ),
+  
+      new Unit(
+        'u2',
+        '03-02',
+        '142 Bedok Reservoir Rd',
+        134,
+        '2018-04',
+        '',
+        5,
+        1,
+        'Public',
+        'Freehold',
+        1700000,
+        'HDB'
+        ),
+  
+        new Unit(
+          'u3',
+          '03-03',
+          '142 Bedok Reservoir Rd',
+          134,
+          '2018-04',
+          '',
+          5,
+          1,
+          'Public',
+          'Freehold',
+          1700000,
+          'HDB'
+          ),
+      ]
   );
 
   get userIsAuthenticated() {
