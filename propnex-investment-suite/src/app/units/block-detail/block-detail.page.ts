@@ -31,8 +31,8 @@ export class BlockDetailPage implements OnInit {
         return;
       }
       this.isLoading = true;
-      this.place = this.homeService.getPlace(paramMap.get('postalId'));
-      //console.log('found', this.place);
+      //this.place = this.homeService.getPlace(paramMap.get('postalId'));
+      this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
       this.isLoading = false;
       
     });
