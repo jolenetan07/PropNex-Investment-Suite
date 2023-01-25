@@ -46,7 +46,8 @@ export class AuthService {
     'password321',
     'Jerry',
     'Liu',
-    10000
+    10000,
+    'seller'
   );
 
   get userIsAuthenticated() {

@@ -15,10 +15,6 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
           },
-          // {
-          //   path: ':placeId',
-          //   loadChildren: () => import('./discover/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
-          // }
         ]
       },
       {
@@ -37,18 +33,15 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
           },
-          // {
-          //   path: 'new',
-          //   loadChildren: () => import('./offers/new-offer/new-offer.module').then(m => m.NewOfferPageModule)
-          // },
-          // {
-          //   path: 'edit/:placeId',
-          //   loadChildren: () => import('./offers/edit-offer/edit-offer.module').then(m => m.EditOfferPageModule)
-          // },
-          // {
-          //   path: ':placeId',
-          //   loadChildren: () => import('./offers/offer-bookings/offer-bookings.module').then(m => m.OfferBookingsPageModule)
-          // }
+        ]
+      },
+      {
+        path: 'listings',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./listings/listings.module').then( m => m.ListingsPageModule)
+          },
         ]
       },
       {
