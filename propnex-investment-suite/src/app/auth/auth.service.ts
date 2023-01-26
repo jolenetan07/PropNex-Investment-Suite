@@ -16,10 +16,10 @@ interface fbUserData {
   username: string;
 }
 
-interface fbPostalData {
-  name: string;
-  postal: string;
-}
+// interface fbPostalData {
+//   name: string;
+//   postal: string;
+// }
 
 interface fbTransData {
   area: string;
@@ -41,18 +41,6 @@ interface fbTransData {
 export class AuthService {
   private _userIsAuthenticated = true;
 
-  // // dummy buyer
-  // private _currUser = new User(
-  //   'u1',
-  //   'jerryliu123',
-  //   'password321',
-  //   'Jerry',
-  //   'Liu',
-  //   10000,
-  //   'buyer'
-  // );
-
-  // dummy seller
   private _currUser = new User(
     'u1',
     'jerryliu123',
@@ -61,6 +49,7 @@ export class AuthService {
     'Liu',
     10000,
     'seller',
+    //'buyer',
     [
       new Unit(
         'u1',
@@ -186,6 +175,8 @@ export class AuthService {
           return users;
         }),
         tap(users => {
+          //console.log(users[0]);
+          //console.log(users);
           this._fbUsers.next(users);
         })
       );
@@ -198,15 +189,17 @@ export class AuthService {
       )
       .pipe(
         map(resData => {
-          const postals = [];
+          const postals: fbPostal[] = [];
           for (const key in resData) {
             if (resData.hasOwnProperty(key)) {
-              postals.push(resData[key]);
+              postals.push(new fbPostal(resData[key][0], resData[key][1]));
             }
           }
           return postals;
         }),
         tap(postals => {
+          //console.log(postals[0]);
+          //console.log(postals);
           this._fbPostals.next(postals);
         })
       );
@@ -222,12 +215,28 @@ export class AuthService {
           const trans = [];
           for (const key in resData) {
             if (resData.hasOwnProperty(key)) {
-              trans.push(resData[key]);
+              trans.push(
+                new fbTrans(
+                  resData[key]["Area (Sqm)"],
+                  resData[key]["Date of Sale"],
+                  resData[key]["Flat_model"],
+                  resData[key]["Floor_max"],
+                  resData[key]["Floor_min"],
+                  resData[key]["Private_Public"],
+                  resData[key]["Project Name"],
+                  resData[key]["Remaining Lease (2022)"],
+                  resData[key]["Sale Price"],
+                  resData[key]["Type"],
+                  resData[key]["transID"]
+                )
+              );
             }
           }
           return trans;
         }),
         tap(trans => {
+          //console.log(trans[0]);
+          //console.log(trans);
           this._fbTrans.next(trans);
         })
       );
