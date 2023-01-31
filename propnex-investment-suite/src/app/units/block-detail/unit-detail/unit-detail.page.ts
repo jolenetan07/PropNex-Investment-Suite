@@ -25,7 +25,7 @@ export class UnitDetailPage implements OnInit {
     'No. Of Units (per floor): ',
     'Room Type: ',
     'Area: ',
-    'No Of Rooms: ',
+    'No. Of Rooms: ',
     'No. Of Toilets: ',
     'House Structure: ',
     'Door Facing: ',

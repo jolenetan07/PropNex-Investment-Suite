@@ -3,20 +3,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-add-block',
-  templateUrl: './add-block.component.html',
-  styleUrls: ['./add-block.component.scss'],
+  selector: 'app-edit-block',
+  templateUrl: './edit-block.component.html',
+  styleUrls: ['./edit-block.component.scss'],
 })
-export class AddBlockComponent implements OnInit {
+export class EditBlockComponent implements OnInit {
 
-  addBlockForm: FormGroup;
+  editBlockForm: FormGroup;
 
   constructor(
     private modalCtrl: ModalController,
   ) { }
 
   ngOnInit() {
-    this.addBlockForm = new FormGroup({
+    this.editBlockForm = new FormGroup({
       projectName: new FormControl(null, {
         updateOn: 'blur',
       }), 
@@ -27,16 +27,16 @@ export class AddBlockComponent implements OnInit {
   }
 
   onCancel() {
-    console.log("cancel add block");
+    console.log("cancel edit block");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  submitAddBlock() {
-    if (!this.addBlockForm.valid) {
+  submitEditBlock() {
+    if (!this.editBlockForm.valid) {
       return;
     }
-    console.log("block added");
-    this.addBlockForm.reset();
+    console.log("block edited");
+    this.editBlockForm.reset();
     this.modalCtrl.dismiss();
   }
 

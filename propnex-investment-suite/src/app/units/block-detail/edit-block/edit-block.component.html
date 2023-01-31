@@ -5,12 +5,12 @@
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Add Block</ion-title>
+    <ion-title>Edit Block</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="addBlockForm">
+  <form [formGroup]="editBlockForm">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -45,7 +45,7 @@
               <ion-col>
                 <ion-button 
                 type="submit" 
-                (click)="submitAddBlock()" 
+                (click)="submitEditBlock()" 
                 expand="block"
                 >Submit
                 </ion-button>

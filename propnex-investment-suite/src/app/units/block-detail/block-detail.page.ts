@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
+import { AddBlockComponent } from '../add-block/add-block.component';
 import { Unit } from '../units.model';
+import { AddUnitComponent } from './add-unit/add-unit.component';
+import { EditBlockComponent } from './edit-block/edit-block.component';
 
 @Component({
   selector: 'app-block-detail',
@@ -25,7 +28,9 @@ export class BlockDetailPage implements OnInit {
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private homeService: HomeService,
-    private router: Router
+    private router: Router,
+    private actionSheetCtrl: ActionSheetController,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -61,8 +66,48 @@ export class BlockDetailPage implements OnInit {
     this.router.navigate(['/', 'units', 'block-detail', 'unit-detail']);
   }
 
-  onEditBlock() {
+  onEditBlockOptions() {
     console.log("choose to add new unit to block or edit block details");
+
+    this.actionSheetCtrl.create({
+      header: 'Please Choose',
+      buttons: [
+        { 
+          text: 'Edit Block', 
+          handler: () => { 
+            this.onEditBlock();
+          } 
+        },
+        {
+          text: 'Add New Unit', 
+          handler: () => { 
+            this.onAddUnit();
+          }
+        },
+        { text: 'Cancel', role: 'cancel' }
+      ]
+    })
+    .then(actionSheetEl => {
+      actionSheetEl.present();
+    });
+  }
+
+  onEditBlock() {
+    this.modalCtrl
+      .create({ component: EditBlockComponent })
+      .then(modalEl => {
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      });
+  }
+
+  onAddUnit() {
+    this.modalCtrl
+      .create({ component: AddUnitComponent })
+      .then(modalEl => {
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      });
   }
 
 }
