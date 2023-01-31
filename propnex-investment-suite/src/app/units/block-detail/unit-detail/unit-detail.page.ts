@@ -59,7 +59,8 @@ export class UnitDetailPage implements OnInit {
     console.log(event.detail.value);
   }
 
-  onEditPlace() {
+  onEditUnit() {
+    console.log("edit specific unit details");
 
   }
 

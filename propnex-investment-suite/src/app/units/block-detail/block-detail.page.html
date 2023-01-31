@@ -3,8 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/units"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Place Detail</ion-title> -->
+
     <ion-title>{{ isLoading? 'Loading...' : place.name }}</ion-title>
+
+    <ion-button 
+    *ngIf="currUser.type === 'seller'"
+    size="small" 
+    color="primary"
+    slot="end" 
+    (click)="onEditBlock()"
+  >
+    <ion-icon slot="icon-only" name="pencil"></ion-icon>
+</ion-button>
   </ion-toolbar>
 </ion-header>
 

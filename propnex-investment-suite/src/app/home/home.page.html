@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-tabs *ngIf="currUser.type === 'buyer'">
+  <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="favourites">
         <ion-label>Favourites</ion-label>
@@ -15,24 +15,6 @@
         <ion-label>Discover</ion-label>
         <ion-icon name="compass"></ion-icon>
       </ion-tab-button>
-
-    </ion-tab-bar>
-  </ion-tabs>
-
-  <ion-tabs *ngIf="currUser.type === 'seller'">
-    <ion-tab-bar slot="bottom">
-
-      <ion-tab-button tab="main">
-        <ion-label>Home</ion-label>
-        <ion-icon name="home"></ion-icon>
-      </ion-tab-button>
-
-      <ion-tab-button tab="listings">
-        <ion-label>Listings</ion-label>
-        <ion-icon name="list-circle"></ion-icon>
-      </ion-tab-button>
-
-
 
     </ion-tab-bar>
   </ion-tabs>

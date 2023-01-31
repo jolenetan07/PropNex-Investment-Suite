@@ -15,7 +15,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 export class MainPage implements OnInit {
   loadedFavPlaces: Place[];
   loadedRecPlaces: Place[];
-  loadedListings?: Unit[];
   currUser: User;
 
   constructor(
@@ -28,7 +27,6 @@ export class MainPage implements OnInit {
     this.currUser = this.authService.currentUser;
     this.loadedFavPlaces = this.homeService.favPlaces;
     this.loadedRecPlaces = this.homeService.personalRecPlaces;
-    this.loadedListings = this.authService.currentUser.units;
   }
 
   onEditProfile() {

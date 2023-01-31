@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 import { Unit } from '../units.model';
@@ -11,6 +13,7 @@ import { Unit } from '../units.model';
   styleUrls: ['./block-detail.page.scss'],
 })
 export class BlockDetailPage implements OnInit {
+  currUser: User;
   isLoading = false;
   place: Place;
   places: Place[];
@@ -18,6 +21,7 @@ export class BlockDetailPage implements OnInit {
   result: Unit;
 
   constructor(
+    private authService: AuthService,
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private homeService: HomeService,
@@ -25,6 +29,7 @@ export class BlockDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.currUser = this.authService.currentUser;
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('postalId')) {
         this.navCtrl.navigateBack('/units');
@@ -54,6 +59,10 @@ export class BlockDetailPage implements OnInit {
   onSelectUnit() {
     // to change
     this.router.navigate(['/', 'units', 'block-detail', 'unit-detail']);
+  }
+
+  onEditBlock() {
+    console.log("choose to add new unit to block or edit block details");
   }
 
 }

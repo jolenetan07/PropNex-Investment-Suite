@@ -36,15 +36,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'listings',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('./listings/listings.module').then( m => m.ListingsPageModule)
-          },
-        ]
-      },
-      {
         path: '',
         redirectTo: '/home/tabs/main',
         pathMatch: 'full'
