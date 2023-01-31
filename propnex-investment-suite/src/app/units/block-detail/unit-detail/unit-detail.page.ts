@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 import { EditUnitComponent } from './edit-unit/edit-unit.component';
+import { FloorplanComponent } from './floorplan/floorplan.component';
 
 @Component({
   selector: 'app-unit-detail',
@@ -48,7 +49,8 @@ export class UnitDetailPage implements OnInit {
   constructor(
     private homeService: HomeService,
     private authService: AuthService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private popoverController: PopoverController
     //private router: Router
   ) { }
 
@@ -71,6 +73,19 @@ export class UnitDetailPage implements OnInit {
       return modalEl.onDidDismiss();
     });
 
+  }
+
+  async presentPopover(e: Event) {
+    const popover = await this.popoverController.create({
+      component: FloorplanComponent,
+      cssClass: 'my-custom-class',
+      event: e,
+    });
+
+    await popover.present();
+
+    const { role } = await popover.onDidDismiss();
+    //this.roleMsg = `Popover dismissed with role: ${role}`;
   }
 
 
