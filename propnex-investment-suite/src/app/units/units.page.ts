@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
+import { AddBlockComponent } from './add-block/add-block.component';
 import { Unit } from './units.model';
 
 @Component({
@@ -19,7 +21,8 @@ export class UnitsPage implements OnInit {
   constructor(
     private authService: AuthService,
     private homeService: HomeService,
-    private router: Router
+    private router: Router,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -41,5 +44,11 @@ export class UnitsPage implements OnInit {
 
   onAddBlock() {
     console.log("add new block");
+    this.modalCtrl
+      .create({ component: AddBlockComponent })
+      .then(modalEl => {
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      });
   }
 }

@@ -16,25 +16,6 @@ interface fbUserData {
   username: string;
 }
 
-// interface fbPostalData {
-//   name: string;
-//   postal: string;
-// }
-
-interface fbTransData {
-  area: string;
-  dateOfSale: string;
-  flatModel: string;
-  floorMax: string;
-  floorMin: string;
-  privatePublic: string;
-  projectName: string;
-  remainingLease: string;
-  salePrice: string;
-  type: string;
-  transID: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
