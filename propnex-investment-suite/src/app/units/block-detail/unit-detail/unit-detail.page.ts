@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
+import { EditUnitComponent } from './edit-unit/edit-unit.component';
 
 @Component({
   selector: 'app-unit-detail',
@@ -46,6 +48,7 @@ export class UnitDetailPage implements OnInit {
   constructor(
     private homeService: HomeService,
     private authService: AuthService,
+    private modalCtrl: ModalController
     //private router: Router
   ) { }
 
@@ -61,6 +64,12 @@ export class UnitDetailPage implements OnInit {
 
   onEditUnit() {
     console.log("edit specific unit details");
+    this.modalCtrl
+    .create({ component: EditUnitComponent })
+    .then(modalEl => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    });
 
   }
 

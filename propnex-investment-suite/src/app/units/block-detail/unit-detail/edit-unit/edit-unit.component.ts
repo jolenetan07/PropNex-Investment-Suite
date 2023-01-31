@@ -3,20 +3,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-add-unit',
-  templateUrl: './add-unit.component.html',
-  styleUrls: ['./add-unit.component.scss'],
+  selector: 'app-edit-unit',
+  templateUrl: './edit-unit.component.html',
+  styleUrls: ['./edit-unit.component.scss'],
 })
-export class AddUnitComponent implements OnInit {
+export class EditUnitComponent implements OnInit {
 
-  addUnitForm: FormGroup;
+  editUnitForm: FormGroup;
 
   constructor(
     private modalCtrl: ModalController,
   ) { }
 
   ngOnInit() {
-    this.addUnitForm = new FormGroup({
+    this.editUnitForm = new FormGroup({
       homeownerRace: new FormControl(null, {
         updateOn: 'blur',
       }), 
@@ -108,21 +108,22 @@ export class AddUnitComponent implements OnInit {
   }
 
   onCancel() {
-    console.log("cancel add unit");
+    console.log("cancel edit unit");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  submitAddUnit() {
-    if (!this.addUnitForm.valid) {
+  submitEditUnit() {
+    if (!this.editUnitForm.valid) {
       return;
     }
-    console.log("unit added");
-    this.addUnitForm.reset();
+    console.log("unit edited");
+    this.editUnitForm.reset();
     this.modalCtrl.dismiss();
   }
 
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }
+
 
 }

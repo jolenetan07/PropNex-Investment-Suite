@@ -1,0 +1,276 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button fill="clear" color="danger" (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Unit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editUnitForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Homeowner Race</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="homeownerRace"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Country Of Citizenship</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="countryOfCitizenship"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Decorative Style</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="decorativeStyle"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Extension Request</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="extensionRequest"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Price</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="price"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Title Deed</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="titleDeed"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">House Age</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="houseAge"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Building Height</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="buildingHeight"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">No. Of Units (total)</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="noOfUnitsTotal"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">No. Of Units (per floor)</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="noOfUnitsPerFloor"
+              ></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="floating">Room Type</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="roomType"
+              ></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label position="floating">Area</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="area"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">No. Of Rooms</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="noOfRooms"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">No. Of Toilets</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="noOfToilets"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">House Structure</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="houseStructure"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Door Facing</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="doorFacing"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Room Orientation</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="roomOrientation"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Corner Unit</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="cornerUnit"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Ground/Top Floor</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="groundTopFloor"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Western Sun</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="westernSun"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Noisy</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="noisy"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Refurbished State</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="refurbishedState"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Landscape From Window</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="landscapeFromWindow"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Bomb Shelter</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="bombShelter"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Open Kitchen</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="openKitchen"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Gas Management Fee</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="gasManagementFee"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">House Tax</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="houseTax"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Rental Status</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="rentalStatus"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">VR Link</ion-label>
+              <ion-input 
+                type="text"  
+                formControlName="vrLink"
+              ></ion-input>
+            </ion-item>
+
+            <ion-row>
+              <ion-col>
+                <ion-button 
+                (click)="uploadFloorPlanImage()" 
+                expand="block"
+                >Upload Floor Plan Image
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-button 
+                type="submit" 
+                (click)="submitEditUnit()" 
+                expand="block"
+                >Submit
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
