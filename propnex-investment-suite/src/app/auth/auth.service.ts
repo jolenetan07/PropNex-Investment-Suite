@@ -131,95 +131,98 @@ export class AuthService {
   }
 
   fetchFBUsers() {
-    return this.http
-      .get<{ [key: string]: fbUserData }>(
-        'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
-      )
-      .pipe(
-        map(resData => {
-          const users = [];
-          for (const key in resData) {
-            if (resData.hasOwnProperty(key)) {
-              users.push(
-                new fbUser(
-                  resData[key].email,
-                  resData[key].firstName,
-                  resData[key].householdIncome,
-                  resData[key].lastName,
-                  resData[key].password,
-                  resData[key].type,
-                  resData[key].username,
-                )
-              );
-            }
-          }
-          return users;
-        }),
-        tap(users => {
-          //console.log(users[0]);
-          //console.log(users);
-          this._fbUsers.next(users);
-        })
-      );
+    console.log("fetch user data");
+    // return this.http
+    //   .get<{ [key: string]: fbUserData }>(
+    //     'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
+    //   )
+    //   .pipe(
+    //     map(resData => {
+    //       const users = [];
+    //       for (const key in resData) {
+    //         if (resData.hasOwnProperty(key)) {
+    //           users.push(
+    //             new fbUser(
+    //               resData[key].email,
+    //               resData[key].firstName,
+    //               resData[key].householdIncome,
+    //               resData[key].lastName,
+    //               resData[key].password,
+    //               resData[key].type,
+    //               resData[key].username,
+    //             )
+    //           );
+    //         }
+    //       }
+    //       return users;
+    //     }),
+    //     tap(users => {
+    //       //console.log(users[0]);
+    //       //console.log(users);
+    //       this._fbUsers.next(users);
+    //     })
+    //   );
   }
 
   fetchFBPostals() {
-    return this.http
-      .get(
-        `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
-      )
-      .pipe(
-        map(resData => {
-          const postals: fbPostal[] = [];
-          for (const key in resData) {
-            if (resData.hasOwnProperty(key)) {
-              postals.push(new fbPostal(resData[key][0], resData[key][1]));
-            }
-          }
-          return postals;
-        }),
-        tap(postals => {
-          //console.log(postals[0]);
-          //console.log(postals);
-          this._fbPostals.next(postals);
-        })
-      );
+    console.log("fetch postal data");
+    // return this.http
+    //   .get(
+    //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
+    //   )
+    //   .pipe(
+    //     map(resData => {
+    //       const postals: fbPostal[] = [];
+    //       for (const key in resData) {
+    //         if (resData.hasOwnProperty(key)) {
+    //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
+    //         }
+    //       }
+    //       return postals;
+    //     }),
+    //     tap(postals => {
+    //       //console.log(postals[0]);
+    //       //console.log(postals);
+    //       this._fbPostals.next(postals);
+    //     })
+    //   );
   }
 
   fetchFBTrans() {
-    return this.http
-      .get(
-        'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
-      )
-      .pipe(
-        map(resData => {
-          const trans = [];
-          for (const key in resData) {
-            if (resData.hasOwnProperty(key)) {
-              trans.push(
-                new fbTrans(
-                  resData[key]["Area (Sqm)"],
-                  resData[key]["Date of Sale"],
-                  resData[key]["Flat_model"],
-                  resData[key]["Floor_max"],
-                  resData[key]["Floor_min"],
-                  resData[key]["Private_Public"],
-                  resData[key]["Project Name"],
-                  resData[key]["Remaining Lease (2022)"],
-                  resData[key]["Sale Price"],
-                  resData[key]["Type"],
-                  resData[key]["transID"]
-                )
-              );
-            }
-          }
-          return trans;
-        }),
-        tap(trans => {
-          //console.log(trans[0]);
-          //console.log(trans);
-          this._fbTrans.next(trans);
-        })
-      );
+    console.log("fetch transaction data");
+    // return this.http
+    //   .get(
+    //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
+    //   )
+    //   .pipe(
+    //     map(resData => {
+    //       const trans = [];
+    //       for (const key in resData) {
+    //         if (resData.hasOwnProperty(key)) {
+    //           trans.push(
+    //             new fbTrans(
+    //               resData[key]["Area (Sqm)"],
+    //               resData[key]["Date of Sale"],
+    //               resData[key]["Flat_model"],
+    //               resData[key]["Floor_max"],
+    //               resData[key]["Floor_min"],
+    //               resData[key]["Private_Public"],
+    //               resData[key]["Project Name"],
+    //               resData[key]["Remaining Lease (2022)"],
+    //               resData[key]["Sale Price"],
+    //               resData[key]["Type"],
+    //               resData[key]["transID"]
+    //             )
+    //           );
+    //         }
+    //       }
+    //       return trans;
+    //     }),
+    //     tap(trans => {
+    //       //console.log(trans[0]);
+    //       //console.log(trans);
+    //       this._fbTrans.next(trans);
+    //     })
+    //   );
   }
 }
