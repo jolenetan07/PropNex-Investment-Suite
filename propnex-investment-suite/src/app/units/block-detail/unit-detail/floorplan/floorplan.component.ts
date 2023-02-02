@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { FloorplanModalComponent } from '../floorplan-modal/floorplan-modal.component';
 
 @Component({
   selector: 'app-floorplan',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FloorplanComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+  ) { }
 
   ngOnInit() {}
+
+  onExpand() {
+    this.modalCtrl
+    .create({ component: FloorplanModalComponent })
+    .then(modalEl => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    });
+  }
 
 }
