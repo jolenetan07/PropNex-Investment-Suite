@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { fbPostal } from '../auth/firebase.model';
 import { User } from '../auth/user.model';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
 import { AddBlockComponent } from './add-block/add-block.component';
+import { PlaceService } from './place.service';
 import { Unit } from './units.model';
 
 @Component({
@@ -15,25 +18,42 @@ import { Unit } from './units.model';
 })
 export class UnitsPage implements OnInit {
   currUser: User;
-  loadedPlaces: Place[];
-  result: Place;
+  //loadedPlaces: Place[];
+  // result: Place;
+
+  loadedFBPostals: fbPostal[];
+  private fbPostalsSub: Subscription;
+  result: fbPostal;
 
   constructor(
     private authService: AuthService,
-    private homeService: HomeService,
+    //private homeService: HomeService,
     private router: Router,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private placeService: PlaceService
   ) { }
 
   ngOnInit() {
     this.currUser = this.authService.currentUser;
-    this.loadedPlaces = this.homeService.allPlaces;
+    //this.loadedPlaces = this.homeService.allPlaces;
+
+    this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
+      this.loadedFBPostals = fbPostals;
+    })
+  }
+
+  ionViewWillEnter() {
+    this.placeService.fetchFBPostals().subscribe(() => {
+
+    });
+
   }
 
   handleChange(event) {
     const query = event.target.value;
     //console.log(query);
-    this.result  = this.homeService.getPlace(query);
+    //this.result  = this.homeService.getPlace(query);
+    this.result  = this.loadedFBPostals.find(p => p.postal === query);
     //console.log(this.result);
   }
 

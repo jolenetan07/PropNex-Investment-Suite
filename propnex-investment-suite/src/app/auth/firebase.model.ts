@@ -14,6 +14,7 @@ export class fbUser {
     constructor(
       public name: string,
       public postal: string,
+      public imageUrl: string
     ) {}
   }
 

@@ -17,49 +17,49 @@ export class AuthPage implements OnInit, OnDestroy {
   isLoading = false;
   isLogin = true;
 
-  loadedFBUsers: fbUser[];
-  private fbUsersSub: Subscription;
+  // loadedFBUsers: fbUser[];
+  // private fbUsersSub: Subscription;
 
-  loadedFBPostals: fbPostal[];
-  private fbPostalsSub: Subscription;
+  // loadedFBPostals: fbPostal[];
+  // private fbPostalsSub: Subscription;
 
-  loadedFBTrans: fbTrans[];
-  private fbPTransSub: Subscription;
+  // loadedFBTrans: fbTrans[];
+  // private fbPTransSub: Subscription;
 
 
   constructor(
     private authService: AuthService, 
     private router: Router,
     private loadingCtrl: LoadingController,
-    private http: HttpClient
+    //private http: HttpClient
   ) { }
 
   ngOnInit() {
-    this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
-      this.loadedFBUsers = fbUsers;
-    })
+    // this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
+    //   this.loadedFBUsers = fbUsers;
+    // })
 
-    this.fbPostalsSub = this.authService.fbPostals.subscribe(fbPostals => {
-      this.loadedFBPostals = fbPostals;
-    })
+    // this.fbPostalsSub = this.authService.fbPostals.subscribe(fbPostals => {
+    //   this.loadedFBPostals = fbPostals;
+    // })
 
-    this.fbPTransSub = this.authService.fbTrans.subscribe(fbTrans => {
-      this.loadedFBTrans = fbTrans;
-    })
+    // this.fbPTransSub = this.authService.fbTrans.subscribe(fbTrans => {
+    //   this.loadedFBTrans = fbTrans;
+    // })
   }
 
   ionViewWillEnter() {
-    this.authService.fetchFBUsers().subscribe(() => {
+    // this.authService.fetchFBUsers().subscribe(() => {
 
-    });
+    // });
 
-    this.authService.fetchFBPostals().subscribe(() => {
+    // this.authService.fetchFBPostals().subscribe(() => {
 
-    });
+    // });
 
-    this.authService.fetchFBTrans().subscribe(() => {
+    // this.authService.fetchFBTrans().subscribe(() => {
 
-    });
+    // });
 
   }
 
@@ -105,28 +105,28 @@ export class AuthPage implements OnInit, OnDestroy {
     this.isLogin = !this.isLogin;
   }
 
-  fetchFBUsers() {
-    console.log(this.loadedFBUsers);
-    //console.log(this.loadedFBUsers[0].email);
-  }
+  // fetchFBUsers() {
+  //   console.log(this.loadedFBUsers);
+  //   //console.log(this.loadedFBUsers[0].email);
+  // }
 
-  fetchFBPostals() {
-    console.log(this.loadedFBPostals);
-  }
+  // fetchFBPostals() {
+  //   console.log(this.loadedFBPostals);
+  // }
 
-  fetchFBTrans() {
-    console.log(this.loadedFBTrans);
-  }
+  // fetchFBTrans() {
+  //   console.log(this.loadedFBTrans);
+  // }
 
   ngOnDestroy() {
-    if (this.fbUsersSub) {
-      this.fbUsersSub.unsubscribe();
-    }
-    if (this.fbPostalsSub) {
-      this.fbPostalsSub.unsubscribe();
-    }
-    if (this.fbPTransSub) {
-      this.fbPTransSub.unsubscribe();
-    }
+    // if (this.fbUsersSub) {
+    //   this.fbUsersSub.unsubscribe();
+    // }
+    // if (this.fbPostalsSub) {
+    //   this.fbPostalsSub.unsubscribe();
+    // }
+    // if (this.fbPTransSub) {
+    //   this.fbPTransSub.unsubscribe();
+    // }
   }
 }
