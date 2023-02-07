@@ -8,10 +8,15 @@ declare var Plotly: any;
   styleUrls: ['./stats.page.scss'],
 })
 export class StatsPage implements OnInit {
+  private width;
+  private height;
 
   constructor() { }
 
   ngOnInit() {
+    this.width  = window.innerWidth;
+    this.height  = window.innerHeight;
+
     var trace1 = {
       x: ['2020-10-04', '2021-11-04', '2023-12-04'],
       y: [90, 40, 60],
@@ -26,10 +31,13 @@ export class StatsPage implements OnInit {
 
     var data = [trace1, trace2];
 
+    console.log("onInit this.width: "+ this.width);
+
     var layout = {
       showlegend: false,
       dragmode: 'pan',
-      margin: {l:25, r:15, t:10, b:20}
+      margin: {l:25, r:15, t:10, b:20},
+      width: this.width
     };
 
     var configs = {
