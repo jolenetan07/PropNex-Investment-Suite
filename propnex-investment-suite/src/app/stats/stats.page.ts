@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { StatsDataService } from './stats-data.service';
+import { AlertController } from '@ionic/angular';
 
 declare var Plotly: any;
 
@@ -23,7 +24,7 @@ export class StatsPage implements OnInit {
   expLocHidden = false;
   expTypeHidden = false;
 
-  constructor(private dataService: StatsDataService) { }
+  constructor(private dataService: StatsDataService, private alertController: AlertController) { }
 
   ngOnInit() {
     this.dataService.getCountData().subscribe(data=>{this.count_data = data});
@@ -115,12 +116,52 @@ export class StatsPage implements OnInit {
     console.log(this.max_data);
   }
 
-  countInfoClick(){
-    console.log("count info button clicked")
+  async countInfoClick() {
+    console.log("count info button clicked");
+    const alert = await this.alertController.create({
+      header: 'Most Number of Units Sold',
+      subHeader: 'How is this calculated?',
+      message: 'All transactions over the last 6 months are grouped by their region/type, and the number of transactions for each region/type is totaled.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
   
-  maxInfoClick(){
-    console.log("max info button clicked")
+  async maxInfoClick(){
+    console.log("max info button clicked");
+    const alert = await this.alertController.create({
+      header: 'Most Expensive Units',
+      subHeader: 'How is this calculated?',
+      message: 'All transactions over the last 6 months are grouped by their region/type, and the most expensive transaction by price per square meter is presented.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async avgLocInfoClick(){
+    console.log("avgLocInfoClick");
+    const alert = await this.alertController.create({
+      header: 'Most Expensive Locations',
+      subHeader: 'How is this calculated?',
+      message: 'All transactions over the last 6 months are grouped by their region, and the mean for each region presented.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async avgTypeInfoClick(){
+    console.log("avgLocInfoClick");
+    const alert = await this.alertController.create({
+      header: 'Most Expensive Property Types',
+      subHeader: 'How is this calculated?',
+      message: 'All transactions over the last 6 months are grouped by their type, and the mean for each type presented.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
   private sort2Darray(a,b){

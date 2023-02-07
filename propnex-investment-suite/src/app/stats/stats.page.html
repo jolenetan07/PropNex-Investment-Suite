@@ -124,5 +124,49 @@
       </ion-card>
     </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Most Expensive Locations
+              <ion-button fill="clear" size="small" color="medium" (click)="avgLocInfoClick()">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item *ngFor="let region of avg_data">
+              <ion-text slot="start">
+                {{region[0]}}
+              </ion-text>
+              <ion-text slot="end">
+                ${{region[1]}} psm
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Most Expensive Property Types
+              <ion-button fill="clear" size="small" color="medium" (click)="avgTypeInfoClick()">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item *ngFor="let type of avgT_data">
+              <ion-text slot="start">
+                {{type[0]}}
+              </ion-text>
+              <ion-text slot="end">
+                ${{type[1]}} psm
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
