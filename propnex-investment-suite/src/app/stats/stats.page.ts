@@ -24,6 +24,9 @@ export class StatsPage implements OnInit {
   expLocHidden = false;
   expTypeHidden = false;
 
+  private pricepsmData;
+  private volumeData;
+
   constructor(private dataService: StatsDataService, private alertController: AlertController) { }
 
   ngOnInit() {
@@ -34,24 +37,22 @@ export class StatsPage implements OnInit {
     this.dataService.getMaxData().subscribe(data=>{this.max_data = data});
     this.dataService.getMaxTypeData().subscribe(data=>{this.maxT_data = data});
 
+    this.dataService.getPricepsmData().subscribe(data=>{
+      this.pricepsmData = data
+    });
+    this.dataService.getVolumeData().subscribe(data=>{
+      this.volumeData = data
+    });
+
     this.width  = window.innerWidth;
     // this.height  = window.innerHeight;
 
-    let trace1 = {
-      x: ['2020-10-04', '2021-11-04', '2023-12-04'],
-      y: [90, 40, 60],
-      type: 'scatter'
-    };
+  }
 
-    let trace2 = {
-      x: ['2020-10-04', '2021-11-04', '2023-12-04'],
-      y: [20, 10, 15],
-      type: 'bar'
-    };
-
-    let data = [trace1, trace2];
-
-    console.log("onInit this.width: "+ this.width);
+  ionViewWillEnter(){
+    this.pricepsmData["name"] = "Price psm";
+    this.volumeData["name"] = "Volume";
+    let data = [this.pricepsmData, this.volumeData];
 
     let layout = {
       showlegend: false,
@@ -68,9 +69,8 @@ export class StatsPage implements OnInit {
     }
 
     Plotly.newPlot('price-trends-graph', data, layout, configs);
-  }
 
-  ionViewWillEnter(){
+
     this.count_data = this.count_data.split("\r\n").slice(1,6); 
     for (let i = 0; i < 5; i++){
       this.count_data[i] = this.count_data[i].split(",");
@@ -114,6 +114,7 @@ export class StatsPage implements OnInit {
     console.log(this.count_data);
     console.log(this.avg_data);
     console.log(this.max_data);
+    console.log(this.pricepsmData)
   }
 
   async countInfoClick() {
@@ -122,6 +123,18 @@ export class StatsPage implements OnInit {
       header: 'Most Number of Units Sold',
       subHeader: 'How is this calculated?',
       message: 'All transactions over the last 6 months are grouped by their region/type, and the number of transactions for each region/type is totaled.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async trendsInfoClick(){
+    console.log("trends info button clicked");
+    const alert = await this.alertController.create({
+      header: 'Price and Volume Trends',
+      subHeader: 'How is this calculated?',
+      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented.',
       buttons: ['OK'],
     });
 

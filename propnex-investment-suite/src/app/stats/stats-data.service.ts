@@ -14,7 +14,21 @@ export class StatsDataService {
   private readonly max_URL = 'assets/stats/max_by_district.csv';
   private readonly maxT_URL = 'assets/stats/max_by_type.csv';
 
+  
+  private readonly price_psm_URL = 'assets/stats/price_psm_graph.json';
+  private readonly volume_URL = 'assets/stats/volume_graph.json';
+
   constructor(protected http: HttpClient) { }
+
+  getPricepsmData(){
+    console.log("Fetch price psm data from assets");
+    return this.http.get(this.price_psm_URL);
+  }
+
+  getVolumeData(){
+    console.log("Fetch volume data from assets");
+    return this.http.get(this.volume_URL);
+  }
 
   getCountData() {
     console.log("Fetch count stats data from assets");
