@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>{{ isLogin? 'Login' : 'Sign Up'}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"ion-padding\">\r\n  <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\">\r\n    <ion-grid>\r\n      <ion-row>\r\n        <ion-col>\r\n          <h1 class=\"ion-text-center\">PropNex Investment Suite</h1>\r\n        </ion-col>\r\n\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-list>\r\n            <ion-item>\r\n              <ion-label position=\"floating\">Username</ion-label>\r\n              <ion-input \r\n                type=\"text\" \r\n                ngModel \r\n                name=\"username\"\r\n                required \r\n                #usernameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!usernameCtrl.valid && usernameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid username.\r\n              </ion-label>\r\n            </ion-item>\r\n        \r\n            <ion-item>\r\n              <ion-label position=\"floating\">Password</ion-label>\r\n              <ion-input \r\n                type=\"password\"\r\n                ngModel\r\n                name=\"password\"\r\n                required\r\n                minlength=\"6\"\r\n                #passwordCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!passwordCtrl.valid && passwordCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid password.\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-list>\r\n        </ion-col>\r\n      </ion-row>\r\n\r\n      <ion-row *ngIf=\"!isLogin\">\r\n        <ion-col>\r\n          <ion-list>\r\n            <ion-item>\r\n              <ion-label position=\"floating\">First Name</ion-label>\r\n              <ion-input \r\n                type=\"text\" \r\n                ngModel \r\n                name=\"firstname\"\r\n                required \r\n                #firstnameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!firstnameCtrl.valid && firstnameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid first name.\r\n              </ion-label>\r\n            </ion-item>\r\n        \r\n            <ion-item>\r\n              <ion-label position=\"floating\">Last Name</ion-label>\r\n              <ion-input \r\n                type=\"text\"\r\n                ngModel\r\n                name=\"lastname\"\r\n                required\r\n                #lastnameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!lastnameCtrl.valid && lastnameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid last name.\r\n              </ion-label>\r\n            </ion-item>\r\n\r\n            <ion-item>\r\n              <ion-label position=\"floating\">Household Income</ion-label>\r\n              <ion-input \r\n                type=\"number\"\r\n                ngModel\r\n                name=\"income\"\r\n                required\r\n                min=\"0\"\r\n                #incomeCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!incomeCtrl.valid && incomeCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid income.\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-list>\r\n        </ion-col>\r\n      </ion-row>\r\n\r\n      <ion-row>\r\n        <ion-col class=\"ion-margin-top\">\r\n          <ion-select \r\n            placeholder=\"Select User Type\"\r\n            interface=\"popover\"\r\n            ngModel \r\n            name=\"usertype\" \r\n            #usertypeCtrl=\"ngModel\" \r\n            required\r\n          >\r\n            <ion-select-option value=\"1\">Buyer</ion-select-option>\r\n            <ion-select-option value=\"2\">Seller</ion-select-option>\r\n          </ion-select>\r\n        </ion-col>\r\n      </ion-row>\r\n  \r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-button \r\n            type=\"button\" \r\n            color=\"tertiary\" \r\n            fill=\"clear\" \r\n            expand=\"block\"\r\n            (click)=\"onSwitchAuthMode()\"\r\n            >{{ isLogin ? \r\n              'Don\\'t have an account? Sign Up' : \r\n              'Already have an account? Login'}}\r\n          </ion-button>\r\n  \r\n          <ion-button \r\n            type=\"submit\" \r\n            (click)=\"onLogin()\" \r\n            expand=\"block\"\r\n            [disabled]=\"!f.valid\"\r\n            >{{ isLogin ? \r\n              'Login' : \r\n              'Sign Up'}}\r\n          </ion-button>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>{{ isLogin? 'Login' : 'Sign Up'}}</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"ion-padding\">\r\n  <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\">\r\n    <ion-grid>\r\n      <ion-row>\r\n        <ion-col>\r\n          <h1 class=\"ion-text-center\">PropNex Investment Suite</h1>\r\n        </ion-col>\r\n\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-list>\r\n            <ion-item>\r\n              <ion-label position=\"floating\">Username</ion-label>\r\n              <ion-input \r\n                type=\"text\" \r\n                ngModel \r\n                name=\"username\"\r\n                required \r\n                #usernameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!usernameCtrl.valid && usernameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid username.\r\n              </ion-label>\r\n            </ion-item>\r\n        \r\n            <ion-item>\r\n              <ion-label position=\"floating\">Password</ion-label>\r\n              <ion-input \r\n                type=\"password\"\r\n                ngModel\r\n                name=\"password\"\r\n                required\r\n                minlength=\"6\"\r\n                #passwordCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!passwordCtrl.valid && passwordCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid password.\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-list>\r\n        </ion-col>\r\n      </ion-row>\r\n\r\n      <ion-row *ngIf=\"!isLogin\">\r\n        <ion-col>\r\n          <ion-list>\r\n            <ion-item>\r\n              <ion-label position=\"floating\">First Name</ion-label>\r\n              <ion-input \r\n                type=\"text\" \r\n                ngModel \r\n                name=\"firstname\"\r\n                required \r\n                #firstnameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!firstnameCtrl.valid && firstnameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid first name.\r\n              </ion-label>\r\n            </ion-item>\r\n        \r\n            <ion-item>\r\n              <ion-label position=\"floating\">Last Name</ion-label>\r\n              <ion-input \r\n                type=\"text\"\r\n                ngModel\r\n                name=\"lastname\"\r\n                required\r\n                #lastnameCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!lastnameCtrl.valid && lastnameCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid last name.\r\n              </ion-label>\r\n            </ion-item>\r\n\r\n            <ion-item>\r\n              <ion-label position=\"floating\">Household Income</ion-label>\r\n              <ion-input \r\n                type=\"number\"\r\n                ngModel\r\n                name=\"income\"\r\n                required\r\n                min=\"0\"\r\n                #incomeCtrl=\"ngModel\"\r\n              ></ion-input>\r\n            </ion-item>\r\n\r\n            <ion-item \r\n              *ngIf=\"!incomeCtrl.valid && incomeCtrl.touched\"\r\n              lines=\"none\"\r\n            >\r\n              <ion-label>\r\n                Invalid income.\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-list>\r\n        </ion-col>\r\n      </ion-row>\r\n\r\n      <ion-row>\r\n        <ion-col class=\"ion-margin-top\">\r\n          <ion-select \r\n            placeholder=\"Select User Type\"\r\n            interface=\"popover\"\r\n            ngModel \r\n            name=\"usertype\" \r\n            #usertypeCtrl=\"ngModel\" \r\n            required\r\n          >\r\n            <ion-select-option value=\"1\">Buyer</ion-select-option>\r\n            <ion-select-option value=\"2\">Seller</ion-select-option>\r\n          </ion-select>\r\n        </ion-col>\r\n      </ion-row>\r\n  \r\n      <ion-row>\r\n        <ion-col>\r\n          <ion-button \r\n            type=\"button\" \r\n            color=\"tertiary\" \r\n            fill=\"clear\" \r\n            expand=\"block\"\r\n            (click)=\"onSwitchAuthMode()\"\r\n            >{{ isLogin ? \r\n              'Don\\'t have an account? Sign Up' : \r\n              'Already have an account? Login'}}\r\n          </ion-button>\r\n  \r\n          <ion-button \r\n            type=\"submit\" \r\n            (click)=\"onLogin()\" \r\n            expand=\"block\"\r\n            [disabled]=\"!f.valid\"\r\n            >{{ isLogin ? \r\n              'Login' : \r\n              'Sign Up'}}\r\n          </ion-button>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n  </form>\r\n\r\n  <!-- <ion-button (click)=\"fetchFBUsers()\">\r\n    Fetch FB Users\r\n  </ion-button>\r\n\r\n  <ion-button (click)=\"fetchFBPostals()\">\r\n    Fetch FB Postals\r\n  </ion-button>\r\n\r\n  <ion-button (click)=\"fetchFBTrans()\">\r\n    Fetch FB Trans\r\n  </ion-button> -->\r\n\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -112,6 +112,12 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 var AuthPage = /** @class */ (function () {
+    // loadedFBUsers: fbUser[];
+    // private fbUsersSub: Subscription;
+    // loadedFBPostals: fbPostal[];
+    // private fbPostalsSub: Subscription;
+    // loadedFBTrans: fbTrans[];
+    // private fbPTransSub: Subscription;
     function AuthPage(authService, router, loadingCtrl) {
         this.authService = authService;
         this.router = router;
@@ -120,6 +126,23 @@ var AuthPage = /** @class */ (function () {
         this.isLogin = true;
     }
     AuthPage.prototype.ngOnInit = function () {
+        // this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
+        //   this.loadedFBUsers = fbUsers;
+        // })
+        // this.fbPostalsSub = this.authService.fbPostals.subscribe(fbPostals => {
+        //   this.loadedFBPostals = fbPostals;
+        // })
+        // this.fbPTransSub = this.authService.fbTrans.subscribe(fbTrans => {
+        //   this.loadedFBTrans = fbTrans;
+        // })
+    };
+    AuthPage.prototype.ionViewWillEnter = function () {
+        // this.authService.fetchFBUsers().subscribe(() => {
+        // });
+        // this.authService.fetchFBPostals().subscribe(() => {
+        // });
+        // this.authService.fetchFBTrans().subscribe(() => {
+        // });
     };
     AuthPage.prototype.onLogin = function () {
         var _this = this;
@@ -158,6 +181,27 @@ var AuthPage = /** @class */ (function () {
     };
     AuthPage.prototype.onSwitchAuthMode = function () {
         this.isLogin = !this.isLogin;
+    };
+    // fetchFBUsers() {
+    //   console.log(this.loadedFBUsers);
+    //   //console.log(this.loadedFBUsers[0].email);
+    // }
+    // fetchFBPostals() {
+    //   console.log(this.loadedFBPostals);
+    // }
+    // fetchFBTrans() {
+    //   console.log(this.loadedFBTrans);
+    // }
+    AuthPage.prototype.ngOnDestroy = function () {
+        // if (this.fbUsersSub) {
+        //   this.fbUsersSub.unsubscribe();
+        // }
+        // if (this.fbPostalsSub) {
+        //   this.fbPostalsSub.unsubscribe();
+        // }
+        // if (this.fbPTransSub) {
+        //   this.fbPTransSub.unsubscribe();
+        // }
     };
     AuthPage.ctorParameters = function () { return [
         { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
