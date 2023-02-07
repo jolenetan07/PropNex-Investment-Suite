@@ -1,5 +1,4 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { reverse } from 'dns';
 import { StatsDataService } from './stats-data.service';
 
 declare var Plotly: any;
@@ -18,6 +17,11 @@ export class StatsPage implements OnInit {
   public avgT_data;
   public max_data;
   public maxT_data;
+
+  numLocHidden = false;
+  numTypeHidden = false;
+  expLocHidden = false;
+  expTypeHidden = false;
 
   constructor(private dataService: StatsDataService) { }
 
@@ -123,6 +127,23 @@ export class StatsPage implements OnInit {
     let a1 = Number(a[1]);
     let b1 = Number(b[1]);
     return b1-a1;
+  }
+
+  numLocButton(){
+    console.log("numLocButton");
+    this.numLocHidden = !this.numLocHidden;
+  }
+  numTypeButton(){
+    console.log("numTypeButton");
+    this.numTypeHidden = !this.numTypeHidden;
+  }
+  expLocButton(){
+    console.log("ExpLocButton");
+    this.expLocHidden = !this.expLocHidden;
+  }
+  expTypeButton(){
+    console.log("ExpTypeButton");
+    this.expTypeHidden = !this.expTypeHidden;
   }
 
 }
