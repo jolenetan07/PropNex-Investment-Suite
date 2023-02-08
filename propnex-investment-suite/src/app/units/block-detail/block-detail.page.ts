@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
+import { fbPostal } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 import { AddBlockComponent } from '../add-block/add-block.component';
+import { PlaceService } from '../place.service';
 import { Unit } from '../units.model';
 import { AddUnitComponent } from './add-unit/add-unit.component';
 import { EditBlockComponent } from './edit-block/edit-block.component';
@@ -18,7 +20,8 @@ import { EditBlockComponent } from './edit-block/edit-block.component';
 export class BlockDetailPage implements OnInit {
   currUser: User;
   isLoading = false;
-  place: Place;
+  //place: Place;
+  place: fbPostal;
   places: Place[];
   units: Unit[];
   result: Unit;
@@ -30,7 +33,8 @@ export class BlockDetailPage implements OnInit {
     private homeService: HomeService,
     private router: Router,
     private actionSheetCtrl: ActionSheetController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private placeService: PlaceService
   ) { }
 
   ngOnInit() {
@@ -42,7 +46,8 @@ export class BlockDetailPage implements OnInit {
       }
       this.isLoading = true;
       //this.place = this.homeService.getPlace(paramMap.get('postalId'));
-      this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
+      //this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
+      this.place = this.placeService.currPlace;
       this.isLoading = false;
       
     });

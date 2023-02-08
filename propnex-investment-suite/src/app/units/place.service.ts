@@ -9,9 +9,18 @@ import { fbPostal } from '../auth/firebase.model';
 })
 export class PlaceService {
   private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
+  private _currPlace: fbPostal;
 
   get fbPostals() {
     return this._fbPostals.asObservable();
+  }
+
+  set currPlace(currPlace: fbPostal) {
+    this._currPlace = currPlace;
+  }
+
+  get currPlace() {
+    return this._currPlace;
   }
 
   constructor(

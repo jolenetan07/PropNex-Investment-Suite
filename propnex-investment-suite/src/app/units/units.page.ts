@@ -54,6 +54,7 @@ export class UnitsPage implements OnInit {
     //console.log(query);
     //this.result  = this.homeService.getPlace(query);
     this.result  = this.loadedFBPostals.find(p => p.postal === query);
+    this.placeService.currPlace = this.result;
     //console.log(this.result);
   }
 
