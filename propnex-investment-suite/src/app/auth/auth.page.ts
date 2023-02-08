@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
@@ -17,8 +17,10 @@ export class AuthPage implements OnInit, OnDestroy {
   isLoading = false;
   isLogin = true;
 
-  // loadedFBUsers: fbUser[];
-  // private fbUsersSub: Subscription;
+  result: fbUser;
+
+  loadedFBUsers: fbUser[];
+  private fbUsersSub: Subscription;
 
   // loadedFBPostals: fbPostal[];
   // private fbPostalsSub: Subscription;
@@ -31,13 +33,14 @@ export class AuthPage implements OnInit, OnDestroy {
     private authService: AuthService, 
     private router: Router,
     private loadingCtrl: LoadingController,
+    private alertController: AlertController
     //private http: HttpClient
   ) { }
 
   ngOnInit() {
-    // this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
-    //   this.loadedFBUsers = fbUsers;
-    // })
+    this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
+      this.loadedFBUsers = fbUsers;
+    })
 
     // this.fbPostalsSub = this.authService.fbPostals.subscribe(fbPostals => {
     //   this.loadedFBPostals = fbPostals;
@@ -49,9 +52,9 @@ export class AuthPage implements OnInit, OnDestroy {
   }
 
   ionViewWillEnter() {
-    // this.authService.fetchFBUsers().subscribe(() => {
+    this.authService.fetchFBUsers().subscribe(() => {
 
-    // });
+    });
 
     // this.authService.fetchFBPostals().subscribe(() => {
 
@@ -63,52 +66,72 @@ export class AuthPage implements OnInit, OnDestroy {
 
   }
 
-  onLogin() {
-    this.isLoading = true;
-    this.authService.login();
-    this.loadingCtrl
-      .create({ keyboardClose: true, message: 'Authenticating...' })
-      .then(loadingEl => {
-        loadingEl.present();
-        setTimeout(() => {
-          this.isLoading = false;
-          loadingEl.dismiss();
-          this.router.navigateByUrl('/home/tabs/main');
-        }, 1500);
-    });
-  }
-
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
     }
-    const username = form.value.username;
+    const email = form.value.email;
     const password = form.value.password;
-    const usertype = form.value.usertype;
-
-    const firstname = form.value.firstname;
-    const lastname = form.value.lastname;
-    const income = form.value.income;
+    const name = form.value.name;
 
     form.reset();
-    console.log(username, password, usertype);
-    console.log(firstname, lastname, income);
+    console.log(email, password);
+    console.log(name);
 
     if (this.isLogin) {
       // send request to login servers
+      this.result = this.loadedFBUsers.find(u => u.email === email);
+      if (this.result) {
+        
+        if (this.result.password === password) {
+          
+          this.authService.currFbUser = this.result;
+          console.log(this.authService.currFbUser);
+          this.authService.login();
+          this.router.navigateByUrl('/home/tabs/main');
+        } else {
+          // invalid password
+          this.presentPasswordAlert();
+          
+        }
+      } else {
+        // invalid email
+        this.presentEmailAlert();
+        
+      }
     } else {
       // send request to signup servers
     }
+  }
+
+  async presentEmailAlert() {
+    const alert = await this.alertController.create({
+      header: 'Authentication Failed',
+      message: 'Invalid email!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async presentPasswordAlert() {
+    const alert = await this.alertController.create({
+      header: 'Authentication Failed',
+      message: 'Invalid password!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
   onSwitchAuthMode() {
     this.isLogin = !this.isLogin;
   }
 
-  // fetchFBUsers() {
-  //   console.log(this.loadedFBUsers);
-  //   //console.log(this.loadedFBUsers[0].email);
-  // }
+  fetchFBUsers() {
+    console.log(this.loadedFBUsers);
+    //console.log(this.loadedFBUsers[0].email);
+  }
 
   // fetchFBPostals() {
   //   console.log(this.loadedFBPostals);
@@ -119,9 +142,9 @@ export class AuthPage implements OnInit, OnDestroy {
   // }
 
   ngOnDestroy() {
-    // if (this.fbUsersSub) {
-    //   this.fbUsersSub.unsubscribe();
-    // }
+    if (this.fbUsersSub) {
+      this.fbUsersSub.unsubscribe();
+    }
     // if (this.fbPostalsSub) {
     //   this.fbPostalsSub.unsubscribe();
     // }

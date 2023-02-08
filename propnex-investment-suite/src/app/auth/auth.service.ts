@@ -6,21 +6,21 @@ import { take, map, tap, delay, switchMap } from 'rxjs/operators';
 import { fbTrans, fbPostal, fbUser } from './firebase.model';
 import { Unit } from '../units/units.model';
 
-interface fbUserData {
-  email: string;
-  firstName: string;
-  householdIncome: number;
-  lastName: string;
-  password: string;
-  type: string;
-  username: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private _userIsAuthenticated = true;
+
+  private _currFbUser: fbUser;
+
+  set currFbUser(currFbUser: fbUser) {
+    this._currFbUser = currFbUser;
+  }
+
+  get currFbUser() {
+    return this._currFbUser;
+  }
 
   private _currUser = new User(
     'u1',
@@ -132,36 +132,36 @@ export class AuthService {
 
   fetchFBUsers() {
     console.log("fetch user data");
-    // return this.http
-    //   .get<{ [key: string]: fbUserData }>(
-    //     'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
-    //   )
-    //   .pipe(
-    //     map(resData => {
-    //       const users = [];
-    //       for (const key in resData) {
-    //         if (resData.hasOwnProperty(key)) {
-    //           users.push(
-    //             new fbUser(
-    //               resData[key].email,
-    //               resData[key].firstName,
-    //               resData[key].householdIncome,
-    //               resData[key].lastName,
-    //               resData[key].password,
-    //               resData[key].type,
-    //               resData[key].username,
-    //             )
-    //           );
-    //         }
-    //       }
-    //       return users;
-    //     }),
-    //     tap(users => {
-    //       //console.log(users[0]);
-    //       //console.log(users);
-    //       this._fbUsers.next(users);
-    //     })
-    //   );
+    return this.http
+      .get(
+        'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
+      )
+      .pipe(
+        map(resData => {
+          const users = [];
+          for (const key in resData) {
+            if (resData.hasOwnProperty(key)) {
+              users.push(
+                new fbUser(
+                  resData[key].email,
+                  resData[key].favourites,
+                  resData[key].generalRec,
+                  resData[key].name,
+                  resData[key].password,
+                  resData[key].personalRec,
+                  resData[key].userType,
+                )
+              );
+            }
+          }
+          return users;
+        }),
+        tap(users => {
+          //console.log(users[0]);
+          console.log(users);
+          this._fbUsers.next(users);
+        })
+      );
   }
 
   fetchFBPostals() {

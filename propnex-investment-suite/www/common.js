@@ -134,7 +134,7 @@ var HomeService = /** @class */ (function () {
             new _place_model__WEBPACK_IMPORTED_MODULE_2__["Place"]('p4', '142 Bedok Reservoir Rd', '470142', 'https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/09/Jewel_Changi_airport.jpg?q=50&fit=contain&w=943&h=&dpr=1.5', [
                 new _units_units_model__WEBPACK_IMPORTED_MODULE_1__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
                 new _units_units_model__WEBPACK_IMPORTED_MODULE_1__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
-                new _units_units_model__WEBPACK_IMPORTED_MODULE_1__["Unit"]('u3', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+                new _units_units_model__WEBPACK_IMPORTED_MODULE_1__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
             ]),
             new _place_model__WEBPACK_IMPORTED_MODULE_2__["Place"]('p5', '142 Jln Bt Merah', '160142', 'https://www.toureiffel.paris/sites/default/files/styles/narrow_x1_850/public/actualite/image_principale/IMG_0815.jpg?itok=QzrNLD7D'),
             new _place_model__WEBPACK_IMPORTED_MODULE_2__["Place"]('p6', '232 Bain St', '180232', 'https://static.mothership.sg/1/2020/06/104659315_297364411670557_7937773298198010266_o.jpg')
@@ -254,38 +254,6 @@ var Place = /** @class */ (function () {
         this.units = units;
     }
     return Place;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/units/units.model.ts":
-/*!**************************************!*\
-  !*** ./src/app/units/units.model.ts ***!
-  \**************************************/
-/*! exports provided: Unit */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Unit", function() { return Unit; });
-var Unit = /** @class */ (function () {
-    function Unit(id, unitNum, addressProjectName, areaSqm, dateOfSale, flatModel, floorMax, floorMin, privatePublic, remainingLease2022, salePrice, type) {
-        this.id = id;
-        this.unitNum = unitNum;
-        this.addressProjectName = addressProjectName;
-        this.areaSqm = areaSqm;
-        this.dateOfSale = dateOfSale;
-        this.flatModel = flatModel;
-        this.floorMax = floorMax;
-        this.floorMin = floorMin;
-        this.privatePublic = privatePublic;
-        this.remainingLease2022 = remainingLease2022;
-        this.salePrice = salePrice;
-        this.type = type;
-    }
-    return Unit;
 }());
 
 

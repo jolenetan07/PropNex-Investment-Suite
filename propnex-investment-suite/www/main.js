@@ -247,7 +247,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-menu side=\"start\">\r\n    <ion-header>\r\n      <ion-toolbar>\r\n        <ion-title>\r\n          Menu\r\n        </ion-title>\r\n      </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <ion-content>\r\n      <ion-list>\r\n        <ion-menu-toggle>\r\n          <ion-item lines=\"none\" routerLink=\"/home/tabs/main\">\r\n            <ion-icon name=\"home\" slot=\"start\"></ion-icon>\r\n            <ion-label>Home</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n        <ion-menu-toggle>\r\n          <ion-item lines=\"none\" routerLink=\"/units\">\r\n            <ion-icon name=\"business\" slot=\"start\"></ion-icon>\r\n            <ion-label>Find Individual Units</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n        <ion-menu-toggle>\r\n          <ion-item lines=\"none\" routerLink=\"/stats\">\r\n            <ion-icon name=\"bar-chart\" slot=\"start\"></ion-icon>\r\n            <ion-label>View Statistical Insights</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n        <ion-menu-toggle>\r\n          <ion-item lines=\"none\" (click)=\"onLogout()\" button>\r\n            <ion-icon name=\"exit\" slot=\"start\"></ion-icon>\r\n            <ion-label>Logout</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n      </ion-list>\r\n    </ion-content>\r\n  </ion-menu>\r\n  <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu side=\"start\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>\n          Menu\n        </ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <ion-menu-toggle>\n          <ion-item lines=\"none\" routerLink=\"/home/tabs/main\">\n            <ion-icon name=\"home\" slot=\"start\"></ion-icon>\n            <ion-label>Home</ion-label>\n          </ion-item>\n        </ion-menu-toggle>\n\n        <ion-menu-toggle>\n          <ion-item lines=\"none\" routerLink=\"/units\">\n            <ion-icon name=\"business\" slot=\"start\"></ion-icon>\n            <ion-label>Find Individual Units</ion-label>\n          </ion-item>\n        </ion-menu-toggle>\n\n        <ion-menu-toggle>\n          <ion-item lines=\"none\" routerLink=\"/stats\">\n            <ion-icon name=\"bar-chart\" slot=\"start\"></ion-icon>\n            <ion-label>View Statistical Insights</ion-label>\n          </ion-item>\n        </ion-menu-toggle>\n\n        <ion-menu-toggle>\n          <ion-item lines=\"none\" (click)=\"onLogout()\" button>\n            <ion-icon name=\"exit\" slot=\"start\"></ion-icon>\n            <ion-label>Logout</ion-label>\n          </ion-item>\n        </ion-menu-toggle>\n\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet main></ion-router-outlet>\n</ion-app>\n");
 
 /***/ }),
 
@@ -311,7 +311,7 @@ var routes = [
     },
     {
         path: 'units',
-        loadChildren: function () { return Promise.all(/*! import() | units-units-module */[__webpack_require__.e("common"), __webpack_require__.e("units-units-module")]).then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
+        loadChildren: function () { return __webpack_require__.e(/*! import() | units-units-module */ "units-units-module").then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
         canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }
 ];
@@ -428,12 +428,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -449,7 +451,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
             entryComponents: [],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"],
@@ -530,6 +532,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.model */ "./src/app/auth/user.model.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../units/units.model */ "./src/app/units/units.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,14 +546,48 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var AuthService = /** @class */ (function () {
-    function AuthService() {
+    function AuthService(http) {
+        this.http = http;
         this._userIsAuthenticated = true;
-        this._currUser = new _user_model__WEBPACK_IMPORTED_MODULE_1__["User"]('u1', 'jerryliu123', 'password321', 'Jerry', 'Liu', 10000);
+        this._currUser = new _user_model__WEBPACK_IMPORTED_MODULE_1__["User"]('u1', 'jerryliu123', 'password321', 'Jerry', 'Liu', 10000, 'seller', 
+        //'buyer',
+        [
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+        ]);
+        this._fbUsers = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this._fbPostals = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
+        this._fbTrans = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
     }
     Object.defineProperty(AuthService.prototype, "userIsAuthenticated", {
         get: function () {
             return this._userIsAuthenticated;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AuthService.prototype, "fbUsers", {
+        get: function () {
+            return this._fbUsers.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AuthService.prototype, "fbPostals", {
+        get: function () {
+            return this._fbPostals.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AuthService.prototype, "fbTrans", {
+        get: function () {
+            return this._fbTrans.asObservable();
         },
         enumerable: true,
         configurable: true
@@ -573,11 +612,107 @@ var AuthService = /** @class */ (function () {
         current.lastname = _lastname;
         current.income = _income;
     };
+    AuthService.prototype.fetchFBUsers = function () {
+        console.log("fetch user data");
+        // return this.http
+        //   .get<{ [key: string]: fbUserData }>(
+        //     'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
+        //   )
+        //   .pipe(
+        //     map(resData => {
+        //       const users = [];
+        //       for (const key in resData) {
+        //         if (resData.hasOwnProperty(key)) {
+        //           users.push(
+        //             new fbUser(
+        //               resData[key].email,
+        //               resData[key].firstName,
+        //               resData[key].householdIncome,
+        //               resData[key].lastName,
+        //               resData[key].password,
+        //               resData[key].type,
+        //               resData[key].username,
+        //             )
+        //           );
+        //         }
+        //       }
+        //       return users;
+        //     }),
+        //     tap(users => {
+        //       //console.log(users[0]);
+        //       //console.log(users);
+        //       this._fbUsers.next(users);
+        //     })
+        //   );
+    };
+    AuthService.prototype.fetchFBPostals = function () {
+        console.log("fetch postal data");
+        // return this.http
+        //   .get(
+        //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
+        //   )
+        //   .pipe(
+        //     map(resData => {
+        //       const postals: fbPostal[] = [];
+        //       for (const key in resData) {
+        //         if (resData.hasOwnProperty(key)) {
+        //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
+        //         }
+        //       }
+        //       return postals;
+        //     }),
+        //     tap(postals => {
+        //       //console.log(postals[0]);
+        //       //console.log(postals);
+        //       this._fbPostals.next(postals);
+        //     })
+        //   );
+    };
+    AuthService.prototype.fetchFBTrans = function () {
+        console.log("fetch transaction data");
+        // return this.http
+        //   .get(
+        //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
+        //   )
+        //   .pipe(
+        //     map(resData => {
+        //       const trans = [];
+        //       for (const key in resData) {
+        //         if (resData.hasOwnProperty(key)) {
+        //           trans.push(
+        //             new fbTrans(
+        //               resData[key]["Area (Sqm)"],
+        //               resData[key]["Date of Sale"],
+        //               resData[key]["Flat_model"],
+        //               resData[key]["Floor_max"],
+        //               resData[key]["Floor_min"],
+        //               resData[key]["Private_Public"],
+        //               resData[key]["Project Name"],
+        //               resData[key]["Remaining Lease (2022)"],
+        //               resData[key]["Sale Price"],
+        //               resData[key]["Type"],
+        //               resData[key]["transID"]
+        //             )
+        //           );
+        //         }
+        //       }
+        //       return trans;
+        //     }),
+        //     tap(trans => {
+        //       //console.log(trans[0]);
+        //       //console.log(trans);
+        //       this._fbTrans.next(trans);
+        //     })
+        //   );
+    };
+    AuthService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AuthService);
     return AuthService;
 }());
@@ -597,15 +732,85 @@ var AuthService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 var User = /** @class */ (function () {
-    function User(id, username, password, firstname, lastname, income) {
+    function User(id, username, password, firstname, lastname, income, type, units) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.income = income;
+        this.type = type;
+        this.units = units;
     }
     return User;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/units/units.model.ts":
+/*!**************************************!*\
+  !*** ./src/app/units/units.model.ts ***!
+  \**************************************/
+/*! exports provided: Unit, UnitAll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Unit", function() { return Unit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitAll", function() { return UnitAll; });
+var Unit = /** @class */ (function () {
+    function Unit(id, unitNum, addressProjectName, areaSqm, dateOfSale, flatModel, floorMax, floorMin, privatePublic, remainingLease2022, salePrice, type) {
+        this.id = id;
+        this.unitNum = unitNum;
+        this.addressProjectName = addressProjectName;
+        this.areaSqm = areaSqm;
+        this.dateOfSale = dateOfSale;
+        this.flatModel = flatModel;
+        this.floorMax = floorMax;
+        this.floorMin = floorMin;
+        this.privatePublic = privatePublic;
+        this.remainingLease2022 = remainingLease2022;
+        this.salePrice = salePrice;
+        this.type = type;
+    }
+    return Unit;
+}());
+
+var UnitAll = /** @class */ (function () {
+    function UnitAll(
+    // 'Homeowner Race: ',
+    // 'Country Of Citizenship: ',
+    // 'Decorative Style: ',
+    // 'Extension Request: ',
+    // 'Price: ',
+    // 'Title Deed: ',
+    // 'House Age: ',
+    // 'Building Height: ',
+    // 'No. Of Units (total): ',
+    // 'No. Of Units (per floor): ',
+    // 'Room Type: ',
+    // 'Area: ',
+    // 'No Of Rooms: ',
+    // 'No. Of Toilets: ',
+    // 'House Structure: ',
+    // 'Door Facing: ',
+    // 'Room Orientation: ',
+    // 'Corner Unit: ',
+    // 'Ground/Top Floor: ',
+    // 'Western Sun: ',
+    // 'Noisy: ',
+    // 'Refurbished State: ',
+    // 'Landscape From Window: ',
+    // 'Bomb Shelter: ',
+    // 'Open Kitchen: ',
+    // 'Gas Management Fee: ',
+    // 'House Tax: ',
+    // 'Rental Status: '
+    ) {
+    }
+    return UnitAll;
 }());
 
 
@@ -673,7 +878,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\65901\Documents\ntu\year4sem1\FYP\repo\html_app\propnex-investment-suite\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/jolenetan/Documents/GitHub/jolenetan07.github.io/propnex-investment-suite/src/main.ts */"./src/main.ts");
 
 
 /***/ })
