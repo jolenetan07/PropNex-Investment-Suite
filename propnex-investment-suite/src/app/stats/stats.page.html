@@ -12,22 +12,162 @@
     <ion-row>
       <ion-col>
         <ion-card class="ion-no-padding">
-          <ion-grid class="ion-no-padding">
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-title slot="start">
-                    Price and Volume Trends
-                  </ion-title>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-no-padding">
-              <ion-col class="ion-no-padding">
-                <div id="price-trends-graph"></div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
+          <ion-card-header>
+            <ion-card-title>Price and Volume Trends
+              <ion-button fill="clear" size="small" color="medium" (click)="trendsInfoClick()">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div id="price-trends-graph"></div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Most Number of Units Sold
+            <ion-button fill="clear" size="small" color="medium" (click)="countInfoClick()">
+              <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+            </ion-button>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+
+            <ion-item-group>
+              <ion-item-divider color="medium" (click)="numLocButton()">
+                <ion-label>
+                  <h2>By Location</h2>
+                </ion-label>
+              </ion-item-divider>
+
+              <ion-item *ngFor="let region of count_data" [hidden]="numLocHidden">
+                <ion-text slot="start">
+                  {{region[0]}}
+                </ion-text>
+                <ion-text slot="end">
+                  {{region[1]}} units
+                </ion-text>
+              </ion-item>
+            </ion-item-group>
+
+            <ion-item-group>
+              <ion-item-divider color="medium" (click)="numTypeButton()">
+                <ion-label>
+                  <h2>By Type</h2>
+                </ion-label>
+              </ion-item-divider>
+
+              <ion-item *ngFor="let region of countT_data" [hidden]="numTypeHidden">
+                <ion-text slot="start">
+                  {{region[0]}}
+                </ion-text>
+                <ion-text slot="end">
+                  {{region[1]}} units
+                </ion-text>
+              </ion-item>
+            </ion-item-group>
+
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Most Expensive Units
+            <ion-button fill="clear" size="small" color="medium" (click)="maxInfoClick()">
+              <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+            </ion-button>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+
+            <ion-item-group>
+              <ion-item-divider color="medium" (click)="expLocButton()">
+                <ion-label>
+                  <h2>By Location</h2>
+                </ion-label>
+              </ion-item-divider>
+
+              <ion-item *ngFor="let region of max_data" [hidden]="expLocHidden">
+                <ion-text slot="start">
+                  {{region[0]}}
+                </ion-text>
+                <ion-text slot="end">
+                  ${{region[1]}} psm
+                </ion-text>
+              </ion-item>
+            </ion-item-group>
+
+            <ion-item-group>
+              <ion-item-divider color="medium" (click)="expTypeButton()">
+                <ion-label>
+                  <h2>By Type</h2>
+                </ion-label>
+              </ion-item-divider>
+
+              <ion-item *ngFor="let region of maxT_data" [hidden]="expTypeHidden">
+                <ion-text slot="start">
+                  {{region[0]}}
+                </ion-text>
+                <ion-text slot="end">
+                  ${{region[1]}} psm
+                </ion-text>
+              </ion-item>
+            </ion-item-group>
+
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Most Expensive Locations
+              <ion-button fill="clear" size="small" color="medium" (click)="avgLocInfoClick()">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item *ngFor="let region of avg_data">
+              <ion-text slot="start">
+                {{region[0]}}
+              </ion-text>
+              <ion-text slot="end">
+                ${{region[1]}} psm
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Most Expensive Property Types
+              <ion-button fill="clear" size="small" color="medium" (click)="avgTypeInfoClick()">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item *ngFor="let type of avgT_data">
+              <ion-text slot="start">
+                {{type[0]}}
+              </ion-text>
+              <ion-text slot="end">
+                ${{type[1]}} psm
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
