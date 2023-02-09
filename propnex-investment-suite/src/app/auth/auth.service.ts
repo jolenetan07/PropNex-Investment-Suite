@@ -84,20 +84,20 @@ export class AuthService {
   }
 
   private _fbUsers = new BehaviorSubject<fbUser[]>([]);
-  private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
-  private _fbTrans = new BehaviorSubject<fbTrans[]>([]);
+  //private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
+  //private _fbTrans = new BehaviorSubject<fbTrans[]>([]);
 
   get fbUsers() {
     return this._fbUsers.asObservable();
   }
 
-  get fbPostals() {
-    return this._fbPostals.asObservable();
-  }
+  // get fbPostals() {
+  //   return this._fbPostals.asObservable();
+  // }
 
-  get fbTrans() {
-    return this._fbTrans.asObservable();
-  }
+  // get fbTrans() {
+  //   return this._fbTrans.asObservable();
+  // }
 
   constructor(
     private http: HttpClient
@@ -115,20 +115,20 @@ export class AuthService {
     return this._currUser;
   }
 
-  editUser(
-    current: User,
-    _username: string,
-    _password: string,
-    _firstname: string,
-    _lastname: string,
-    _income: number
-  ) {
-    current.username = _username;
-    current.password = _password;
-    current.firstname = _firstname;
-    current.lastname = _lastname;
-    current.income = _income;
-  }
+  // editUser(
+  //   current: User,
+  //   _username: string,
+  //   _password: string,
+  //   _firstname: string,
+  //   _lastname: string,
+  //   _income: number
+  // ) {
+  //   current.username = _username;
+  //   current.password = _password;
+  //   current.firstname = _firstname;
+  //   current.lastname = _lastname;
+  //   current.income = _income;
+  // }
 
   fetchFBUsers() {
     console.log("fetch user data");
@@ -164,65 +164,95 @@ export class AuthService {
       );
   }
 
-  fetchFBPostals() {
-    console.log("fetch postal data");
-    // return this.http
-    //   .get(
-    //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
-    //   )
-    //   .pipe(
-    //     map(resData => {
-    //       const postals: fbPostal[] = [];
-    //       for (const key in resData) {
-    //         if (resData.hasOwnProperty(key)) {
-    //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
-    //         }
-    //       }
-    //       return postals;
-    //     }),
-    //     tap(postals => {
-    //       //console.log(postals[0]);
-    //       //console.log(postals);
-    //       this._fbPostals.next(postals);
-    //     })
-    //   );
+  editUser() {
+    console.log('update user profile - password & name');
   }
 
-  fetchFBTrans() {
-    console.log("fetch transaction data");
-    // return this.http
-    //   .get(
-    //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
-    //   )
-    //   .pipe(
-    //     map(resData => {
-    //       const trans = [];
-    //       for (const key in resData) {
-    //         if (resData.hasOwnProperty(key)) {
-    //           trans.push(
-    //             new fbTrans(
-    //               resData[key]["Area (Sqm)"],
-    //               resData[key]["Date of Sale"],
-    //               resData[key]["Flat_model"],
-    //               resData[key]["Floor_max"],
-    //               resData[key]["Floor_min"],
-    //               resData[key]["Private_Public"],
-    //               resData[key]["Project Name"],
-    //               resData[key]["Remaining Lease (2022)"],
-    //               resData[key]["Sale Price"],
-    //               resData[key]["Type"],
-    //               resData[key]["transID"]
-    //             )
-    //           );
-    //         }
-    //       }
-    //       return trans;
-    //     }),
-    //     tap(trans => {
-    //       //console.log(trans[0]);
-    //       //console.log(trans);
-    //       this._fbTrans.next(trans);
-    //     })
-    //   );
+  addUser(email: string, name: string, password: string) {
+    const newUser = new fbUser(
+      email,
+      [],
+      [],
+      name,
+      password,
+      [],
+      'user'
+    );
+    return this.http
+      .post('https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json',
+      { ...newUser })
+      .pipe(
+        switchMap(resData => {
+          return this.fbUsers;
+        }),
+        take(1),
+        tap(fbUsers => {
+          this._fbUsers.next(fbUsers.concat(newUser));
+        })
+      );
+
+
   }
+
+  // fetchFBPostals() {
+  //   //console.log("fetch postal data");
+  //   // return this.http
+  //   //   .get(
+  //   //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
+  //   //   )
+  //   //   .pipe(
+  //   //     map(resData => {
+  //   //       const postals: fbPostal[] = [];
+  //   //       for (const key in resData) {
+  //   //         if (resData.hasOwnProperty(key)) {
+  //   //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
+  //   //         }
+  //   //       }
+  //   //       return postals;
+  //   //     }),
+  //   //     tap(postals => {
+  //   //       //console.log(postals[0]);
+  //   //       //console.log(postals);
+  //   //       this._fbPostals.next(postals);
+  //   //     })
+  //   //   );
+  // }
+
+  // fetchFBTrans() {
+  //   console.log("fetch transaction data");
+  //   // return this.http
+  //   //   .get(
+  //   //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
+  //   //   )
+  //   //   .pipe(
+  //   //     map(resData => {
+  //   //       const trans = [];
+  //   //       for (const key in resData) {
+  //   //         if (resData.hasOwnProperty(key)) {
+  //   //           trans.push(
+  //   //             new fbTrans(
+  //   //               resData[key]["Area (Sqm)"],
+  //   //               resData[key]["Date of Sale"],
+  //   //               resData[key]["Flat_model"],
+  //   //               resData[key]["Floor_max"],
+  //   //               resData[key]["Floor_min"],
+  //   //               resData[key]["Private_Public"],
+  //   //               resData[key]["Project Name"],
+  //   //               resData[key]["Remaining Lease (2022)"],
+  //   //               resData[key]["Sale Price"],
+  //   //               resData[key]["Type"],
+  //   //               resData[key]["transID"]
+  //   //             )
+  //   //           );
+  //   //         }
+  //   //       }
+  //   //       return trans;
+  //   //     }),
+  //   //     tap(trans => {
+  //   //       //console.log(trans[0]);
+  //   //       //console.log(trans);
+  //   //       this._fbTrans.next(trans);
+  //   //     })
+  //   //   );
+  // }
 }

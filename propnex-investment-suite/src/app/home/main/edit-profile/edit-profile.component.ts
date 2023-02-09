@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
+import { fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 
 @Component({
@@ -10,7 +11,8 @@ import { User } from 'src/app/auth/user.model';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit {
-  currUser: User;
+  //currUser: User;
+  currUser: fbUser;
   form: FormGroup;
 
   constructor(
@@ -19,22 +21,17 @@ export class EditProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currUser = this.authService.currentUser;
+    // this.currUser = this.authService.currentUser;
+    this.currUser = this.authService.currFbUser;
     this.form = new FormGroup({
-      username: new FormControl(this.currUser.username, {
+      email: new FormControl(this.currUser.email, {
         updateOn: 'blur',
       }), 
       password: new FormControl(this.currUser.password, {
         updateOn: 'blur',
         validators: [ Validators.minLength(6)]
       }),
-      firstname: new FormControl(this.currUser.firstname, {
-        updateOn: 'blur',
-      }),
-      lastname: new FormControl(this.currUser.lastname, {
-        updateOn: 'blur',
-      }),
-      incomerange: new FormControl(this.currUser.income, {
+      name: new FormControl(this.currUser.name, {
         updateOn: 'blur',
       })
     });
@@ -48,15 +45,18 @@ export class EditProfileComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-    // console.log(this.form);
-    this.authService.editUser(
-      this.authService.currentUser,
-      this.form.value.username,
-      this.form.value.password,
-      this.form.value.firstname,
-      this.form.value.lastname,
-      this.form.value.incomerange,
-    );
+
+    let newPassword = this.form.value.password
+    let newName = this.form.value.name
+    
+    // this.authService.editUser(
+    //   this.authService.currentUser,
+    //   this.form.value.username,
+    //   this.form.value.password,
+    //   this.form.value.firstname,
+    //   this.form.value.lastname,
+    //   this.form.value.incomerange,
+    // );
     
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }

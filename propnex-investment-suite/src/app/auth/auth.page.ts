@@ -101,6 +101,11 @@ export class AuthPage implements OnInit, OnDestroy {
       }
     } else {
       // send request to signup servers
+      this.authService.addUser(email, name, password).subscribe(() => {
+
+      });
+      this.isLogin = true;
+      this.router.navigateByUrl('/auth');
     }
   }
 

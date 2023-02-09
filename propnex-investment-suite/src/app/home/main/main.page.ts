@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
+import { fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { Unit } from 'src/app/units/units.model';
 import { HomeService } from '../home.service';
@@ -15,7 +16,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 export class MainPage implements OnInit {
   loadedFavPlaces: Place[];
   loadedRecPlaces: Place[];
-  currUser: User;
+  //currUser: User;
+  currUser: fbUser;
 
   constructor(
     private homeService: HomeService,
@@ -24,7 +26,8 @@ export class MainPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currUser = this.authService.currentUser;
+    // this.currUser = this.authService.currentUser;
+    this.currUser = this.authService.currFbUser;
     this.loadedFavPlaces = this.homeService.favPlaces;
     this.loadedRecPlaces = this.homeService.personalRecPlaces;
   }
