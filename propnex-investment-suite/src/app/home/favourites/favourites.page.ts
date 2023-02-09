@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonItemSliding } from '@ionic/angular';
+import { AuthService } from 'src/app/auth/auth.service';
+import { fbUser } from 'src/app/auth/firebase.model';
 import { HomeService } from '../home.service';
 import { Place } from '../place.model';
 
@@ -9,12 +11,16 @@ import { Place } from '../place.model';
   styleUrls: ['./favourites.page.scss'],
 })
 export class FavouritesPage implements OnInit {
+  currUser: fbUser;
   loadedPlaces?: Place[];
 
-  constructor(private homeService: HomeService) { }
+  constructor(
+    private homeService: HomeService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
-    
+    this.currUser = this.authService.currFbUser;
   }
 
   ionViewWillEnter() {

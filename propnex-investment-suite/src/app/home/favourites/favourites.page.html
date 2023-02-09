@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-item-sliding *ngFor="let place of loadedPlaces" #slidingFavourites>
+          <ion-item-sliding *ngFor="let place of currUser.favourites" #slidingFavourites>
             <ion-item detail [routerLink]="['/', 'units', place.postal]">
               <ion-thumbnail slot="start">
                 <ion-img [src]="place.imageUrl"></ion-img>
