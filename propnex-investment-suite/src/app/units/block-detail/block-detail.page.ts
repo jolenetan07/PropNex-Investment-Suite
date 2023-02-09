@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
-import { fbPostal } from 'src/app/auth/firebase.model';
+import { fbPostal, fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
@@ -18,7 +18,8 @@ import { EditBlockComponent } from './edit-block/edit-block.component';
   styleUrls: ['./block-detail.page.scss'],
 })
 export class BlockDetailPage implements OnInit {
-  currUser: User;
+  // currUser: User;
+  currUser: fbUser;
   isLoading = false;
   //place: Place;
   place: fbPostal;
@@ -38,7 +39,7 @@ export class BlockDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currUser = this.authService.currentUser;
+    this.currUser = this.authService.currFbUser;
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('postalId')) {
         this.navCtrl.navigateBack('/units');

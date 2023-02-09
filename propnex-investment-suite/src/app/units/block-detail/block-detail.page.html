@@ -7,7 +7,7 @@
     <ion-title>{{ isLoading? 'Loading...' : place.name }}</ion-title>
 
     <ion-button 
-    *ngIf="currUser.type === 'seller'"
+    *ngIf="currUser.userType === 'admin'"
     size="small" 
     color="tertiary"
     slot="end" 

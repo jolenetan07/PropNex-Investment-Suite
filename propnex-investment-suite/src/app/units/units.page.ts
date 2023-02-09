@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-import { fbPostal } from '../auth/firebase.model';
+import { fbPostal, fbUser } from '../auth/firebase.model';
 import { User } from '../auth/user.model';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
@@ -17,7 +17,8 @@ import { Unit } from './units.model';
   styleUrls: ['./units.page.scss'],
 })
 export class UnitsPage implements OnInit {
-  currUser: User;
+  //currUser: User;
+  currUser: fbUser;
   //loadedPlaces: Place[];
   // result: Place;
 
@@ -34,7 +35,7 @@ export class UnitsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currUser = this.authService.currentUser;
+    this.currUser = this.authService.currFbUser;
     //this.loadedPlaces = this.homeService.allPlaces;
 
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {

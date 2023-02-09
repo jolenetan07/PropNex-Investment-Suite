@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, PopoverController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
+import { fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
@@ -13,7 +14,8 @@ import { FloorplanComponent } from './floorplan/floorplan.component';
   styleUrls: ['./unit-detail.page.scss'],
 })
 export class UnitDetailPage implements OnInit {
-  currUser: User;
+  //currUser: User;
+  currUser: fbUser;
   places: Place[];
   unitDetails: string[] = [
     'Homeowner Race: ',
@@ -55,7 +57,7 @@ export class UnitDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currUser = this.authService.currentUser;
+    this.currUser = this.authService.currFbUser;
     this.places = this.homeService.allPlaces;
   }
 
