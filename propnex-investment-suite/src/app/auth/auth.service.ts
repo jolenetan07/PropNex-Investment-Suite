@@ -10,7 +10,7 @@ import { Unit } from '../units/units.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private _userIsAuthenticated = true;
+  private _userIsAuthenticated = false;
 
   private _currFbUser: fbUser;
 
