@@ -37,7 +37,7 @@
             <ion-list>
               <ion-item 
                 class="ion-no-padding ion-text-center" 
-                *ngIf="currUser.favourites.length <= 0"
+                *ngIf="!currUser.favourites || currUser.favourites.length <= 0"
               >
                 <ion-label>
                   <h2>No favourites for now...</h2>
@@ -47,7 +47,7 @@
               <ion-item 
                 class="ion-no-padding" 
                 detail 
-                *ngIf="currUser.favourites.length > 0"
+                *ngIf="currUser.favourites && currUser.favourites.length > 0"
                 [routerLink]="['/', 'units', currUser.favourites[0].postal]"
               >
                 <ion-thumbnail slot="start">
@@ -63,7 +63,7 @@
               <ion-item 
                 class="ion-no-padding" 
                 detail 
-                *ngIf="currUser.favourites.length > 1"
+                *ngIf="currUser.favourites && currUser.favourites.length > 1"
                 [routerLink]="['/', 'units', currUser.favourites[1].postal]"
               >
                 <ion-thumbnail slot="start">
@@ -106,7 +106,7 @@
             <ion-list>
               <ion-item 
                 class="ion-no-padding ion-text-center" 
-                *ngIf="currUser.personalRec.length <= 0"
+                *ngIf="!currUser.personalRec || currUser.personalRec.length <= 0"
               >
                 <ion-label>
                   <h2>No recommendations for now...</h2>
@@ -116,7 +116,7 @@
               <ion-item 
                 class="ion-no-padding" 
                 detail 
-                *ngIf="currUser.personalRec.length > 0"
+                *ngIf="currUser.personalRec && currUser.personalRec.length > 0"
                 [routerLink]="['/', 'units', currUser.personalRec[0].postal]"
               >
                 <ion-thumbnail slot="start">
@@ -131,7 +131,7 @@
               <ion-item 
                 class="ion-no-padding" 
                 detail 
-                *ngIf="currUser.personalRec.length > 1"
+                *ngIf="currUser.personalRec && currUser.personalRec.length > 1"
                 [routerLink]="['/', 'units', currUser.personalRec[1].postal]"
               >
                 <ion-thumbnail slot="start">
