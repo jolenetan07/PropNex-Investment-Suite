@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { PlaceService } from '../place.service';
 
 @Component({
   selector: 'app-add-block',
@@ -13,6 +14,7 @@ export class AddBlockComponent implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
+    private placeService: PlaceService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,13 @@ export class AddBlockComponent implements OnInit {
     if (!this.addBlockForm.valid) {
       return;
     }
-    console.log("block added");
+    const projectName = this.addBlockForm.value.projectName;
+    const postalCode = this.addBlockForm.value.postalCode;
+    
+    console.log(projectName, postalCode);
+    this.placeService.addBlock(projectName, postalCode).subscribe(() => {
+
+    });
     this.addBlockForm.reset();
     this.modalCtrl.dismiss();
   }

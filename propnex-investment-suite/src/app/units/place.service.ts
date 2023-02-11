@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 import { fbPostal } from '../auth/firebase.model';
 
 @Injectable({
@@ -49,5 +49,28 @@ export class PlaceService {
           this._fbPostals.next(postals);
         })
       );
+  }
+
+  addBlock(name: string, postal: string) {
+    const newBlock = new fbPostal(
+      name,
+      postal,
+      `assets/placeholders/property.jpeg`
+
+    );
+    return this.http
+      .post('https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/.json',
+      { ...newBlock })
+      .pipe(
+        switchMap(resData => {
+          return this.fbPostals;
+        }),
+        take(1),
+        tap(fbUsers => {
+          this._fbPostals.next(fbUsers.concat(newBlock));
+        })
+      );
+
+
   }
 }
