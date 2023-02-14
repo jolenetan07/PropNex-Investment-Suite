@@ -164,10 +164,6 @@ export class AuthService {
       );
   }
 
-  editUser() {
-    console.log('update user profile - password & name');
-  }
-
   addUser(email: string, name: string, password: string) {
     const newUser = new fbUser(
       email,
@@ -192,6 +188,44 @@ export class AuthService {
       );
 
 
+  }
+
+  editUser(targetEmail: string, newName: string, newPassword: string) {
+    let updatedPlaces: fbUser[];
+    return this.fbUsers.pipe(
+      take(1),
+      switchMap(places => {
+        console.log("hi1");
+        if (!places || places.length <= 0) {
+          return this.fetchFBUsers();
+        } else {
+          return of(places);
+        }
+      }),
+      switchMap(places => {
+        console.log("hi2");
+        const updatedPlaceIndex = places.findIndex(pl => pl.email === targetEmail);
+        updatedPlaces = [...places];
+        const oldPlace = updatedPlaces[updatedPlaceIndex];
+        updatedPlaces[updatedPlaceIndex] = new fbUser(
+          oldPlace.email,
+          oldPlace.favourites,
+          oldPlace.generalRec,
+          newName,
+          newPassword,
+          oldPlace.personalRec,
+          oldPlace.userType
+        );
+        this.currFbUser = updatedPlaces[updatedPlaceIndex];
+        return this.http.put(
+          `https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${updatedPlaceIndex}.json`,
+          { ...updatedPlaces[updatedPlaceIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbUsers.next(updatedPlaces);
+      })
+    );
   }
 
   // fetchFBPostals() {

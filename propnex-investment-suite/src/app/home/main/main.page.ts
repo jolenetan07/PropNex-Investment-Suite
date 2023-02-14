@@ -35,6 +35,9 @@ export class MainPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.authService.fetchFBUsers().subscribe(() => {
+
+    // });
     // this.currUser = this.authService.currentUser;
     this.currUser = this.authService.currFbUser;
     this.loadedFavPlaces = this.homeService.favPlaces;
@@ -45,6 +48,7 @@ export class MainPage implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.currUser = this.authService.currFbUser;
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
@@ -61,6 +65,7 @@ export class MainPage implements OnInit {
       .then(resultData => {
         console.log(resultData.data, resultData.role);
         if (resultData.role === 'confirm') {
+          this.ionViewWillEnter();
           console.log('edited!');
         }
       });

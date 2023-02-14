@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { fbUser } from 'src/app/auth/firebase.model';
@@ -48,6 +49,10 @@ export class EditProfileComponent implements OnInit {
 
     let newPassword = this.form.value.password
     let newName = this.form.value.name
+
+    this.authService.editUser(this.currUser.email, newName, newPassword).subscribe(()=>{
+
+    });
     
     // this.authService.editUser(
     //   this.authService.currentUser,
@@ -57,7 +62,7 @@ export class EditProfileComponent implements OnInit {
     //   this.form.value.lastname,
     //   this.form.value.incomerange,
     // );
-    
+    //this.currUser = this.authService.currFbUser;
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 }
