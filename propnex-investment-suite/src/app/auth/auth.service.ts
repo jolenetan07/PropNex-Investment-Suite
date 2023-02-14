@@ -226,6 +226,42 @@ export class AuthService {
     );
   }
 
+  addFav(targetEmail: string, newPlace: fbPostal) {
+    let updatedUsers: fbUser[];
+    return this.fbUsers.pipe(
+      take(1),
+      switchMap(users => {
+        if (!users || users.length <= 0) {
+          return this.fetchFBUsers();
+        } else {
+          return of(users);
+        }
+      }),
+      switchMap(users => {
+        const updatedUserIndex = users.findIndex(u => u.email === targetEmail);
+        updatedUsers = [...users];
+        const oldPlace = updatedUsers[updatedUserIndex];
+        updatedUsers[updatedUserIndex] = new fbUser(
+          oldPlace.email,
+          oldPlace.favourites.concat(newPlace),
+          oldPlace.generalRec,
+          oldPlace.name,
+          oldPlace.password,
+          oldPlace.personalRec,
+          oldPlace.userType
+        );
+        this.currFbUser = updatedUsers[updatedUserIndex];
+        return this.http.put(
+          `https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+          { ...updatedUsers[updatedUserIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbUsers.next(updatedUsers);
+      })
+    );
+  }
+
   // fetchFBPostals() {
   //   //console.log("fetch postal data");
   //   // return this.http

@@ -120,11 +120,15 @@ export class BlockDetailPage implements OnInit {
 
   addToFav(postalCode: string) {
     // check if already in fav
-    // if yes, dont add (popup?)
+    // if yes, dont add (alert?)
     // if no, add
     this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
     if (this.favPlace) {
       this.presentFavAlert();
+    } else {
+      this.authService.addFav(this.currUser.email, this.placeService.currPlace).subscribe(()=>{
+
+      });
     }
 
   }
