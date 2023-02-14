@@ -73,4 +73,10 @@ export class UnitsPage implements OnInit {
         return modalEl.onDidDismiss();
       });
   }
+
+  ngOnDestroy() {
+    if (this.fbPostalsSub) {
+      this.fbPostalsSub.unsubscribe();
+    }
+  }
 }

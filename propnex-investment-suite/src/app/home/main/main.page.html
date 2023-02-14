@@ -48,10 +48,12 @@
                 class="ion-no-padding" 
                 detail 
                 *ngIf="currUser.favourites && currUser.favourites.length > 0"
-                [routerLink]="['/', 'units', currUser.favourites[0].postal]"
+                (click)="onClickPlace(currUser.favourites[0].postal)" 
+                button
               >
                 <ion-thumbnail slot="start">
-                  <ion-img [src]="currUser.favourites[0].imageUrl"></ion-img>
+                  <!-- <ion-img [src]="currUser.favourites[0].imageUrl"></ion-img> -->
+                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{ currUser.favourites[0].name }}</h2>
@@ -64,10 +66,12 @@
                 class="ion-no-padding" 
                 detail 
                 *ngIf="currUser.favourites && currUser.favourites.length > 1"
-                [routerLink]="['/', 'units', currUser.favourites[1].postal]"
+                (click)="onClickPlace(currUser.favourites[1].postal)" 
+                button
               >
                 <ion-thumbnail slot="start">
-                  <ion-img [src]="currUser.favourites[1].imageUrl"></ion-img>
+                  <!-- <ion-img [src]="currUser.favourites[1].imageUrl"></ion-img> -->
+                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{ loadedFavPlaces[1].name }}</h2>
@@ -117,10 +121,12 @@
                 class="ion-no-padding" 
                 detail 
                 *ngIf="currUser.personalRec && currUser.personalRec.length > 0"
-                [routerLink]="['/', 'units', currUser.personalRec[0].postal]"
+                (click)="onClickPlace(currUser.personalRec[0].postal)" 
+                button
               >
                 <ion-thumbnail slot="start">
-                  <ion-img [src]="currUser.personalRec[0].imageUrl"></ion-img>
+                  <!-- <ion-img [src]="currUser.personalRec[0].imageUrl"></ion-img> -->
+                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{ currUser.personalRec[0].name }}</h2>
@@ -132,10 +138,12 @@
                 class="ion-no-padding" 
                 detail 
                 *ngIf="currUser.personalRec && currUser.personalRec.length > 1"
-                [routerLink]="['/', 'units', currUser.personalRec[1].postal]"
+                (click)="onClickPlace(currUser.personalRec[1].postal)" 
+                button
               >
                 <ion-thumbnail slot="start">
-                  <ion-img [src]="currUser.personalRec[1].imageUrl"></ion-img>
+                  <!-- <ion-img [src]="currUser.personalRec[1].imageUrl"></ion-img> -->
+                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{ currUser.personalRec[1].name }}</h2>

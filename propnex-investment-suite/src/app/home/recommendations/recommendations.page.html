@@ -18,9 +18,14 @@
       <ion-col>
         <ion-list>
           <ion-item-sliding *ngFor="let place of displayedPlaces" #slidingRecos>
-            <ion-item detail [routerLink]="['/', 'units', place.postal]">
+            <ion-item 
+              detail 
+              (click)="onClickPlace(place.postal)" 
+              button
+            >
               <ion-thumbnail slot="start">
-                <ion-img [src]="place.imageUrl"></ion-img>
+                <!-- <ion-img [src]="place.imageUrl"></ion-img> -->
+                <ion-img src="assets/placeholders/property.jpeg"></ion-img>
               </ion-thumbnail>
               <ion-label>
                 <h2>{{ place.name }}</h2>
