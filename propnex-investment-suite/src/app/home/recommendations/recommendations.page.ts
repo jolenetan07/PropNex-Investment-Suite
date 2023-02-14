@@ -61,9 +61,13 @@ export class RecommendationsPage implements OnInit {
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
-  onAddPlace(postal: string, slidingEl: IonItemSliding) {
+  onAddPlace(postalCode: string, slidingEl: IonItemSliding) {
     slidingEl.close();
-    this.homeService.addFavPlace(postal);
+    let targetPlace = this.loadedFBPostals.find(p => p.postal === postalCode);
+    this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
+
+    });
+    //this.homeService.addFavPlace(postal);
   }
 
   ngOnDestroy() {
