@@ -14,7 +14,7 @@
     (click)="onEditBlockOptions()"
   >
     <ion-icon slot="icon-only" name="create-outline"></ion-icon>
-</ion-button>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -35,6 +35,18 @@
       <ion-col class="ion-text-center ion-no-padding">
         <!-- <h6>{{ places[0].name }}, Singapore {{ places[0].postal }}</h6> -->
         <h6>{{ place?.name }}, Singapore {{ place?.postal }}</h6>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button 
+        color="tertiary" 
+        expand="block"
+        (click)="addToFav(place?.postal)"
+        >
+        Add To Favourites
+        </ion-button>
       </ion-col>
     </ion-row>
 

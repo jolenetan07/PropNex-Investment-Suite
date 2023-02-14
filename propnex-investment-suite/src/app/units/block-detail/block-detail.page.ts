@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
+import { ActionSheetController, AlertController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { fbPostal, fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
@@ -26,6 +26,7 @@ export class BlockDetailPage implements OnInit {
   places: Place[];
   units: Unit[];
   result: Unit;
+  favPlace: fbPostal;
 
   constructor(
     private authService: AuthService,
@@ -35,7 +36,8 @@ export class BlockDetailPage implements OnInit {
     private router: Router,
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
-    private placeService: PlaceService
+    private placeService: PlaceService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -114,6 +116,27 @@ export class BlockDetailPage implements OnInit {
         modalEl.present();
         return modalEl.onDidDismiss();
       });
+  }
+
+  addToFav(postalCode: string) {
+    // check if already in fav
+    // if yes, dont add (popup?)
+    // if no, add
+    this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
+    if (this.favPlace) {
+      this.presentFavAlert();
+    }
+
+  }
+
+  async presentFavAlert() {
+    const alert = await this.alertController.create({
+      header: 'Already Exist',
+      message: 'This place is already in your favourites!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }
