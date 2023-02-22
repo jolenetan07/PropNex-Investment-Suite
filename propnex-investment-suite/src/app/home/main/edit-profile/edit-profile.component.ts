@@ -54,15 +54,7 @@ export class EditProfileComponent implements OnInit {
 
     });
     
-    // this.authService.editUser(
-    //   this.authService.currentUser,
-    //   this.form.value.username,
-    //   this.form.value.password,
-    //   this.form.value.firstname,
-    //   this.form.value.lastname,
-    //   this.form.value.incomerange,
-    // );
-    //this.currUser = this.authService.currFbUser;
+
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 }

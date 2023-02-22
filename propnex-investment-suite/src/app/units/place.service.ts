@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { fbPostal } from '../auth/firebase.model';
 
@@ -27,18 +27,25 @@ export class PlaceService {
     private http: HttpClient
   ) { }
 
+  // TODO :: test
   fetchFBPostals() {
     console.log("fetch postal data");
     return this.http
       .get(
-        `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
+        `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/.json`
       )
       .pipe(
         map(resData => {
           const postals: fbPostal[] = [];
           for (const key in resData) {
             if (resData.hasOwnProperty(key)) {
-              postals.push(new fbPostal(resData[key][0], resData[key][1], `assets/placeholders/property.jpeg`));
+              postals.push(
+                new fbPostal(
+                  resData[key].name, 
+                  resData[key].postal, 
+                  `assets/placeholders/property.jpeg`
+                )
+              );
             }
           }
           return postals;
@@ -56,7 +63,6 @@ export class PlaceService {
       name,
       postal,
       `assets/placeholders/property.jpeg`
-
     );
     return this.http
       .post('https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/.json',
@@ -70,7 +76,39 @@ export class PlaceService {
           this._fbPostals.next(fbUsers.concat(newBlock));
         })
       );
+  }
 
-
+  // TODO :: test
+  editBlock(targetPostal: string, newName: string) {
+    console.log(targetPostal, newName);
+    let updatedUsers: fbPostal[];
+    return this.fbPostals.pipe(
+      take(1),
+      switchMap(users => {
+        if (!users || users.length <= 0) {
+          return this.fetchFBPostals();
+        } else {
+          return of(users);
+        }
+      }),
+      switchMap(users => {
+        const updatedUserIndex = users.findIndex(u => u.postal === targetPostal);
+        updatedUsers = [...users];
+        const oldPlace = updatedUsers[updatedUserIndex];
+        updatedUsers[updatedUserIndex] = new fbPostal(
+          newName,
+          oldPlace.postal,
+          oldPlace.imageUrl
+        );
+        this.currPlace = updatedUsers[updatedUserIndex];
+        return this.http.put(
+          `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+          { ...updatedUsers[updatedUserIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbPostals.next(updatedUsers);
+      })
+    );
   }
 }

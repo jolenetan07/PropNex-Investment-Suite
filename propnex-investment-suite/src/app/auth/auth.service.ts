@@ -186,8 +186,6 @@ export class AuthService {
           this._fbUsers.next(fbUsers.concat(newUser));
         })
       );
-
-
   }
 
   editUser(targetEmail: string, newName: string, newPassword: string) {

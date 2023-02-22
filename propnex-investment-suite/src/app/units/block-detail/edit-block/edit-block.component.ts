@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { fbPostal } from 'src/app/auth/firebase.model';
+import { PlaceService } from '../../place.service';
 
 @Component({
   selector: 'app-edit-block',
@@ -10,17 +12,17 @@ import { ModalController } from '@ionic/angular';
 export class EditBlockComponent implements OnInit {
 
   editBlockForm: FormGroup;
+  currPlace: fbPostal;
 
   constructor(
     private modalCtrl: ModalController,
+    private placeService: PlaceService
   ) { }
 
   ngOnInit() {
+    this.currPlace = this.placeService.currPlace;
     this.editBlockForm = new FormGroup({
-      projectName: new FormControl(null, {
-        updateOn: 'blur',
-      }), 
-      postalCode: new FormControl(null, {
+      projectName: new FormControl(this.currPlace.name, {
         updateOn: 'blur',
       }),
     });
@@ -35,9 +37,16 @@ export class EditBlockComponent implements OnInit {
     if (!this.editBlockForm.valid) {
       return;
     }
-    console.log("block edited");
-    this.editBlockForm.reset();
-    this.modalCtrl.dismiss();
+
+    let newName = this.editBlockForm.value.projectName;
+
+    this.placeService.editBlock(this.currPlace.postal, newName).subscribe(()=>{
+
+    });
+    
+    //console.log("block edited");
+    //this.editBlockForm.reset();
+    this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
   uploadBlockImage() {

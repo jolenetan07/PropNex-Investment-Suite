@@ -59,6 +59,14 @@ export class BlockDetailPage implements OnInit {
     this.units = this.homeService.getBlockUnits();
   }
 
+  ionViewWillEnter() {
+    this.place = this.placeService.currPlace;
+    this.placeService.fetchFBPostals().subscribe(() => {
+
+    });
+
+  }
+
 
 
   handleChange(event) {
@@ -106,6 +114,13 @@ export class BlockDetailPage implements OnInit {
       .then(modalEl => {
         modalEl.present();
         return modalEl.onDidDismiss();
+      })
+      .then(resultData => {
+        console.log(resultData.data, resultData.role);
+        if (resultData.role === 'confirm') {
+          this.ionViewWillEnter();
+          console.log('edited!');
+        }
       });
   }
 
