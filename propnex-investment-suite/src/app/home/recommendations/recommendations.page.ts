@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 import { Place } from '../place.model';
 import { SegmentChangeEventDetail } from '@ionic/core';
-import { IonItemSliding } from '@ionic/angular';
+import { AlertController, IonItemSliding } from '@ionic/angular';
 import { fbPostal, fbUser } from 'src/app/auth/firebase.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
@@ -29,7 +29,8 @@ export class RecommendationsPage implements OnInit {
     private homeService: HomeService,
     private authService: AuthService,
     private router: Router,
-    private placeService: PlaceService
+    private placeService: PlaceService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -64,10 +65,32 @@ export class RecommendationsPage implements OnInit {
   onAddPlace(postalCode: string, slidingEl: IonItemSliding) {
     slidingEl.close();
     let targetPlace = this.loadedFBPostals.find(p => p.postal === postalCode);
-    this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
+    
+    if (this.currUser.favourites && this.currUser.favourites.length > 0) {
+      let favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
+      if (favPlace) {
+        this.presentFavAlert();
+      } else {
+        this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
 
-    });
+        });
+      }
+    } else {
+      this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
+
+      });
+    }
     //this.homeService.addFavPlace(postal);
+  }
+
+  async presentFavAlert() {
+    const alert = await this.alertController.create({
+      header: 'Already Exist',
+      message: 'This place is already in your favourites!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
   ngOnDestroy() {
