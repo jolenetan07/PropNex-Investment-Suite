@@ -24,6 +24,8 @@ export class FavouritesPage implements OnInit {
   loadedFBUsers: fbUser[];
   private fbUsersSub: Subscription;
 
+  loadedFavPlaces?: fbPostal[];
+
   constructor(
     private homeService: HomeService,
     private authService: AuthService,
@@ -36,10 +38,13 @@ export class FavouritesPage implements OnInit {
     this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
       this.loadedFBUsers = fbUsers;
     });
+
     this.currUser = this.authService.currFbUser;
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
-    })
+    });
+
+    this.loadedFavPlaces = this.currUser.favourites;
   }
 
   ionViewWillEnter() {
@@ -50,6 +55,8 @@ export class FavouritesPage implements OnInit {
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
+
+    this.loadedFavPlaces = this.currUser.favourites;
   } 
 
   onClickPlace(postalCode: string) {
@@ -59,26 +66,13 @@ export class FavouritesPage implements OnInit {
   }
 
   onRemovePlace(postalCode: string, slidingEl: IonItemSliding) {
-    console.log('before');
-    console.log(this.currUser.favourites);
     slidingEl.close();
-    //let targetPlace = this.loadedFBPostals.find(p => p.postal === postalCode);
-    //this.authService.removeFav(this.currUser.email, targetPlace).subscribe(()=>{
     let targetdUserIndex = this.loadedFBUsers.findIndex(u => u.email === this.currUser.email);
     let targetdPlaceIndex = this.currUser.favourites.findIndex(u => u.postal === postalCode);
-    console.log(targetdUserIndex, targetdPlaceIndex);
-    this.authService.removeFav(targetdUserIndex, targetdPlaceIndex).subscribe((data)=>{
-      console.log('hi1');
-      console.log(data);
+    this.loadedFavPlaces = this.currUser.favourites.filter(pl => pl.postal !== postalCode);
+    this.authService.removeFav(targetdUserIndex, targetdPlaceIndex).subscribe(()=>{
 
     });
-    //console.log('after', this.currUser);
-    //this.loadedPlaces = this.homeService.removeFavPlace(postal);
-    // this.http.delete(`https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${targetdUserIndex}/favourites/${targetdPlaceIndex}.json`).subscribe((res) => {
-      
-    // });
-    console.log('after');
-    console.log(this.currUser.favourites);
   }
 
   ngOnDestroy() {

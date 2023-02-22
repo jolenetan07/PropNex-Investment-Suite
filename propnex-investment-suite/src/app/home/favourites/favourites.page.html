@@ -12,7 +12,8 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-item-sliding *ngFor="let place of currUser.favourites" #slidingFavourites>
+          <!-- <ion-item-sliding *ngFor="let place of currUser.favourites" #slidingFavourites> -->
+          <ion-item-sliding *ngFor="let place of loadedFavPlaces" #slidingFavourites>
             <ion-item 
               detail 
               (click)="onClickPlace(place.postal)" 
