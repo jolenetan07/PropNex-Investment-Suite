@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent, ModalController, PopoverController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
@@ -14,6 +14,9 @@ import { FloorplanComponent } from './floorplan/floorplan.component';
   styleUrls: ['./unit-detail.page.scss'],
 })
 export class UnitDetailPage implements OnInit {
+
+  shownGroup = null;
+
   //currUser: User;
   currUser: fbUser;
   places: Place[];
@@ -45,7 +48,8 @@ export class UnitDetailPage implements OnInit {
     'Open Kitchen: ',
     'Gas Management Fee: ',
     'House Tax: ',
-    'Rental Status: '
+    'Rental Status: ',
+    'VR Link: '
   ]
 
   constructor(
@@ -88,6 +92,18 @@ export class UnitDetailPage implements OnInit {
 
     const { role } = await popover.onDidDismiss();
     //this.roleMsg = `Popover dismissed with role: ${role}`;
+  }
+
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+      this.shownGroup = null;
+    } else {
+      this.shownGroup = group;
+    }
+  }
+
+  isGroupShown(group) {
+    return this.shownGroup === group;
   }
 
 

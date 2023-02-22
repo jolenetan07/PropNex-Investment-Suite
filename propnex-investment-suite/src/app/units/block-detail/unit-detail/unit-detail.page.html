@@ -34,26 +34,30 @@
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-no-padding">
-        <ion-list *ngFor="let dets of unitDetails">
-          <ion-item>
-            {{dets}}
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-no-padding">
-        <ion-item>VR Link:</ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
       <ion-col class="ion-text-center ion-no-padding">
         <ion-button (click)="presentPopover($event)">View Floor Plan</ion-button>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-list>
+          <ion-item (click)="toggleGroup(1)" [ngClass]="{active: isGroupShown(1)}">
+            <ion-icon slot="start" [name]="isGroupShown(1) ? 'chevron-down' : 'chevron-forward'"></ion-icon>
+            View More
+          </ion-item>
+          <ion-item-group *ngIf="isGroupShown(1)">
+            <ion-list *ngFor="let dets of unitDetails">
+              <ion-item style="height: 50px;">
+                {{dets}}
+              </ion-item>
+            </ion-list>
+          </ion-item-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
 
   </ion-grid>
 </ion-content>
