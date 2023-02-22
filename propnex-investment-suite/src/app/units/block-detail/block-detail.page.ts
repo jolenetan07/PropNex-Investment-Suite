@@ -137,14 +137,21 @@ export class BlockDetailPage implements OnInit {
     // check if already in fav
     // if yes, dont add (alert?)
     // if no, add
-    this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
-    if (this.favPlace) {
-      this.presentFavAlert();
+    if (this.currUser.favourites && this.currUser.favourites.length > 0) {
+      this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
+      if (this.favPlace) {
+        this.presentFavAlert();
+      } else {
+        this.authService.addFav(this.currUser.email, this.placeService.currPlace).subscribe(()=>{
+
+        });
+      }
     } else {
       this.authService.addFav(this.currUser.email, this.placeService.currPlace).subscribe(()=>{
 
       });
     }
+    
 
   }
 

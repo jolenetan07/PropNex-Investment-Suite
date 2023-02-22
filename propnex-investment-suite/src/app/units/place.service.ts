@@ -27,7 +27,7 @@ export class PlaceService {
     private http: HttpClient
   ) { }
 
-  // TODO :: test
+
   fetchFBPostals() {
     console.log("fetch postal data");
     return this.http
@@ -78,7 +78,7 @@ export class PlaceService {
       );
   }
 
-  // TODO :: test
+
   editBlock(targetPostal: string, newName: string) {
     console.log(targetPostal, newName);
     let updatedUsers: fbPostal[];

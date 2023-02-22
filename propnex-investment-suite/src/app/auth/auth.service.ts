@@ -239,9 +239,13 @@ export class AuthService {
         const updatedUserIndex = users.findIndex(u => u.email === targetEmail);
         updatedUsers = [...users];
         const oldPlace = updatedUsers[updatedUserIndex];
+        
+        let newFavArr = oldPlace.favourites || [];
+        newFavArr = newFavArr.concat(newPlace);
+        
         updatedUsers[updatedUserIndex] = new fbUser(
           oldPlace.email,
-          oldPlace.favourites.concat(newPlace),
+          newFavArr,
           oldPlace.generalRec,
           oldPlace.name,
           oldPlace.password,
@@ -258,6 +262,72 @@ export class AuthService {
         this._fbUsers.next(updatedUsers);
       })
     );
+  }
+
+  // removeFav(targetEmail: string, newPlace: fbPostal) {
+  //   let updatedUsers: fbUser[];
+  //   return this.fbUsers.pipe(
+  //     take(1),
+  //     switchMap(users => {
+  //       if (!users || users.length <= 0) {
+  //         return this.fetchFBUsers();
+  //       } else {
+  //         return of(users);
+  //       }
+  //     }),
+  //     switchMap(users => {
+  //       const updatedUserIndex = users.findIndex(u => u.email === targetEmail);
+  //       updatedUsers = [...users];
+  //       const oldPlace = updatedUsers[updatedUserIndex];
+  //       const targetPlaceIndex = oldPlace.favourites.findIndex(p => p.postal === newPlace.postal);
+  //       //const newFavs = oldPlace.favourites.splice(targetPlaceIndex, 1);
+  //       //const newFavs = oldPlace.favourites.filter(p => p.postal !== newPlace.postal);
+  //       console.log('before');
+  //       console.log(oldPlace.favourites);
+  //       //console.log('hi');
+  //       //console.log(newFavs);
+  //       updatedUsers[updatedUserIndex] = new fbUser(
+  //         oldPlace.email,
+  //         oldPlace.favourites.splice(targetPlaceIndex, 1),
+  //         oldPlace.generalRec,
+  //         oldPlace.name,
+  //         oldPlace.password,
+  //         oldPlace.personalRec,
+  //         oldPlace.userType
+  //       );
+  //       console.log('after');
+  //       console.log(oldPlace.favourites);
+  //       this.currFbUser = updatedUsers[updatedUserIndex];
+  //       return this.http.put(
+  //         `https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+  //         { ...updatedUsers[updatedUserIndex] }
+  //       );
+  //     }),
+  //     tap(() => {
+  //       this._fbUsers.next(updatedUsers);
+  //     })
+  //   );
+  // }
+
+  removeFav(userInd: number, placeInd: number) {
+    return this.http
+      .delete(
+        `https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${userInd}/favourites/${placeInd}.json`
+      )
+      .pipe(
+        switchMap((res) => {
+          console.log('hi2');
+          console.log(res);
+          //console.log(this.fbUsers[userInd]);
+          return this.fbUsers[userInd];
+        }),
+        take(1),
+        tap(bookings => {
+          console.log('hi3');
+          console.log(bookings);
+          //this._fbUsers[userInd].favourites.next(bookings);
+        })
+      );
   }
 
   // fetchFBPostals() {
