@@ -40,24 +40,21 @@
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-no-padding">
+      <ion-col class="ion-text-center ion-no-padding">
         <ion-list>
-          <ion-item (click)="toggleGroup(1)" [ngClass]="{active: isGroupShown(1)}">
-            <ion-icon slot="start" [name]="isGroupShown(1) ? 'chevron-down' : 'chevron-forward'"></ion-icon>
-            View More
+          <ion-item (click)="toggleItem(1)">
+            <ion-icon slot="start" [name]="isItemExpanded(1) ? 'chevron-down' : 'chevron-forward'"></ion-icon>
+            <ion-label>
+              View More
+            </ion-label>
           </ion-item>
-          <ion-item-group *ngIf="isGroupShown(1)">
-            <ion-list *ngFor="let dets of unitDetails">
-              <ion-item style="height: 50px;">
-                {{dets}}
-              </ion-item>
-            </ion-list>
-          </ion-item-group>
+          <ion-list *ngIf="isItemExpanded(1)">
+            <ion-item *ngFor="let dets of unitDetails">
+              {{dets}}
+            </ion-item>
+          </ion-list>
         </ion-list>
       </ion-col>
     </ion-row>
-
-
-
   </ion-grid>
 </ion-content>

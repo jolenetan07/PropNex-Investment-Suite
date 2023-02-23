@@ -15,7 +15,7 @@ import { FloorplanComponent } from './floorplan/floorplan.component';
 })
 export class UnitDetailPage implements OnInit {
 
-  shownGroup = null;
+  expandedItems = [false];
 
   //currUser: User;
   currUser: fbUser;
@@ -93,18 +93,13 @@ export class UnitDetailPage implements OnInit {
     const { role } = await popover.onDidDismiss();
     //this.roleMsg = `Popover dismissed with role: ${role}`;
   }
-
-  toggleGroup(group) {
-    if (this.isGroupShown(group)) {
-      this.shownGroup = null;
-    } else {
-      this.shownGroup = group;
-    }
+ 
+  toggleItem(index: number) {
+    this.expandedItems[index] = !this.expandedItems[index];
   }
 
-  isGroupShown(group) {
-    return this.shownGroup === group;
+  isItemExpanded(index: number) {
+    return this.expandedItems[index];
   }
-
-
+  
 }
