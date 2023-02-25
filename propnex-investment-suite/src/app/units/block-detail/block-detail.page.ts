@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSheetController, AlertController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
-import { fbPostal, fbUser } from 'src/app/auth/firebase.model';
+import { fbPostal, fbUnit, fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
@@ -22,10 +22,10 @@ export class BlockDetailPage implements OnInit {
   currUser: fbUser;
   isLoading = false;
   //place: Place;
-  place: fbPostal;
+  currPlace: fbPostal;
   places: Place[];
   units: Unit[];
-  result: Unit;
+  result: fbUnit;
   favPlace: fbPostal;
 
   constructor(
@@ -50,7 +50,7 @@ export class BlockDetailPage implements OnInit {
       this.isLoading = true;
       //this.place = this.homeService.getPlace(paramMap.get('postalId'));
       //this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
-      this.place = this.placeService.currPlace;
+      this.currPlace = this.placeService.currPlace;
       this.isLoading = false;
       
     });
@@ -60,7 +60,7 @@ export class BlockDetailPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.place = this.placeService.currPlace;
+    this.currPlace = this.placeService.currPlace;
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
@@ -71,15 +71,19 @@ export class BlockDetailPage implements OnInit {
 
   handleChange(event) {
     const query = event.target.value;
-    //console.log(query);
+    console.log(query);
     //this.units = this.homeService.getBlockUnits(query);
-    this.result  = this.homeService.searchUnit('470142',query);
-    //console.log(this.result);
+    //this.result  = this.homeService.searchUnit('470142',query);
+    if (this.currPlace.units) {
+      this.result  = this.currPlace.units.find(p => p.unitNumber === query);
+    }
+    this.placeService.currUnit = this.result;
+    console.log(this.result);
   }
 
   onSelectUnit() {
     // to change
-    this.router.navigate(['/', 'units', 'block-detail', 'unit-detail']);
+    this.router.navigate(['/', 'units', this.currPlace.postal, this.result.unitNumber]);
   }
 
   onEditBlockOptions() {

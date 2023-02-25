@@ -14,7 +14,17 @@ export class fbUser {
     constructor(
       public name: string,
       public postal: string,
-      public imageUrl: string
+      public imageUrl?: string,
+      public units?: fbUnit[]
+    ) {}
+  }
+
+  export class fbUnit {
+    constructor(
+      public bedrooms: string,
+      public floorplan: string,
+      public size: string,
+      public unitNumber: string,
     ) {}
   }
 

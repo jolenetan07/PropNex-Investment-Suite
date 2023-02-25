@@ -23,19 +23,29 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-no-padding">
-        <ion-img [src]="places[0].imageUrl"></ion-img>
+        <ion-img [src]="currPlace.imageUrl"></ion-img>
     </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center ion-no-padding">
-        <h6>{{ places[0].name }}, Singapore {{ places[0].postal }}</h6>
+        <h6>{{ currPlace.name }}, Singapore {{ currPlace.postal }}</h6>
+        <h6>#{{ currUnit.unitNumber }}</h6>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center ion-no-padding">
         <ion-button (click)="presentPopover($event)">View Floor Plan</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center ion-no-padding">
+        <ion-list>
+          <ion-item>No. Of Rooms: {{currUnit.bedrooms}}</ion-item>
+          <ion-item>Area (sqm): {{currUnit.size}}</ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
 

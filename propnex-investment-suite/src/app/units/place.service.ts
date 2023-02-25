@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
-import { fbPostal } from '../auth/firebase.model';
+import { fbPostal, fbUnit } from '../auth/firebase.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { fbPostal } from '../auth/firebase.model';
 export class PlaceService {
   private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
   private _currPlace: fbPostal;
+  private _currUnit: fbUnit;
 
   get fbPostals() {
     return this._fbPostals.asObservable();
@@ -21,6 +22,14 @@ export class PlaceService {
 
   get currPlace() {
     return this._currPlace;
+  }
+
+  set currUnit(currUnit: fbUnit) {
+    this._currUnit = currUnit;
+  }
+
+  get currUnit() {
+    return this._currUnit;
   }
 
   constructor(
@@ -43,7 +52,8 @@ export class PlaceService {
                 new fbPostal(
                   resData[key].name, 
                   resData[key].postal, 
-                  `assets/placeholders/property.jpeg`
+                  resData[key].imageUrl,
+                  resData[key].units
                 )
               );
             }

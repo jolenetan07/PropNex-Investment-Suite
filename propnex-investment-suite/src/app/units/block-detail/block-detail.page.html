@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/units"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>{{ isLoading? 'Loading...' : place.name }}</ion-title>
+    <ion-title>{{ isLoading? 'Loading...' : currPlace.name }}</ion-title>
 
     <ion-button 
     *ngIf="currUser.userType === 'admin'"
@@ -23,18 +23,18 @@
     <ion-spinner color="primary"></ion-spinner>
   </div>
 
-  <ion-grid *ngIf="!isLoading && place">
+  <ion-grid *ngIf="!isLoading && currPlace">
     <ion-row>
       <ion-col class="ion-no-padding">
         <!-- <ion-img [src]="places[0].imageUrl"></ion-img> -->
-        <ion-img [src]="place?.imageUrl"></ion-img>
+        <ion-img [src]="currPlace.imageUrl"></ion-img>
     </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center ion-no-padding">
         <!-- <h6>{{ places[0].name }}, Singapore {{ places[0].postal }}</h6> -->
-        <h6>{{ place?.name }}, Singapore {{ place?.postal }}</h6>
+        <h6>{{ currPlace.name }}, Singapore {{ currPlace.postal }}</h6>
       </ion-col>
     </ion-row>
 
@@ -43,7 +43,7 @@
         <ion-button 
         color="tertiary" 
         expand="block"
-        (click)="addToFav(place?.postal)"
+        (click)="addToFav(currPlace.postal)"
         >
         Add To Favourites
         </ion-button>
@@ -65,15 +65,15 @@
       <ion-col>
         <ion-list>
           <ion-item *ngIf="result">
-            <ion-label *ngIf="result.unitNum === undefined">
+            <ion-label *ngIf="result.unitNumber === undefined">
               <h2>No results found</h2>
             </ion-label>
 
             <ion-label 
-              *ngIf="result.unitNum !== undefined"
+              *ngIf="result.unitNumber !== undefined"
               (click) = "onSelectUnit()"
             >
-              <h2>#{{ result.unitNum }}</h2>
+              <h2>#{{ result.unitNumber }}</h2>
             </ion-label>
           </ion-item>
         </ion-list>
