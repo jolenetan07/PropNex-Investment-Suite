@@ -44,7 +44,7 @@
                 </ion-label>
               </ion-item-divider>
 
-              <ion-item *ngFor="let region of count_data" [hidden]="numLocHidden">
+              <ion-item *ngFor="let region of count_dataArr" [hidden]="numLocHidden">
                 <ion-text slot="start">
                   {{region[0]}}
                 </ion-text>
@@ -61,7 +61,7 @@
                 </ion-label>
               </ion-item-divider>
 
-              <ion-item *ngFor="let region of countT_data" [hidden]="numTypeHidden">
+              <ion-item *ngFor="let region of countT_dataArr" [hidden]="numTypeHidden">
                 <ion-text slot="start">
                   {{region[0]}}
                 </ion-text>
@@ -95,7 +95,7 @@
                 </ion-label>
               </ion-item-divider>
 
-              <ion-item *ngFor="let region of max_data" [hidden]="expLocHidden">
+              <ion-item *ngFor="let region of max_dataArr" [hidden]="expLocHidden">
                 <ion-text slot="start">
                   {{region[0]}}
                 </ion-text>
@@ -112,7 +112,7 @@
                 </ion-label>
               </ion-item-divider>
 
-              <ion-item *ngFor="let region of maxT_data" [hidden]="expTypeHidden">
+              <ion-item *ngFor="let region of maxT_dataArr" [hidden]="expTypeHidden">
                 <ion-text slot="start">
                   {{region[0]}}
                 </ion-text>
@@ -138,7 +138,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item *ngFor="let region of avg_data">
+            <ion-item *ngFor="let region of avg_dataArr">
               <ion-text slot="start">
                 {{region[0]}}
               </ion-text>
@@ -159,7 +159,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item *ngFor="let type of avgT_data">
+            <ion-item *ngFor="let type of avgT_dataArr">
               <ion-text slot="start">
                 {{type[0]}}
               </ion-text>

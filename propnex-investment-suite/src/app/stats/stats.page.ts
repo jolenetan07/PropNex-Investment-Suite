@@ -19,6 +19,14 @@ export class StatsPage implements OnInit {
   public max_data;
   public maxT_data;
 
+  public count_dataArr;
+  public countT_dataArr;
+  public avg_dataArr;
+  public avgT_dataArr;
+  public max_dataArr;
+  public maxT_dataArr;
+
+
   numLocHidden = false;
   numTypeHidden = false;
   expLocHidden = false;
@@ -71,50 +79,50 @@ export class StatsPage implements OnInit {
     Plotly.newPlot('price-trends-graph', data, layout, configs);
 
 
-    this.count_data = this.count_data.split("\r\n").slice(1,6); 
+    this.count_dataArr = this.count_data.split("\r\n").slice(1,6); 
     for (let i = 0; i < 5; i++){
-      this.count_data[i] = this.count_data[i].split(",");
+      this.count_dataArr[i] = this.count_dataArr[i].split(",");
     }
-    this.count_data = this.count_data.sort(this.sort2Darray);
+    this.count_dataArr = this.count_dataArr.sort(this.sort2Darray);
     
-    this.countT_data = this.countT_data.split("\r\n").slice(1,17); 
+    this.countT_dataArr = this.countT_data.split("\r\n").slice(1,17); 
     for (let i = 0; i < 16; i++){
-      this.countT_data[i] = this.countT_data[i].split(",");
+      this.countT_dataArr[i] = this.countT_dataArr[i].split(",");
     }
-    this.countT_data = this.countT_data.sort(this.sort2Darray);
+    this.countT_dataArr = this.countT_dataArr.sort(this.sort2Darray);
 
-    this.avg_data = this.avg_data.split("\r\n").slice(1,6); 
+    this.avg_dataArr = this.avg_data.split("\r\n").slice(1,6); 
     for (let i = 0; i < 5; i++){
-      this.avg_data[i] = this.avg_data[i].split(",");
-      this.avg_data[i][1] = this.avg_data[i][1].slice(0,this.avg_data[i][1].indexOf("."));
+      this.avg_dataArr[i] = this.avg_dataArr[i].split(",");
+      this.avg_dataArr[i][1] = this.avg_dataArr[i][1].slice(0,this.avg_dataArr[i][1].indexOf("."));
     }
-    this.avg_data = this.avg_data.sort(this.sort2Darray);
+    this.avg_dataArr = this.avg_dataArr.sort(this.sort2Darray);
 
-    this.avgT_data = this.avgT_data.split("\r\n").slice(1,17); 
+    this.avgT_dataArr = this.avgT_data.split("\r\n").slice(1,17); 
     for (let i = 0; i < 16; i++){
-      this.avgT_data[i] = this.avgT_data[i].split(",");
-      this.avgT_data[i][1] = this.avgT_data[i][1].slice(0,this.avgT_data[i][1].indexOf("."));
+      this.avgT_dataArr[i] = this.avgT_dataArr[i].split(",");
+      this.avgT_dataArr[i][1] = this.avgT_dataArr[i][1].slice(0,this.avgT_dataArr[i][1].indexOf("."));
     }
-    this.avgT_data = this.avgT_data.sort(this.sort2Darray);
+    this.avgT_dataArr = this.avgT_dataArr.sort(this.sort2Darray);
     
-    this.max_data = this.max_data.split("\r\n").slice(1,6); 
+    this.max_dataArr = this.max_data.split("\r\n").slice(1,6); 
     for (let i = 0; i < 5; i++){
-      this.max_data[i] = this.max_data[i].split(",");
-      this.max_data[i][1] = this.max_data[i][1].slice(0,this.max_data[i][1].indexOf("."));
+      this.max_dataArr[i] = this.max_dataArr[i].split(",");
+      this.max_dataArr[i][1] = this.max_dataArr[i][1].slice(0,this.max_dataArr[i][1].indexOf("."));
     }
-    this.max_data = this.max_data.sort(this.sort2Darray);
+    this.max_dataArr = this.max_dataArr.sort(this.sort2Darray);
 
-    this.maxT_data = this.maxT_data.split("\r\n").slice(1,17); 
+    this.maxT_dataArr = this.maxT_data.split("\r\n").slice(1,17); 
     for (let i = 0; i < 16; i++){
-      this.maxT_data[i] = this.maxT_data[i].split(",");
-      this.maxT_data[i][1] = this.maxT_data[i][1].slice(0,this.maxT_data[i][1].indexOf("."));
+      this.maxT_dataArr[i] = this.maxT_dataArr[i].split(",");
+      this.maxT_dataArr[i][1] = this.maxT_dataArr[i][1].slice(0,this.maxT_dataArr[i][1].indexOf("."));
     }
-    this.maxT_data = this.maxT_data.sort(this.sort2Darray);
+    this.maxT_dataArr = this.maxT_dataArr.sort(this.sort2Darray);
 
-    console.log(this.count_data);
-    console.log(this.avg_data);
-    console.log(this.max_data);
-    console.log(this.pricepsmData)
+    // console.log(this.count_data);
+    // console.log(this.avg_data);
+    // console.log(this.max_data);
+    // console.log(this.pricepsmData)
   }
 
   async countInfoClick() {
