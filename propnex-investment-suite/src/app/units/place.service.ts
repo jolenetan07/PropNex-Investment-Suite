@@ -121,4 +121,46 @@ export class PlaceService {
       })
     );
   }
+
+  addUnit(targetPostal: string, unitNumber: string, bedrooms: string, size: string) {
+    let updatedPlaces: fbPostal[];
+    return this.fbPostals.pipe(
+      take(1),
+      switchMap(places => {
+        if (!places || places.length <= 0) {
+          return this.fetchFBPostals();
+        } else {
+          return of(places);
+        }
+      }),
+      switchMap(places => {
+        const updatedPlaceIndex = places.findIndex(p => p.postal === targetPostal);
+        updatedPlaces = [...places];
+        const oldPlace = updatedPlaces[updatedPlaceIndex];
+        const newUnit = new fbUnit(
+          bedrooms,
+          `assets/placeholders/floorplan.png`,
+          size,
+          unitNumber
+        );
+        let newUnitsArr = oldPlace.units || [];
+        newUnitsArr = newUnitsArr.concat(newUnit);
+        
+        updatedPlaces[updatedPlaceIndex] = new fbPostal(
+          oldPlace.name,
+          oldPlace.postal,
+          oldPlace.imageUrl,
+          newUnitsArr
+        );
+        //this.currFbUser = updatedPlaces[updatedPlaceIndex];
+        return this.http.put(
+          `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/${updatedPlaceIndex}.json`,
+          { ...updatedPlaces[updatedPlaceIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbPostals.next(updatedPlaces);
+      })
+    );
+  }
 }
