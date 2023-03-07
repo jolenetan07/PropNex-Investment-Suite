@@ -10,6 +10,7 @@ import { UnitDetailPage } from './unit-detail.page';
 import { EditUnitComponent } from './edit-unit/edit-unit.component';
 import { FloorplanComponent } from './floorplan/floorplan.component';
 import { FloorplanModalComponent } from './floorplan-modal/floorplan-modal.component';
+import { EditAllUnitsComponent } from './edit-all-units/edit-all-units.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { FloorplanModalComponent } from './floorplan-modal/floorplan-modal.compo
     UnitDetailPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [UnitDetailPage, EditUnitComponent, FloorplanComponent, FloorplanModalComponent]
+  declarations: [UnitDetailPage, EditUnitComponent, EditAllUnitsComponent, FloorplanComponent, FloorplanModalComponent]
 })
 export class UnitDetailPageModule {}

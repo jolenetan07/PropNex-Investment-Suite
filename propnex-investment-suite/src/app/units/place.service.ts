@@ -152,7 +152,8 @@ export class PlaceService {
           oldPlace.imageUrl,
           newUnitsArr
         );
-        //this.currFbUser = updatedPlaces[updatedPlaceIndex];
+        this.currPlace = updatedPlaces[updatedPlaceIndex];
+        this.currUnit = newUnit;
         return this.http.put(
           `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/${updatedPlaceIndex}.json`,
           { ...updatedPlaces[updatedPlaceIndex] }
@@ -160,6 +161,43 @@ export class PlaceService {
       }),
       tap(() => {
         this._fbPostals.next(updatedPlaces);
+      })
+    );
+  }
+
+  editUnit(targetPostal: string, targetUnitNum: string, newUnit: fbUnit) {
+    let updatedUsers: fbPostal[];
+    return this.fbPostals.pipe(
+      take(1),
+      switchMap(users => {
+        if (!users || users.length <= 0) {
+          return this.fetchFBPostals();
+        } else {
+          return of(users);
+        }
+      }),
+      switchMap(users => {
+        const updatedUserIndex = users.findIndex(u => u.postal === targetPostal);
+        updatedUsers = [...users];
+        const oldPlace = updatedUsers[updatedUserIndex];
+
+        let newFavArr = oldPlace.units || [];
+        newFavArr = newFavArr.concat(newUnit);
+        
+        updatedUsers[updatedUserIndex] = new fbPostal(
+          oldPlace.name,
+          oldPlace.postal,
+          oldPlace.imageUrl,
+          newFavArr
+        );
+        //this.currFbUser = updatedUsers[updatedUserIndex];
+        return this.http.put(
+          `https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+          { ...updatedUsers[updatedUserIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbPostals.next(updatedUsers);
       })
     );
   }

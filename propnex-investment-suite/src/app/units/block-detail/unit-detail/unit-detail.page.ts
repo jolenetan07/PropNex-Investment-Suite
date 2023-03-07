@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonContent, ModalController, NavController, PopoverController } from '@ionic/angular';
+import { ActionSheetController, IonContent, ModalController, NavController, PopoverController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { fbPostal, fbUnit, fbUser } from 'src/app/auth/firebase.model';
 import { User } from 'src/app/auth/user.model';
 import { HomeService } from 'src/app/home/home.service';
 import { Place } from 'src/app/home/place.model';
 import { PlaceService } from '../../place.service';
+import { EditAllUnitsComponent } from './edit-all-units/edit-all-units.component';
 import { EditUnitComponent } from './edit-unit/edit-unit.component';
 import { FloorplanComponent } from './floorplan/floorplan.component';
 
@@ -64,7 +65,8 @@ export class UnitDetailPage implements OnInit {
     private popoverController: PopoverController,
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private placeService: PlaceService
+    private placeService: PlaceService,
+    private actionSheetCtrl: ActionSheetController,
     //private router: Router
   ) { }
 
@@ -87,15 +89,66 @@ export class UnitDetailPage implements OnInit {
 
   }
 
+  ionViewWillEnter() {
+    this.currPlace = this.placeService.currPlace;
+    this.currUnit = this.placeService.currUnit;
+    this.placeService.fetchFBPostals().subscribe(() => {
+
+    });
+
+  }
+
 
   handleChange(event) {
     console.log(event.detail.value);
   }
 
+  onEditUnitOptions() {
+    console.log("choose to edit this unit or edit all same number units");
+
+    this.actionSheetCtrl.create({
+      header: 'Please Choose',
+      buttons: [
+        { 
+          text: 'Edit This Unit', 
+          handler: () => { 
+            this.onEditUnit();
+          } 
+        },
+        {
+          text: 'Edit All Same Units', 
+          handler: () => { 
+            this.onEditAllUnits();
+          }
+        },
+        { text: 'Cancel', role: 'cancel' }
+      ]
+    })
+    .then(actionSheetEl => {
+      actionSheetEl.present();
+    });
+  }
+
+
   onEditUnit() {
-    console.log("edit specific unit details");
+    console.log("edit this unit details");
     this.modalCtrl
     .create({ component: EditUnitComponent })
+    .then(modalEl => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    })
+    .then(resData => {
+      this.ionViewWillEnter();
+      console.log(resData);
+    });
+
+  }
+
+  onEditAllUnits() {
+    console.log("edit all same number unit details");
+    this.modalCtrl
+    .create({ component: EditAllUnitsComponent })
     .then(modalEl => {
       modalEl.present();
       return modalEl.onDidDismiss();
