@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController, IonContent, ModalController, NavController, PopoverController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -67,6 +67,7 @@ export class UnitDetailPage implements OnInit {
     private navCtrl: NavController,
     private placeService: PlaceService,
     private actionSheetCtrl: ActionSheetController,
+    private cdr: ChangeDetectorRef
     //private router: Router
   ) { }
 
@@ -93,7 +94,7 @@ export class UnitDetailPage implements OnInit {
     this.currPlace = this.placeService.currPlace;
     this.currUnit = this.placeService.currUnit;
     this.placeService.fetchFBPostals().subscribe(() => {
-
+      this.cdr.detectChanges();
     });
 
   }
@@ -138,11 +139,13 @@ export class UnitDetailPage implements OnInit {
       modalEl.present();
       return modalEl.onDidDismiss();
     })
-    .then(resData => {
-      this.ionViewWillEnter();
-      console.log(resData);
+    .then(resultData => {
+      console.log(resultData.data, resultData.role);
+      if (resultData.role === 'confirm') {
+        this.ionViewWillEnter();
+        console.log('edited!');
+      }
     });
-
   }
 
   onEditAllUnits() {

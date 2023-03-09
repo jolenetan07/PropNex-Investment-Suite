@@ -180,19 +180,19 @@ export class PlaceService {
         const updatedUserIndex = users.findIndex(u => u.postal === targetPostal);
         updatedUsers = [...users];
         const oldPlace = updatedUsers[updatedUserIndex];
-
-        let newFavArr = oldPlace.units || [];
-        newFavArr = newFavArr.concat(newUnit);
-        
+        const oldUnitIndex = oldPlace.units.findIndex(u => u.unitNumber === targetUnitNum);
+        oldPlace.units[oldUnitIndex] = newUnit;
+        let newFavArr = oldPlace.units;
         updatedUsers[updatedUserIndex] = new fbPostal(
           oldPlace.name,
           oldPlace.postal,
           oldPlace.imageUrl,
           newFavArr
         );
-        //this.currFbUser = updatedUsers[updatedUserIndex];
+        this.currPlace = updatedUsers[updatedUserIndex];
+        this.currUnit = newUnit;
         return this.http.put(
-          `https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+          `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
           { ...updatedUsers[updatedUserIndex] }
         );
       }),

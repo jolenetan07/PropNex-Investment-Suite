@@ -136,7 +136,7 @@ export class EditUnitComponent implements OnInit {
     });
     
     //this.editUnitForm.reset();
-    this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
   uploadFloorPlanImage() {
