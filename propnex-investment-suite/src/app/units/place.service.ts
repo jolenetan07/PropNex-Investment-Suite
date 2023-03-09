@@ -201,4 +201,55 @@ export class PlaceService {
       })
     );
   }
+
+  editAllUnit(targetPostal: string, targetUnitNum: string, newBedrooms: string, newSize: string) {
+    let updatedUsers: fbPostal[];
+    return this.fbPostals.pipe(
+      take(1),
+      switchMap(users => {
+        if (!users || users.length <= 0) {
+          return this.fetchFBPostals();
+        } else {
+          return of(users);
+        }
+      }),
+      switchMap(users => {
+        const updatedUserIndex = users.findIndex(u => u.postal === targetPostal);
+        updatedUsers = [...users];
+        const oldPlace = updatedUsers[updatedUserIndex];
+
+        let targetString = '-' + targetUnitNum.split('-')[1];
+        let unitArr = oldPlace.units.filter(u => u.unitNumber.includes(targetString));
+
+        unitArr.forEach(u => {
+          u.bedrooms = newBedrooms;
+          u.size = newSize;
+        });
+
+        for (let i = 0; i < unitArr.length; i++) {
+          let currUnitNum = unitArr[i].unitNumber;
+          let currIndex = oldPlace.units.findIndex(u => u.unitNumber === currUnitNum);
+          oldPlace.units[currIndex] = unitArr[i];
+        }
+        
+        const oldUnitIndex = oldPlace.units.findIndex(u => u.unitNumber === targetUnitNum);
+
+        updatedUsers[updatedUserIndex] = new fbPostal(
+          oldPlace.name,
+          oldPlace.postal,
+          oldPlace.imageUrl,
+          oldPlace.units
+        );
+        this.currPlace = updatedUsers[updatedUserIndex];
+        this.currUnit = oldPlace.units[oldUnitIndex];
+        return this.http.put(
+          `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/${updatedUserIndex}.json`,
+          { ...updatedUsers[updatedUserIndex] }
+        );
+      }),
+      tap(() => {
+        this._fbPostals.next(updatedUsers);
+      })
+    );
+  }
 }
