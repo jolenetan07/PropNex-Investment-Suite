@@ -228,7 +228,7 @@ export class StatsPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Price and Volume Trends',
       subHeader: 'How is this calculated?',
-      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented.',
+      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented. \n\n Predictions are calculated using deep learning artificial intelligence.',
       buttons: ['OK'],
     });
 
