@@ -16,13 +16,80 @@ export class StatsDataService {
 
   
   private readonly price_psm_URL = 'assets/stats/price_psm_graph.json';
+  private readonly central_URL = 'assets/stats/Central_Region.json';
+  private readonly east_URL = 'assets/stats/East_Region.json';
+  private readonly ne_URL = 'assets/stats/North_East_Region.json';
+  private readonly north_URL = 'assets/stats/North_Region.json';
+  private readonly west_URL = 'assets/stats/West_Region.json';
   private readonly volume_URL = 'assets/stats/volume_graph.json';
+
+  private readonly mean_pred_URL = 'assets/stats/price_pred.json';
+  private readonly central_pred_URL = 'assets/stats/Central_Region_Pred.json';
+  private readonly east_pred_URL = 'assets/stats/East_Region_Pred.json';
+  private readonly ne_pred_URL = 'assets/stats/North_East_Region_Pred.json';
+  private readonly north_pred_URL = 'assets/stats/North_Region_Pred.json';
+  private readonly west_pred_URL = 'assets/stats/West_Region_Pred.json';
 
   constructor(protected http: HttpClient) { }
 
   getPricepsmData(){
     console.log("Fetch price psm data from assets");
     return this.http.get(this.price_psm_URL);
+  }
+
+  getMeanPredData(){
+    console.log("Fetch mean pred data from assets");
+    return this.http.get(this.mean_pred_URL);
+  }
+
+  getCentralData(){
+    console.log("Fetch central data from assets");
+    return this.http.get(this.central_URL);
+  }
+
+  getEastData(){
+    console.log("Fetch east data from assets");
+    return this.http.get(this.east_URL);
+  }
+
+  getNEData(){
+    console.log("Fetch north-east data from assets");
+    return this.http.get(this.ne_URL);
+  }
+
+  getNorthData(){
+    console.log("Fetch north data from assets");
+    return this.http.get(this.north_URL);
+  }
+
+  getWestData(){
+    console.log("Fetch west data from assets");
+    return this.http.get(this.west_URL);
+  }
+
+  getCentralPredData(){
+    console.log("Fetch central pred data from assets");
+    return this.http.get(this.central_pred_URL);
+  }
+
+  getEastPredData(){
+    console.log("Fetch east pred data from assets");
+    return this.http.get(this.east_pred_URL);
+  }
+
+  getNEPredData(){
+    console.log("Fetch north-east pred data from assets");
+    return this.http.get(this.ne_pred_URL);
+  }
+
+  getNorthPredData(){
+    console.log("Fetch north pred data from assets");
+    return this.http.get(this.north_pred_URL);
+  }
+
+  getWestPredData(){
+    console.log("Fetch west pred data from assets");
+    return this.http.get(this.west_pred_URL);
   }
 
   getVolumeData(){
