@@ -22,62 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n\n    <ion-title>Individual Units</ion-title>\n\n    <ion-button \n    *ngIf=\"currUser.type === 'seller'\"\n    size=\"small\" \n    color=\"tertiary\"\n    slot=\"end\" \n    (click)=\"onAddBlock()\"\n  >\n    <ion-icon slot=\"icon-only\" name=\"add-outline\"></ion-icon>\n</ion-button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-searchbar \n        color=\"light\"\n        placeholder=\"Enter postal code\"\n        [debounce]=\"500\"\n        (ionChange)=\"handleChange($event)\"\n        ></ion-searchbar>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <ion-list>\n          <ion-item *ngIf=\"result\">\n            <ion-label *ngIf=\"result.name === undefined\">\n              <h2>No results found</h2>\n            </ion-label>\n\n            <ion-thumbnail *ngIf=\"result.name !== undefined\" slot=\"start\">\n              <ion-img [src]=\"result.imageUrl\"></ion-img>\n            </ion-thumbnail>\n            <ion-label \n              *ngIf=\"result.name !== undefined\"\n              (click) = \"onSelectPlace()\"\n            >\n              <h2>{{ result.name }}</h2>\n              <p>Singapore {{ result.postal}}</p>\n            </ion-label>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n");
-
-/***/ }),
-
-/***/ "./src/app/auth/firebase.model.ts":
-/*!****************************************!*\
-  !*** ./src/app/auth/firebase.model.ts ***!
-  \****************************************/
-/*! exports provided: fbUser, fbPostal, fbTrans */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUser", function() { return fbUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbPostal", function() { return fbPostal; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbTrans", function() { return fbTrans; });
-var fbUser = /** @class */ (function () {
-    function fbUser(email, firstName, householdIncome, lastName, password, type, username) {
-        this.email = email;
-        this.firstName = firstName;
-        this.householdIncome = householdIncome;
-        this.lastName = lastName;
-        this.password = password;
-        this.type = type;
-        this.username = username;
-    }
-    return fbUser;
-}());
-
-var fbPostal = /** @class */ (function () {
-    function fbPostal(name, postal, imageUrl) {
-        this.name = name;
-        this.postal = postal;
-        this.imageUrl = imageUrl;
-    }
-    return fbPostal;
-}());
-
-var fbTrans = /** @class */ (function () {
-    function fbTrans(area, dateOfSale, flatModel, floorMax, floorMin, privatePublic, projectName, remainingLease, salePrice, type, transID) {
-        this.area = area;
-        this.dateOfSale = dateOfSale;
-        this.flatModel = flatModel;
-        this.floorMax = floorMax;
-        this.floorMin = floorMin;
-        this.privatePublic = privatePublic;
-        this.projectName = projectName;
-        this.remainingLease = remainingLease;
-        this.salePrice = salePrice;
-        this.type = type;
-        this.transID = transID;
-    }
-    return fbTrans;
-}());
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n\n    <ion-title>Individual Units</ion-title>\n\n    <ion-button \n    *ngIf=\"currUser.userType === 'admin'\"\n    size=\"small\" \n    color=\"tertiary\"\n    slot=\"end\" \n    (click)=\"onAddBlock()\"\n  >\n    <ion-icon slot=\"icon-only\" name=\"add-outline\"></ion-icon>\n</ion-button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-searchbar \n        color=\"light\"\n        placeholder=\"Enter postal code\"\n        [debounce]=\"500\"\n        (ionChange)=\"handleChange($event)\"\n        ></ion-searchbar>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <ion-list>\n          <ion-item *ngIf=\"result\">\n            <ion-label *ngIf=\"result.name === undefined\">\n              <h2>No results found</h2>\n            </ion-label>\n\n            <ion-thumbnail *ngIf=\"result.name !== undefined\" slot=\"start\">\n              <ion-img [src]=\"result.imageUrl\"></ion-img>\n            </ion-thumbnail>\n            <ion-label \n              *ngIf=\"result.name !== undefined\"\n              (click) = \"onSelectPlace()\"\n            >\n              <h2>{{ result.name }}</h2>\n              <p>Singapore {{ result.postal}}</p>\n            </ion-label>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n");
 
 /***/ }),
 
@@ -107,6 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
+/* harmony import */ var _place_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../place.service */ "./src/app/units/place.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,9 +68,11 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AddBlockComponent = /** @class */ (function () {
-    function AddBlockComponent(modalCtrl) {
+    function AddBlockComponent(modalCtrl, placeService) {
         this.modalCtrl = modalCtrl;
+        this.placeService = placeService;
     }
     AddBlockComponent.prototype.ngOnInit = function () {
         this.addBlockForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
@@ -144,7 +92,11 @@ var AddBlockComponent = /** @class */ (function () {
         if (!this.addBlockForm.valid) {
             return;
         }
-        console.log("block added");
+        var projectName = this.addBlockForm.value.projectName;
+        var postalCode = this.addBlockForm.value.postalCode;
+        console.log(projectName, postalCode);
+        this.placeService.addBlock(projectName, postalCode).subscribe(function () {
+        });
         this.addBlockForm.reset();
         this.modalCtrl.dismiss();
     };
@@ -152,7 +104,8 @@ var AddBlockComponent = /** @class */ (function () {
         console.log("choose block image to upload");
     };
     AddBlockComponent.ctorParameters = function () { return [
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+        { type: _place_service__WEBPACK_IMPORTED_MODULE_3__["PlaceService"] }
     ]; };
     AddBlockComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -160,95 +113,10 @@ var AddBlockComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./add-block.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/add-block/add-block.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./add-block.component.scss */ "./src/app/units/add-block/add-block.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            _place_service__WEBPACK_IMPORTED_MODULE_3__["PlaceService"]])
     ], AddBlockComponent);
     return AddBlockComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/units/place.service.ts":
-/*!****************************************!*\
-  !*** ./src/app/units/place.service.ts ***!
-  \****************************************/
-/*! exports provided: PlaceService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlaceService", function() { return PlaceService; });
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _auth_firebase_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../auth/firebase.model */ "./src/app/auth/firebase.model.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var PlaceService = /** @class */ (function () {
-    function PlaceService(http) {
-        this.http = http;
-        this._fbPostals = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
-    }
-    Object.defineProperty(PlaceService.prototype, "fbPostals", {
-        get: function () {
-            return this._fbPostals.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PlaceService.prototype, "currPlace", {
-        get: function () {
-            return this._currPlace;
-        },
-        set: function (currPlace) {
-            this._currPlace = currPlace;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    PlaceService.prototype.fetchFBPostals = function () {
-        var _this = this;
-        console.log("fetch postal data");
-        return this.http
-            .get("https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json")
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resData) {
-            var postals = [];
-            for (var key in resData) {
-                if (resData.hasOwnProperty(key)) {
-                    postals.push(new _auth_firebase_model__WEBPACK_IMPORTED_MODULE_4__["fbPostal"](resData[key][0], resData[key][1], "assets/placeholders/property.jpeg"));
-                }
-            }
-            return postals;
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (postals) {
-            //console.log(postals[0]);
-            //console.log(postals);
-            _this._fbPostals.next(postals);
-        }));
-    };
-    PlaceService.ctorParameters = function () { return [
-        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"] }
-    ]; };
-    PlaceService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
-    ], PlaceService);
-    return PlaceService;
 }());
 
 
@@ -413,7 +281,7 @@ var UnitsPage = /** @class */ (function () {
     }
     UnitsPage.prototype.ngOnInit = function () {
         var _this = this;
-        this.currUser = this.authService.currentUser;
+        this.currUser = this.authService.currFbUser;
         //this.loadedPlaces = this.homeService.allPlaces;
         this.fbPostalsSub = this.placeService.fbPostals.subscribe(function (fbPostals) {
             _this.loadedFBPostals = fbPostals;
@@ -443,6 +311,11 @@ var UnitsPage = /** @class */ (function () {
             modalEl.present();
             return modalEl.onDidDismiss();
         });
+    };
+    UnitsPage.prototype.ngOnDestroy = function () {
+        if (this.fbPostalsSub) {
+            this.fbPostalsSub.unsubscribe();
+        }
     };
     UnitsPage.ctorParameters = function () { return [
         { type: _auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },

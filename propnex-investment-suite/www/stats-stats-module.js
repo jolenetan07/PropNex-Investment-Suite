@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>Statistical Insights</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-no-padding\">\n  <ion-grid class=\"ion-no-padding\">\n    <ion-row>\n      <ion-col>\n        <ion-card class=\"ion-no-padding\">\n          <ion-card-header>\n            <ion-card-title>Price and Volume Trends\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"trendsInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button></ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <div id=\"price-trends-graph\"></div>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n      <ion-card>\n        <ion-card-header>\n          <ion-card-title>Most Number of Units Sold\n            <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"countInfoClick()\">\n              <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n            </ion-button>\n          </ion-card-title>\n        </ion-card-header>\n        <ion-card-content>\n          <ion-list>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"numLocButton()\">\n                <ion-label>\n                  <h2>By Location</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of count_data\" [hidden]=\"numLocHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  {{region[1]}} units\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"numTypeButton()\">\n                <ion-label>\n                  <h2>By Type</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of countT_data\" [hidden]=\"numTypeHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  {{region[1]}} units\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n          </ion-list>\n        </ion-card-content>\n      </ion-card>\n    </ion-col>\n    \n    <ion-col>\n      <ion-card>\n        <ion-card-header>\n          <ion-card-title>Most Expensive Units\n            <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"maxInfoClick()\">\n              <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n            </ion-button>\n          </ion-card-title>\n        </ion-card-header>\n        <ion-card-content>\n          <ion-list>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"expLocButton()\">\n                <ion-label>\n                  <h2>By Location</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of max_data\" [hidden]=\"expLocHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  ${{region[1]}} psm\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"expTypeButton()\">\n                <ion-label>\n                  <h2>By Type</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of maxT_data\" [hidden]=\"expTypeHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  ${{region[1]}} psm\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n          </ion-list>\n        </ion-card-content>\n      </ion-card>\n    </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-card>\n          <ion-card-header>\n            <ion-card-title>Most Expensive Locations\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"avgLocInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button>\n            </ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <ion-item *ngFor=\"let region of avg_data\">\n              <ion-text slot=\"start\">\n                {{region[0]}}\n              </ion-text>\n              <ion-text slot=\"end\">\n                ${{region[1]}} psm\n              </ion-text>\n            </ion-item>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col>\n        <ion-card>\n          <ion-card-header>\n            <ion-card-title>Most Expensive Property Types\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"avgTypeInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button>\n            </ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <ion-item *ngFor=\"let type of avgT_data\">\n              <ion-text slot=\"start\">\n                {{type[0]}}\n              </ion-text>\n              <ion-text slot=\"end\">\n                ${{type[1]}} psm\n              </ion-text>\n            </ion-item>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>Statistical Insights</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-no-padding\">\n  <ion-grid class=\"ion-no-padding\">\n    <ion-row>\n      <ion-col>\n        <ion-card class=\"ion-no-padding\">\n          <ion-card-header>\n            <ion-card-title>Price and Volume Trends\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"trendsInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button></ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <ion-list>\n              <ion-item>\n                <ion-text slot=\"start\"> Filter: </ion-text>\n                <ion-select placeholder=\"All\" [multiple]=\"true\" [value]=\"['all']\" (ionChange)=\"handleChange($event)\">\n                  <ion-select-option value=\"all\">All Units</ion-select-option>\n                  <ion-select-option value=\"central\">Central District</ion-select-option>\n                  <ion-select-option value=\"east\">East District</ion-select-option>\n                  <ion-select-option value=\"ne\">North-East District</ion-select-option>\n                  <ion-select-option value=\"north\">North District</ion-select-option>\n                  <ion-select-option value=\"west\">West District</ion-select-option>\n                </ion-select>\n              </ion-item>\n            </ion-list>\n            <div id=\"price-trends-graph\"></div>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n      <ion-card>\n        <ion-card-header>\n          <ion-card-title>Most Number of Units Sold\n            <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"countInfoClick()\">\n              <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n            </ion-button>\n          </ion-card-title>\n        </ion-card-header>\n        <ion-card-content>\n          <ion-list>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"numLocButton()\">\n                <ion-label>\n                  <h2>By Location</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of count_dataArr\" [hidden]=\"numLocHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  {{region[1]}} units\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"numTypeButton()\">\n                <ion-label>\n                  <h2>By Type</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of countT_dataArr\" [hidden]=\"numTypeHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  {{region[1]}} units\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n          </ion-list>\n        </ion-card-content>\n      </ion-card>\n    </ion-col>\n    \n    <ion-col>\n      <ion-card>\n        <ion-card-header>\n          <ion-card-title>Most Expensive Units\n            <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"maxInfoClick()\">\n              <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n            </ion-button>\n          </ion-card-title>\n        </ion-card-header>\n        <ion-card-content>\n          <ion-list>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"expLocButton()\">\n                <ion-label>\n                  <h2>By Location</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of max_dataArr\" [hidden]=\"expLocHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  ${{region[1]}} psm\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n            <ion-item-group>\n              <ion-item-divider color=\"medium\" (click)=\"expTypeButton()\">\n                <ion-label>\n                  <h2>By Type</h2>\n                </ion-label>\n              </ion-item-divider>\n\n              <ion-item *ngFor=\"let region of maxT_dataArr\" [hidden]=\"expTypeHidden\">\n                <ion-text slot=\"start\">\n                  {{region[0]}}\n                </ion-text>\n                <ion-text slot=\"end\">\n                  ${{region[1]}} psm\n                </ion-text>\n              </ion-item>\n            </ion-item-group>\n\n          </ion-list>\n        </ion-card-content>\n      </ion-card>\n    </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-card>\n          <ion-card-header>\n            <ion-card-title>Most Expensive Locations\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"avgLocInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button>\n            </ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <ion-item *ngFor=\"let region of avg_dataArr\">\n              <ion-text slot=\"start\">\n                {{region[0]}}\n              </ion-text>\n              <ion-text slot=\"end\">\n                ${{region[1]}} psm\n              </ion-text>\n            </ion-item>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col>\n        <ion-card>\n          <ion-card-header>\n            <ion-card-title>Most Expensive Property Types\n              <ion-button fill=\"clear\" size=\"small\" color=\"medium\" (click)=\"avgTypeInfoClick()\">\n                <ion-icon slot=\"icon-only\" name=\"information-circle\"></ion-icon>\n              </ion-button>\n            </ion-card-title>\n          </ion-card-header>\n          <ion-card-content>\n            <ion-item *ngFor=\"let type of avgT_dataArr\">\n              <ion-text slot=\"start\">\n                {{type[0]}}\n              </ion-text>\n              <ion-text slot=\"end\">\n                ${{type[1]}} psm\n              </ion-text>\n            </ion-item>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -47,11 +47,66 @@ var StatsDataService = /** @class */ (function () {
         this.max_URL = 'assets/stats/max_by_district.csv';
         this.maxT_URL = 'assets/stats/max_by_type.csv';
         this.price_psm_URL = 'assets/stats/price_psm_graph.json';
+        this.central_URL = 'assets/stats/Central_Region.json';
+        this.east_URL = 'assets/stats/East_Region.json';
+        this.ne_URL = 'assets/stats/North_East_Region.json';
+        this.north_URL = 'assets/stats/North_Region.json';
+        this.west_URL = 'assets/stats/West_Region.json';
         this.volume_URL = 'assets/stats/volume_graph.json';
+        this.mean_pred_URL = 'assets/stats/price_pred.json';
+        this.central_pred_URL = 'assets/stats/Central_Region_Pred.json';
+        this.east_pred_URL = 'assets/stats/East_Region_Pred.json';
+        this.ne_pred_URL = 'assets/stats/North_East_Region_Pred.json';
+        this.north_pred_URL = 'assets/stats/North_Region_Pred.json';
+        this.west_pred_URL = 'assets/stats/West_Region_Pred.json';
     }
     StatsDataService.prototype.getPricepsmData = function () {
         console.log("Fetch price psm data from assets");
         return this.http.get(this.price_psm_URL);
+    };
+    StatsDataService.prototype.getMeanPredData = function () {
+        console.log("Fetch mean pred data from assets");
+        return this.http.get(this.mean_pred_URL);
+    };
+    StatsDataService.prototype.getCentralData = function () {
+        console.log("Fetch central data from assets");
+        return this.http.get(this.central_URL);
+    };
+    StatsDataService.prototype.getEastData = function () {
+        console.log("Fetch east data from assets");
+        return this.http.get(this.east_URL);
+    };
+    StatsDataService.prototype.getNEData = function () {
+        console.log("Fetch north-east data from assets");
+        return this.http.get(this.ne_URL);
+    };
+    StatsDataService.prototype.getNorthData = function () {
+        console.log("Fetch north data from assets");
+        return this.http.get(this.north_URL);
+    };
+    StatsDataService.prototype.getWestData = function () {
+        console.log("Fetch west data from assets");
+        return this.http.get(this.west_URL);
+    };
+    StatsDataService.prototype.getCentralPredData = function () {
+        console.log("Fetch central pred data from assets");
+        return this.http.get(this.central_pred_URL);
+    };
+    StatsDataService.prototype.getEastPredData = function () {
+        console.log("Fetch east pred data from assets");
+        return this.http.get(this.east_pred_URL);
+    };
+    StatsDataService.prototype.getNEPredData = function () {
+        console.log("Fetch north-east pred data from assets");
+        return this.http.get(this.ne_pred_URL);
+    };
+    StatsDataService.prototype.getNorthPredData = function () {
+        console.log("Fetch north pred data from assets");
+        return this.http.get(this.north_pred_URL);
+    };
+    StatsDataService.prototype.getWestPredData = function () {
+        console.log("Fetch west pred data from assets");
+        return this.http.get(this.west_pred_URL);
     };
     StatsDataService.prototype.getVolumeData = function () {
         console.log("Fetch volume data from assets");
@@ -275,6 +330,9 @@ var StatsPage = /** @class */ (function () {
         this.numTypeHidden = false;
         this.expLocHidden = false;
         this.expTypeHidden = false;
+        this.filterSelectedItems = ["All Units"];
+        this.filterListItems = ["All Units", "Central Region", "North Region", "West Region"];
+        this.plot_id = 'price-trends-graph';
     }
     StatsPage.prototype.ngOnInit = function () {
         var _this = this;
@@ -287,67 +345,128 @@ var StatsPage = /** @class */ (function () {
         this.dataService.getPricepsmData().subscribe(function (data) {
             _this.pricepsmData = data;
         });
+        this.dataService.getMeanPredData().subscribe(function (data) {
+            _this.meanPredData = data;
+        });
+        this.dataService.getCentralData().subscribe(function (data) {
+            _this.centralData = data;
+        });
+        this.dataService.getEastData().subscribe(function (data) {
+            _this.eastData = data;
+        });
+        this.dataService.getNEData().subscribe(function (data) {
+            _this.neData = data;
+        });
+        this.dataService.getNorthData().subscribe(function (data) {
+            _this.northData = data;
+        });
+        this.dataService.getWestData().subscribe(function (data) {
+            _this.westData = data;
+        });
+        this.dataService.getCentralPredData().subscribe(function (data) {
+            _this.centralPredData = data;
+        });
+        this.dataService.getEastPredData().subscribe(function (data) {
+            _this.eastPredData = data;
+        });
+        this.dataService.getNEPredData().subscribe(function (data) {
+            _this.nePredData = data;
+        });
+        this.dataService.getNorthPredData().subscribe(function (data) {
+            _this.northPredData = data;
+        });
+        this.dataService.getWestPredData().subscribe(function (data) {
+            _this.westPredData = data;
+        });
         this.dataService.getVolumeData().subscribe(function (data) {
             _this.volumeData = data;
         });
         this.width = window.innerWidth;
         // this.height  = window.innerHeight;
     };
+    StatsPage.prototype.handleChange = function (e) {
+        var translate = { "all": [this.pricepsmData, this.meanPredData],
+            "central": [this.centralData, this.centralPredData],
+            "north": [this.northData, this.northPredData],
+            "east": [this.eastData, this.eastPredData],
+            "ne": [this.neData, this.nePredData],
+            "west": [this.westData, this.westPredData] };
+        var filter = e.detail.value;
+        this.data = [this.volumeData];
+        for (var i = 0; i < filter.length; i++) {
+            this.data.push(translate[filter[i]][0]);
+            this.data.push(translate[filter[i]][1]);
+        }
+        Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);
+        console.log(filter);
+        console.log(this.data);
+    };
     StatsPage.prototype.ionViewWillEnter = function () {
         this.pricepsmData["name"] = "Price psm";
+        this.meanPredData["name"] = "Predicted Price psm";
+        this.centralData["name"] = "Central Region Price psm";
+        this.northData["name"] = "North Region Price psm";
+        this.eastData["name"] = "East Region Price psm";
+        this.neData["name"] = "North-East Region Price psm";
+        this.westData["name"] = "West Region Price psm";
+        this.centralPredData["name"] = "Predicted Central Region Price psm";
+        this.northPredData["name"] = "Predicted North Region Price psm";
+        this.eastPredData["name"] = "Predicted East Region Price psm";
+        this.nePredData["name"] = "Predicted North-East Region Price psm";
+        this.westPredData["name"] = "Predicted West Region Price psm";
         this.volumeData["name"] = "Volume";
-        var data = [this.pricepsmData, this.volumeData];
-        var layout = {
+        this.data = [this.pricepsmData, this.volumeData, this.meanPredData];
+        this.layout = {
             showlegend: false,
             dragmode: 'pan',
             margin: { l: 25, r: 15, t: 10, b: 20 },
             width: this.width
         };
-        var configs = {
+        this.configs = {
             scrollZoom: false,
             responsive: true,
             displaylogo: false,
             modeBarButtonsToRemove: ['select2d', 'lasso2d', 'zoom2d', 'resetScale2d']
         };
-        Plotly.newPlot('price-trends-graph', data, layout, configs);
-        this.count_data = this.count_data.split("\r\n").slice(1, 6);
+        Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);
+        this.count_dataArr = this.count_data.split("\r\n").slice(1, 6);
         for (var i = 0; i < 5; i++) {
-            this.count_data[i] = this.count_data[i].split(",");
+            this.count_dataArr[i] = this.count_dataArr[i].split(",");
         }
-        this.count_data = this.count_data.sort(this.sort2Darray);
-        this.countT_data = this.countT_data.split("\r\n").slice(1, 17);
+        this.count_dataArr = this.count_dataArr.sort(this.sort2Darray);
+        this.countT_dataArr = this.countT_data.split("\r\n").slice(1, 17);
         for (var i = 0; i < 16; i++) {
-            this.countT_data[i] = this.countT_data[i].split(",");
+            this.countT_dataArr[i] = this.countT_dataArr[i].split(",");
         }
-        this.countT_data = this.countT_data.sort(this.sort2Darray);
-        this.avg_data = this.avg_data.split("\r\n").slice(1, 6);
+        this.countT_dataArr = this.countT_dataArr.sort(this.sort2Darray);
+        this.avg_dataArr = this.avg_data.split("\r\n").slice(1, 6);
         for (var i = 0; i < 5; i++) {
-            this.avg_data[i] = this.avg_data[i].split(",");
-            this.avg_data[i][1] = this.avg_data[i][1].slice(0, this.avg_data[i][1].indexOf("."));
+            this.avg_dataArr[i] = this.avg_dataArr[i].split(",");
+            this.avg_dataArr[i][1] = this.avg_dataArr[i][1].slice(0, this.avg_dataArr[i][1].indexOf("."));
         }
-        this.avg_data = this.avg_data.sort(this.sort2Darray);
-        this.avgT_data = this.avgT_data.split("\r\n").slice(1, 17);
+        this.avg_dataArr = this.avg_dataArr.sort(this.sort2Darray);
+        this.avgT_dataArr = this.avgT_data.split("\r\n").slice(1, 17);
         for (var i = 0; i < 16; i++) {
-            this.avgT_data[i] = this.avgT_data[i].split(",");
-            this.avgT_data[i][1] = this.avgT_data[i][1].slice(0, this.avgT_data[i][1].indexOf("."));
+            this.avgT_dataArr[i] = this.avgT_dataArr[i].split(",");
+            this.avgT_dataArr[i][1] = this.avgT_dataArr[i][1].slice(0, this.avgT_dataArr[i][1].indexOf("."));
         }
-        this.avgT_data = this.avgT_data.sort(this.sort2Darray);
-        this.max_data = this.max_data.split("\r\n").slice(1, 6);
+        this.avgT_dataArr = this.avgT_dataArr.sort(this.sort2Darray);
+        this.max_dataArr = this.max_data.split("\r\n").slice(1, 6);
         for (var i = 0; i < 5; i++) {
-            this.max_data[i] = this.max_data[i].split(",");
-            this.max_data[i][1] = this.max_data[i][1].slice(0, this.max_data[i][1].indexOf("."));
+            this.max_dataArr[i] = this.max_dataArr[i].split(",");
+            this.max_dataArr[i][1] = this.max_dataArr[i][1].slice(0, this.max_dataArr[i][1].indexOf("."));
         }
-        this.max_data = this.max_data.sort(this.sort2Darray);
-        this.maxT_data = this.maxT_data.split("\r\n").slice(1, 17);
+        this.max_dataArr = this.max_dataArr.sort(this.sort2Darray);
+        this.maxT_dataArr = this.maxT_data.split("\r\n").slice(1, 17);
         for (var i = 0; i < 16; i++) {
-            this.maxT_data[i] = this.maxT_data[i].split(",");
-            this.maxT_data[i][1] = this.maxT_data[i][1].slice(0, this.maxT_data[i][1].indexOf("."));
+            this.maxT_dataArr[i] = this.maxT_dataArr[i].split(",");
+            this.maxT_dataArr[i][1] = this.maxT_dataArr[i][1].slice(0, this.maxT_dataArr[i][1].indexOf("."));
         }
-        this.maxT_data = this.maxT_data.sort(this.sort2Darray);
-        console.log(this.count_data);
-        console.log(this.avg_data);
-        console.log(this.max_data);
-        console.log(this.pricepsmData);
+        this.maxT_dataArr = this.maxT_dataArr.sort(this.sort2Darray);
+        // console.log(this.count_data);
+        // console.log(this.avg_data);
+        // console.log(this.max_data);
+        // console.log(this.pricepsmData)
     };
     StatsPage.prototype.countInfoClick = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -382,7 +501,7 @@ var StatsPage = /** @class */ (function () {
                         return [4 /*yield*/, this.alertController.create({
                                 header: 'Price and Volume Trends',
                                 subHeader: 'How is this calculated?',
-                                message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented.',
+                                message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented. \n\n Predictions are calculated using deep learning artificial intelligence.',
                                 buttons: ['OK'],
                             })];
                     case 1:

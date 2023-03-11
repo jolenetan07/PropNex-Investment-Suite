@@ -93,7 +93,7 @@ export class BlockDetailPage implements OnInit {
       header: 'Please Choose',
       buttons: [
         { 
-          text: 'Edit Block', 
+          text: 'Edit Place', 
           handler: () => { 
             this.onEditBlock();
           } 

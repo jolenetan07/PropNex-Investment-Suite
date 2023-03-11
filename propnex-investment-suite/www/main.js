@@ -311,7 +311,7 @@ var routes = [
     },
     {
         path: 'units',
-        loadChildren: function () { return __webpack_require__.e(/*! import() | units-units-module */ "units-units-module").then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
+        loadChildren: function () { return Promise.all(/*! import() | units-units-module */[__webpack_require__.e("default~favourites-favourites-module~main-main-module~recommendations-recommendations-module~units-u~e708acb9"), __webpack_require__.e("units-units-module")]).then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
         canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }
 ];
@@ -534,7 +534,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.model */ "./src/app/auth/user.model.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../units/units.model */ "./src/app/units/units.model.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _firebase_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./firebase.model */ "./src/app/auth/firebase.model.ts");
+/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../units/units.model */ "./src/app/units/units.model.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -544,26 +557,49 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
 
 
 
 
 
 var AuthService = /** @class */ (function () {
+    // get fbPostals() {
+    //   return this._fbPostals.asObservable();
+    // }
+    // get fbTrans() {
+    //   return this._fbTrans.asObservable();
+    // }
     function AuthService(http) {
         this.http = http;
-        this._userIsAuthenticated = true;
+        this._userIsAuthenticated = false;
         this._currUser = new _user_model__WEBPACK_IMPORTED_MODULE_1__["User"]('u1', 'jerryliu123', 'password321', 'Jerry', 'Liu', 10000, 'seller', 
         //'buyer',
         [
-            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
-            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
-            new _units_units_model__WEBPACK_IMPORTED_MODULE_4__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
         ]);
         this._fbUsers = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
-        this._fbPostals = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
-        this._fbTrans = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
     }
+    Object.defineProperty(AuthService.prototype, "currFbUser", {
+        get: function () {
+            return this._currFbUser;
+        },
+        set: function (currFbUser) {
+            this._currFbUser = currFbUser;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(AuthService.prototype, "userIsAuthenticated", {
         get: function () {
             return this._userIsAuthenticated;
@@ -572,22 +608,10 @@ var AuthService = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(AuthService.prototype, "fbUsers", {
+        //private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
+        //private _fbTrans = new BehaviorSubject<fbTrans[]>([]);
         get: function () {
             return this._fbUsers.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AuthService.prototype, "fbPostals", {
-        get: function () {
-            return this._fbPostals.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AuthService.prototype, "fbTrans", {
-        get: function () {
-            return this._fbTrans.asObservable();
         },
         enumerable: true,
         configurable: true
@@ -605,105 +629,97 @@ var AuthService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    AuthService.prototype.editUser = function (current, _username, _password, _firstname, _lastname, _income) {
-        current.username = _username;
-        current.password = _password;
-        current.firstname = _firstname;
-        current.lastname = _lastname;
-        current.income = _income;
-    };
+    // editUser(
+    //   current: User,
+    //   _username: string,
+    //   _password: string,
+    //   _firstname: string,
+    //   _lastname: string,
+    //   _income: number
+    // ) {
+    //   current.username = _username;
+    //   current.password = _password;
+    //   current.firstname = _firstname;
+    //   current.lastname = _lastname;
+    //   current.income = _income;
+    // }
     AuthService.prototype.fetchFBUsers = function () {
+        var _this = this;
         console.log("fetch user data");
-        // return this.http
-        //   .get<{ [key: string]: fbUserData }>(
-        //     'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
-        //   )
-        //   .pipe(
-        //     map(resData => {
-        //       const users = [];
-        //       for (const key in resData) {
-        //         if (resData.hasOwnProperty(key)) {
-        //           users.push(
-        //             new fbUser(
-        //               resData[key].email,
-        //               resData[key].firstName,
-        //               resData[key].householdIncome,
-        //               resData[key].lastName,
-        //               resData[key].password,
-        //               resData[key].type,
-        //               resData[key].username,
-        //             )
-        //           );
-        //         }
-        //       }
-        //       return users;
-        //     }),
-        //     tap(users => {
-        //       //console.log(users[0]);
-        //       //console.log(users);
-        //       this._fbUsers.next(users);
-        //     })
-        //   );
+        return this.http
+            .get('https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (resData) {
+            var users = [];
+            for (var key in resData) {
+                if (resData.hasOwnProperty(key)) {
+                    users.push(new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](resData[key].email, resData[key].favourites, resData[key].generalRec, resData[key].name, resData[key].password, resData[key].personalRec, resData[key].userType));
+                }
+            }
+            return users;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (users) {
+            //console.log(users[0]);
+            console.log(users);
+            _this._fbUsers.next(users);
+        }));
     };
-    AuthService.prototype.fetchFBPostals = function () {
-        console.log("fetch postal data");
-        // return this.http
-        //   .get(
-        //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
-        //   )
-        //   .pipe(
-        //     map(resData => {
-        //       const postals: fbPostal[] = [];
-        //       for (const key in resData) {
-        //         if (resData.hasOwnProperty(key)) {
-        //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
-        //         }
-        //       }
-        //       return postals;
-        //     }),
-        //     tap(postals => {
-        //       //console.log(postals[0]);
-        //       //console.log(postals);
-        //       this._fbPostals.next(postals);
-        //     })
-        //   );
+    AuthService.prototype.addUser = function (email, name, password) {
+        var _this = this;
+        var newUser = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](email, [], [], name, password, [], 'user');
+        return this.http
+            .post('https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json', __assign({}, newUser))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (resData) {
+            return _this.fbUsers;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (fbUsers) {
+            _this._fbUsers.next(fbUsers.concat(newUser));
+        }));
     };
-    AuthService.prototype.fetchFBTrans = function () {
-        console.log("fetch transaction data");
-        // return this.http
-        //   .get(
-        //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
-        //   )
-        //   .pipe(
-        //     map(resData => {
-        //       const trans = [];
-        //       for (const key in resData) {
-        //         if (resData.hasOwnProperty(key)) {
-        //           trans.push(
-        //             new fbTrans(
-        //               resData[key]["Area (Sqm)"],
-        //               resData[key]["Date of Sale"],
-        //               resData[key]["Flat_model"],
-        //               resData[key]["Floor_max"],
-        //               resData[key]["Floor_min"],
-        //               resData[key]["Private_Public"],
-        //               resData[key]["Project Name"],
-        //               resData[key]["Remaining Lease (2022)"],
-        //               resData[key]["Sale Price"],
-        //               resData[key]["Type"],
-        //               resData[key]["transID"]
-        //             )
-        //           );
-        //         }
-        //       }
-        //       return trans;
-        //     }),
-        //     tap(trans => {
-        //       //console.log(trans[0]);
-        //       //console.log(trans);
-        //       this._fbTrans.next(trans);
-        //     })
-        //   );
+    AuthService.prototype.editUser = function (targetEmail, newName, newPassword) {
+        var _this = this;
+        var updatedUsers;
+        return this.fbUsers.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (users) {
+            if (!users || users.length <= 0) {
+                return _this.fetchFBUsers();
+            }
+            else {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(users);
+            }
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (users) {
+            var updatedUserIndex = users.findIndex(function (u) { return u.email === targetEmail; });
+            updatedUsers = __spreadArrays(users);
+            var oldPlace = updatedUsers[updatedUserIndex];
+            updatedUsers[updatedUserIndex] = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, oldPlace.favourites, oldPlace.generalRec, newName, newPassword, oldPlace.personalRec, oldPlace.userType);
+            _this.currFbUser = updatedUsers[updatedUserIndex];
+            return _this.http.put("https://propnexfyp-user.asia-southeast1.firebasedatabase.app/" + updatedUserIndex + ".json", __assign({}, updatedUsers[updatedUserIndex]));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
+            _this._fbUsers.next(updatedUsers);
+        }));
+    };
+    AuthService.prototype.addFav = function (targetEmail, newPlace) {
+        var _this = this;
+        var updatedUsers;
+        return this.fbUsers.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (users) {
+            if (!users || users.length <= 0) {
+                return _this.fetchFBUsers();
+            }
+            else {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(users);
+            }
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (users) {
+            var updatedUserIndex = users.findIndex(function (u) { return u.email === targetEmail; });
+            updatedUsers = __spreadArrays(users);
+            var oldPlace = updatedUsers[updatedUserIndex];
+            var newFavArr = oldPlace.favourites || [];
+            newFavArr = newFavArr.concat(newPlace);
+            updatedUsers[updatedUserIndex] = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, newFavArr, oldPlace.generalRec, oldPlace.name, oldPlace.password, oldPlace.personalRec, oldPlace.userType);
+            _this.currFbUser = updatedUsers[updatedUserIndex];
+            return _this.http.put("https://propnexfyp-user.asia-southeast1.firebasedatabase.app/" + updatedUserIndex + ".json", __assign({}, updatedUsers[updatedUserIndex]));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
+            _this._fbUsers.next(updatedUsers);
+        }));
+    };
+    AuthService.prototype.removeFav = function (userInd, placeInd) {
+        return this.http
+            .delete("https://propnexfyp-user.asia-southeast1.firebasedatabase.app/" + userInd + "/favourites/" + placeInd + ".json");
     };
     AuthService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -715,6 +731,73 @@ var AuthService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AuthService);
     return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/firebase.model.ts":
+/*!****************************************!*\
+  !*** ./src/app/auth/firebase.model.ts ***!
+  \****************************************/
+/*! exports provided: fbUser, fbPostal, fbUnit, fbTrans */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUser", function() { return fbUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbPostal", function() { return fbPostal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUnit", function() { return fbUnit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbTrans", function() { return fbTrans; });
+var fbUser = /** @class */ (function () {
+    function fbUser(email, favourites, generalRec, name, password, personalRec, userType) {
+        this.email = email;
+        this.favourites = favourites;
+        this.generalRec = generalRec;
+        this.name = name;
+        this.password = password;
+        this.personalRec = personalRec;
+        this.userType = userType;
+    }
+    return fbUser;
+}());
+
+var fbPostal = /** @class */ (function () {
+    function fbPostal(name, postal, imageUrl, units) {
+        this.name = name;
+        this.postal = postal;
+        this.imageUrl = imageUrl;
+        this.units = units;
+    }
+    return fbPostal;
+}());
+
+var fbUnit = /** @class */ (function () {
+    function fbUnit(bedrooms, floorplan, size, unitNumber) {
+        this.bedrooms = bedrooms;
+        this.floorplan = floorplan;
+        this.size = size;
+        this.unitNumber = unitNumber;
+    }
+    return fbUnit;
+}());
+
+var fbTrans = /** @class */ (function () {
+    function fbTrans(area, dateOfSale, flatModel, floorMax, floorMin, privatePublic, projectName, remainingLease, salePrice, type, transID) {
+        this.area = area;
+        this.dateOfSale = dateOfSale;
+        this.flatModel = flatModel;
+        this.floorMax = floorMax;
+        this.floorMin = floorMin;
+        this.privatePublic = privatePublic;
+        this.projectName = projectName;
+        this.remainingLease = remainingLease;
+        this.salePrice = salePrice;
+        this.type = type;
+        this.transID = transID;
+    }
+    return fbTrans;
 }());
 
 

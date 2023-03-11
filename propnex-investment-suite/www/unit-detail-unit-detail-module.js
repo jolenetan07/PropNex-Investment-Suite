@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["unit-detail-unit-detail-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.html":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.html ***!
+  \***********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"primary\">\n      <ion-button fill=\"clear\" color=\"danger\" (click)=\"onCancel()\">\n        <ion-icon name=\"close\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>Edit Same Units</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"editAllUnitForm\">\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-list>\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Rooms</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"bedrooms\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Area (sqm)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"size\"\n              ></ion-input>\n            </ion-item>\n\n            <!-- <ion-item>\n              <ion-label position=\"floating\">Homeowner Race</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"homeownerRace\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Country Of Citizenship</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"countryOfCitizenship\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Decorative Style</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"decorativeStyle\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Extension Request</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"extensionRequest\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Price</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"price\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Title Deed</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"titleDeed\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Age</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseAge\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Building Height</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"buildingHeight\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (total)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsTotal\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (per floor)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsPerFloor\"\n              ></ion-input>\n            </ion-item>\n        \n            <ion-item>\n              <ion-label position=\"floating\">Room Type</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomType\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Toilets</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfToilets\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Structure</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseStructure\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Door Facing</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"doorFacing\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Room Orientation</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomOrientation\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Corner Unit</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"cornerUnit\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Ground/Top Floor</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"groundTopFloor\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Western Sun</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"westernSun\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Noisy</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noisy\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Refurbished State</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"refurbishedState\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Landscape From Window</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"landscapeFromWindow\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Bomb Shelter</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"bombShelter\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Open Kitchen</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"openKitchen\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Gas Management Fee</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"gasManagementFee\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Tax</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseTax\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Rental Status</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"rentalStatus\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">VR Link</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"vrLink\"\n              ></ion-input>\n            </ion-item> -->\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                (click)=\"uploadFloorPlanImage()\" \n                expand=\"block\"\n                >Upload Floor Plan Image\n                </ion-button>\n              </ion-col>\n            </ion-row>\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                type=\"submit\" \n                (click)=\"submitEditAllUnit()\" \n                expand=\"block\"\n                >Submit\n                </ion-button>\n              </ion-col>\n            </ion-row>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n</ion-content>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.html":
 /*!*************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.html ***!
@@ -9,7 +22,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"primary\">\n      <ion-button fill=\"clear\" color=\"danger\" (click)=\"onCancel()\">\n        <ion-icon name=\"close\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>Edit Unit</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"editUnitForm\">\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-list>\n            <ion-item>\n              <ion-label position=\"floating\">Homeowner Race</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"homeownerRace\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Country Of Citizenship</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"countryOfCitizenship\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Decorative Style</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"decorativeStyle\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Extension Request</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"extensionRequest\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Price</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"price\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Title Deed</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"titleDeed\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Age</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseAge\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Building Height</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"buildingHeight\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (total)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsTotal\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (per floor)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsPerFloor\"\n              ></ion-input>\n            </ion-item>\n        \n            <ion-item>\n              <ion-label position=\"floating\">Room Type</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomType\"\n              ></ion-input>\n            </ion-item>\n            \n            <ion-item>\n              <ion-label position=\"floating\">Area</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"area\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Rooms</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfRooms\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Toilets</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfToilets\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Structure</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseStructure\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Door Facing</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"doorFacing\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Room Orientation</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomOrientation\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Corner Unit</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"cornerUnit\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Ground/Top Floor</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"groundTopFloor\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Western Sun</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"westernSun\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Noisy</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noisy\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Refurbished State</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"refurbishedState\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Landscape From Window</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"landscapeFromWindow\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Bomb Shelter</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"bombShelter\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Open Kitchen</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"openKitchen\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Gas Management Fee</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"gasManagementFee\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Tax</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseTax\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Rental Status</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"rentalStatus\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">VR Link</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"vrLink\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                (click)=\"uploadFloorPlanImage()\" \n                expand=\"block\"\n                >Upload Floor Plan Image\n                </ion-button>\n              </ion-col>\n            </ion-row>\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                type=\"submit\" \n                (click)=\"submitEditUnit()\" \n                expand=\"block\"\n                >Submit\n                </ion-button>\n              </ion-col>\n            </ion-row>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"primary\">\n      <ion-button fill=\"clear\" color=\"danger\" (click)=\"onCancel()\">\n        <ion-icon name=\"close\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-title>Edit Unit</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"editUnitForm\">\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <ion-list>\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Rooms</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"bedrooms\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Area (sqm)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"size\"\n              ></ion-input>\n            </ion-item>\n\n            <!-- <ion-item>\n              <ion-label position=\"floating\">Homeowner Race</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"homeownerRace\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Country Of Citizenship</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"countryOfCitizenship\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Decorative Style</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"decorativeStyle\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Extension Request</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"extensionRequest\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Price</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"price\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Title Deed</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"titleDeed\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Age</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseAge\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Building Height</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"buildingHeight\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (total)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsTotal\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Units (per floor)</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfUnitsPerFloor\"\n              ></ion-input>\n            </ion-item>\n        \n            <ion-item>\n              <ion-label position=\"floating\">Room Type</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomType\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">No. Of Toilets</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noOfToilets\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Structure</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseStructure\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Door Facing</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"doorFacing\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Room Orientation</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"roomOrientation\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Corner Unit</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"cornerUnit\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Ground/Top Floor</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"groundTopFloor\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Western Sun</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"westernSun\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Noisy</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"noisy\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Refurbished State</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"refurbishedState\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Landscape From Window</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"landscapeFromWindow\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Bomb Shelter</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"bombShelter\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Open Kitchen</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"openKitchen\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Gas Management Fee</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"gasManagementFee\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">House Tax</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"houseTax\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">Rental Status</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"rentalStatus\"\n              ></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label position=\"floating\">VR Link</ion-label>\n              <ion-input \n                type=\"text\"  \n                formControlName=\"vrLink\"\n              ></ion-input>\n            </ion-item> -->\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                (click)=\"uploadFloorPlanImage()\" \n                expand=\"block\"\n                >Upload Floor Plan Image\n                </ion-button>\n              </ion-col>\n            </ion-row>\n\n            <ion-row>\n              <ion-col>\n                <ion-button \n                type=\"submit\" \n                (click)=\"submitEditUnit()\" \n                expand=\"block\"\n                >Submit\n                </ion-button>\n              </ion-col>\n            </ion-row>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -22,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Floor Plan</ion-title>\n\n    <ion-button\n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onCancel()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"contract-outline\"></ion-icon>\n    </ion-button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-img \n          src=\"https://images.edrawmax.com/examples/apartment-floor-plan/example4.png\"\n        >\n      </ion-img>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Floor Plan</ion-title>\n\n    <ion-button\n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onCancel()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"contract-outline\"></ion-icon>\n    </ion-button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-img [src]=\"currUnit.floorplan\">\n        <!-- <ion-img src=\"assets/placeholders/floorplan.png\"> -->\n      </ion-img>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -35,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Floor Plan</ion-title>\n\n    <ion-button \n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onExpand()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"expand-outline\"></ion-icon>\n    </ion-button>\n\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-img \n          src=\"https://images.edrawmax.com/examples/apartment-floor-plan/example4.png\"\n        >\n      </ion-img>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Floor Plan</ion-title>\n\n    <ion-button \n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onExpand()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"expand-outline\"></ion-icon>\n    </ion-button>\n\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n          <ion-img [src]=\"currUnit.floorplan\">\n          <!-- <ion-img src=\"assets/placeholders/floorplan.png\"> -->\n      </ion-img>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -48,7 +61,106 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/units\"></ion-back-button>\n    </ion-buttons>\n\n    <ion-title>Unit Detail</ion-title>\n\n    <ion-button \n      *ngIf=\"currUser.type === 'seller'\"\n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onEditUnit()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"pencil-outline\"></ion-icon>\n  </ion-button>\n    \n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col class=\"ion-no-padding\">\n        <ion-img [src]=\"places[0].imageUrl\"></ion-img>\n    </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <h6>{{ places[0].name }}, Singapore {{ places[0].postal }}</h6>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-no-padding\">\n        <ion-list *ngFor=\"let dets of unitDetails\">\n          <ion-item>\n            {{dets}}\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-no-padding\">\n        <ion-item>VR Link:</ion-item>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <ion-button (click)=\"presentPopover($event)\">View Floor Plan</ion-button>\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/units\"></ion-back-button>\n    </ion-buttons>\n\n    <ion-title>Unit Detail</ion-title>\n\n    <ion-button \n      *ngIf=\"currUser.userType === 'admin'\"\n      size=\"small\" \n      color=\"tertiary\"\n      slot=\"end\" \n      (click)=\"onEditUnitOptions()\"\n    >\n      <ion-icon slot=\"icon-only\" name=\"pencil-outline\"></ion-icon>\n  </ion-button>\n    \n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col class=\"ion-no-padding\">\n        <ion-img [src]=\"currPlace.imageUrl\"></ion-img>\n    </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <h6>{{ currPlace.name }}, Singapore {{ currPlace.postal }}</h6>\n        <h6>#{{ currUnit.unitNumber }}</h6>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <ion-button (click)=\"presentPopover($event)\">View Floor Plan</ion-button>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <ion-list>\n          <ion-item>No. Of Rooms: {{currUnit.bedrooms}}</ion-item>\n          <ion-item>Area (sqm): {{currUnit.size}}</ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col class=\"ion-text-center ion-no-padding\">\n        <ion-list>\n          <ion-item (click)=\"toggleItem(1)\">\n            <ion-icon slot=\"start\" [name]=\"isItemExpanded(1) ? 'chevron-down' : 'chevron-forward'\"></ion-icon>\n            <ion-label>\n              View More\n            </ion-label>\n          </ion-item>\n          <ion-list *ngIf=\"isItemExpanded(1)\">\n            <ion-item *ngFor=\"let dets of unitDetails\">\n              {{dets}}\n            </ion-item>\n          </ion-list>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.scss ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VuaXRzL2Jsb2NrLWRldGFpbC91bml0LWRldGFpbC9lZGl0LWFsbC11bml0cy9lZGl0LWFsbC11bml0cy5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: EditAllUnitsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditAllUnitsComponent", function() { return EditAllUnitsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var EditAllUnitsComponent = /** @class */ (function () {
+    function EditAllUnitsComponent(modalCtrl, placeService) {
+        this.modalCtrl = modalCtrl;
+        this.placeService = placeService;
+    }
+    EditAllUnitsComponent.prototype.ngOnInit = function () {
+        this.currPlace = this.placeService.currPlace;
+        this.currUnit = this.placeService.currUnit;
+        this.editAllUnitForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            bedrooms: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+                updateOn: 'blur',
+            }),
+            size: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+                updateOn: 'blur',
+            }),
+        });
+    };
+    EditAllUnitsComponent.prototype.onCancel = function () {
+        console.log("cancel edit all units");
+        this.modalCtrl.dismiss(null, 'cancel');
+    };
+    EditAllUnitsComponent.prototype.submitEditAllUnit = function () {
+        if (!this.editAllUnitForm.valid) {
+            return;
+        }
+        var newBedrooms = this.editAllUnitForm.value.bedrooms;
+        var newSize = this.editAllUnitForm.value.size;
+        console.log(newBedrooms, newSize);
+        this.placeService.editAllUnit(this.currPlace.postal, this.currUnit.unitNumber, newBedrooms, newSize).subscribe(function () {
+        });
+        //this.editAllUnitForm.reset();
+        this.modalCtrl.dismiss({ message: 'Changes saved' }, 'confirm');
+    };
+    EditAllUnitsComponent.prototype.uploadFloorPlanImage = function () {
+        console.log("choose floor plan image to upload");
+    };
+    EditAllUnitsComponent.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_3__["PlaceService"] }
+    ]; };
+    EditAllUnitsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-edit-all-units',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./edit-all-units.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./edit-all-units.component.scss */ "./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_3__["PlaceService"]])
+    ], EditAllUnitsComponent);
+    return EditAllUnitsComponent;
+}());
+
+
 
 /***/ }),
 
@@ -78,6 +190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
+/* harmony import */ var src_app_auth_firebase_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth/firebase.model */ "./src/app/auth/firebase.model.ts");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,97 +207,21 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
 var EditUnitComponent = /** @class */ (function () {
-    function EditUnitComponent(modalCtrl) {
+    function EditUnitComponent(modalCtrl, placeService) {
         this.modalCtrl = modalCtrl;
+        this.placeService = placeService;
     }
     EditUnitComponent.prototype.ngOnInit = function () {
+        this.currPlace = this.placeService.currPlace;
+        this.currUnit = this.placeService.currUnit;
         this.editUnitForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            homeownerRace: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+            bedrooms: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.currUnit.bedrooms, {
                 updateOn: 'blur',
             }),
-            countryOfCitizenship: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            decorativeStyle: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            extensionRequest: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            price: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            titleDeed: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            houseAge: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            buildingHeight: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            noOfUnitsTotal: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            noOfUnitsPerFloor: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            roomType: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            area: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            noOfRooms: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            noOfToilets: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            houseStructure: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            doorFacing: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            roomOrientation: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            cornerUnit: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            groundTopFloor: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            westernSun: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            noisy: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            refurbishedState: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            landscapeFromWindow: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            bombShelter: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            openKitchen: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            gasManagementFee: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            houseTax: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            rentalStatus: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
-                updateOn: 'blur',
-            }),
-            vrLink: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, {
+            size: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.currUnit.size, {
                 updateOn: 'blur',
             }),
         });
@@ -196,15 +234,21 @@ var EditUnitComponent = /** @class */ (function () {
         if (!this.editUnitForm.valid) {
             return;
         }
-        console.log("unit edited");
-        this.editUnitForm.reset();
-        this.modalCtrl.dismiss();
+        var newBedrooms = this.editUnitForm.value.bedrooms;
+        var newSize = this.editUnitForm.value.size;
+        var newUnit = new src_app_auth_firebase_model__WEBPACK_IMPORTED_MODULE_3__["fbUnit"](newBedrooms, this.currUnit.floorplan, newSize, this.currUnit.unitNumber);
+        console.log(newBedrooms, newSize);
+        this.placeService.editUnit(this.currPlace.postal, this.currUnit.unitNumber, newUnit).subscribe(function () {
+        });
+        //this.editUnitForm.reset();
+        this.modalCtrl.dismiss({ message: 'Changes saved' }, 'confirm');
     };
     EditUnitComponent.prototype.uploadFloorPlanImage = function () {
         console.log("choose floor plan image to upload");
     };
     EditUnitComponent.ctorParameters = function () { return [
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"] }
     ]; };
     EditUnitComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -212,7 +256,8 @@ var EditUnitComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./edit-unit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./edit-unit.component.scss */ "./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"]])
     ], EditUnitComponent);
     return EditUnitComponent;
 }());
@@ -246,6 +291,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FloorplanModalComponent", function() { return FloorplanModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -260,17 +306,22 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
 var FloorplanModalComponent = /** @class */ (function () {
-    function FloorplanModalComponent(modalCtrl) {
+    function FloorplanModalComponent(modalCtrl, placeService) {
         this.modalCtrl = modalCtrl;
+        this.placeService = placeService;
     }
-    FloorplanModalComponent.prototype.ngOnInit = function () { };
+    FloorplanModalComponent.prototype.ngOnInit = function () {
+        this.currUnit = this.placeService.currUnit;
+    };
     FloorplanModalComponent.prototype.onCancel = function () {
         console.log("close floor plan");
         this.modalCtrl.dismiss(null, 'cancel');
     };
     FloorplanModalComponent.ctorParameters = function () { return [
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"] },
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__["PlaceService"] }
     ]; };
     FloorplanModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -278,7 +329,8 @@ var FloorplanModalComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./floorplan-modal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/floorplan-modal/floorplan-modal.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./floorplan-modal.component.scss */ "./src/app/units/block-detail/unit-detail/floorplan-modal/floorplan-modal.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"],
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__["PlaceService"]])
     ], FloorplanModalComponent);
     return FloorplanModalComponent;
 }());
@@ -312,7 +364,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FloorplanComponent", function() { return FloorplanComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../floorplan-modal/floorplan-modal.component */ "./src/app/units/block-detail/unit-detail/floorplan-modal/floorplan-modal.component.ts");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
+/* harmony import */ var _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../floorplan-modal/floorplan-modal.component */ "./src/app/units/block-detail/unit-detail/floorplan-modal/floorplan-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -328,21 +381,26 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var FloorplanComponent = /** @class */ (function () {
-    function FloorplanComponent(modalCtrl) {
+    function FloorplanComponent(modalCtrl, placeService) {
         this.modalCtrl = modalCtrl;
+        this.placeService = placeService;
     }
-    FloorplanComponent.prototype.ngOnInit = function () { };
+    FloorplanComponent.prototype.ngOnInit = function () {
+        this.currUnit = this.placeService.currUnit;
+    };
     FloorplanComponent.prototype.onExpand = function () {
         this.modalCtrl
-            .create({ component: _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_2__["FloorplanModalComponent"] })
+            .create({ component: _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_3__["FloorplanModalComponent"] })
             .then(function (modalEl) {
             modalEl.present();
             return modalEl.onDidDismiss();
         });
     };
     FloorplanComponent.ctorParameters = function () { return [
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"] },
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__["PlaceService"] }
     ]; };
     FloorplanComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -350,7 +408,8 @@ var FloorplanComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./floorplan.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/floorplan/floorplan.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./floorplan.component.scss */ "./src/app/units/block-detail/unit-detail/floorplan/floorplan.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"],
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_2__["PlaceService"]])
     ], FloorplanComponent);
     return FloorplanComponent;
 }());
@@ -422,12 +481,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-unit/edit-unit.component */ "./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.ts");
 /* harmony import */ var _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./floorplan/floorplan.component */ "./src/app/units/block-detail/unit-detail/floorplan/floorplan.component.ts");
 /* harmony import */ var _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./floorplan-modal/floorplan-modal.component */ "./src/app/units/block-detail/unit-detail/floorplan-modal/floorplan-modal.component.ts");
+/* harmony import */ var _edit_all_units_edit_all_units_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./edit-all-units/edit-all-units.component */ "./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -449,7 +510,7 @@ var UnitDetailPageModule = /** @class */ (function () {
                 _unit_detail_routing_module__WEBPACK_IMPORTED_MODULE_4__["UnitDetailPageRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
             ],
-            declarations: [_unit_detail_page__WEBPACK_IMPORTED_MODULE_5__["UnitDetailPage"], _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_6__["EditUnitComponent"], _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_7__["FloorplanComponent"], _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_8__["FloorplanModalComponent"]]
+            declarations: [_unit_detail_page__WEBPACK_IMPORTED_MODULE_5__["UnitDetailPage"], _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_6__["EditUnitComponent"], _edit_all_units_edit_all_units_component__WEBPACK_IMPORTED_MODULE_9__["EditAllUnitsComponent"], _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_7__["FloorplanComponent"], _floorplan_modal_floorplan_modal_component__WEBPACK_IMPORTED_MODULE_8__["FloorplanModalComponent"]]
         })
     ], UnitDetailPageModule);
     return UnitDetailPageModule;
@@ -483,11 +544,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitDetailPage", function() { return UnitDetailPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
-/* harmony import */ var src_app_home_home_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/home/home.service */ "./src/app/home/home.service.ts");
-/* harmony import */ var _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-unit/edit-unit.component */ "./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.ts");
-/* harmony import */ var _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./floorplan/floorplan.component */ "./src/app/units/block-detail/unit-detail/floorplan/floorplan.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
+/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var src_app_home_home_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/home/home.service */ "./src/app/home/home.service.ts");
+/* harmony import */ var _place_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../place.service */ "./src/app/units/place.service.ts");
+/* harmony import */ var _edit_all_units_edit_all_units_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-all-units/edit-all-units.component */ "./src/app/units/block-detail/unit-detail/edit-all-units/edit-all-units.component.ts");
+/* harmony import */ var _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./edit-unit/edit-unit.component */ "./src/app/units/block-detail/unit-detail/edit-unit/edit-unit.component.ts");
+/* harmony import */ var _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./floorplan/floorplan.component */ "./src/app/units/block-detail/unit-detail/floorplan/floorplan.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,14 +606,25 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
+
 var UnitDetailPage = /** @class */ (function () {
-    function UnitDetailPage(homeService, authService, modalCtrl, popoverController
+    function UnitDetailPage(homeService, authService, modalCtrl, popoverController, route, navCtrl, placeService, actionSheetCtrl, cdr
     //private router: Router
     ) {
         this.homeService = homeService;
         this.authService = authService;
         this.modalCtrl = modalCtrl;
         this.popoverController = popoverController;
+        this.route = route;
+        this.navCtrl = navCtrl;
+        this.placeService = placeService;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.cdr = cdr;
+        this.expandedItems = [false];
+        this.isLoading = false;
+        //places: Place[];
         this.unitDetails = [
             'Homeowner Race: ',
             'Country Of Citizenship: ',
@@ -562,8 +637,6 @@ var UnitDetailPage = /** @class */ (function () {
             'No. Of Units (total): ',
             'No. Of Units (per floor): ',
             'Room Type: ',
-            'Area: ',
-            'No. Of Rooms: ',
             'No. Of Toilets: ',
             'House Structure: ',
             'Door Facing: ',
@@ -578,23 +651,95 @@ var UnitDetailPage = /** @class */ (function () {
             'Open Kitchen: ',
             'Gas Management Fee: ',
             'House Tax: ',
-            'Rental Status: '
+            'Rental Status: ',
+            'VR Link: '
         ];
     }
     UnitDetailPage.prototype.ngOnInit = function () {
-        this.currUser = this.authService.currentUser;
-        this.places = this.homeService.allPlaces;
+        var _this = this;
+        this.currUser = this.authService.currFbUser;
+        //this.places = this.homeService.allPlaces;
+        this.route.paramMap.subscribe(function (paramMap) {
+            if (!paramMap.has('unitNumId')) {
+                _this.navCtrl.navigateBack('/units');
+                return;
+            }
+            _this.isLoading = true;
+            //this.place = this.homeService.getPlace(paramMap.get('postalId'));
+            //this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
+            _this.currPlace = _this.placeService.currPlace;
+            _this.currUnit = _this.placeService.currUnit;
+            _this.isLoading = false;
+        });
+    };
+    UnitDetailPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.currPlace = this.placeService.currPlace;
+        this.currUnit = this.placeService.currUnit;
+        this.placeService.fetchFBPostals().subscribe(function () {
+            _this.cdr.detectChanges();
+        });
     };
     UnitDetailPage.prototype.handleChange = function (event) {
         console.log(event.detail.value);
     };
+    UnitDetailPage.prototype.onEditUnitOptions = function () {
+        var _this = this;
+        console.log("choose to edit this unit or edit all same number units");
+        this.actionSheetCtrl.create({
+            header: 'Please Choose',
+            buttons: [
+                {
+                    text: 'Edit This Unit',
+                    handler: function () {
+                        _this.onEditUnit();
+                    }
+                },
+                {
+                    text: 'Edit All Same Units',
+                    handler: function () {
+                        _this.onEditAllUnits();
+                    }
+                },
+                { text: 'Cancel', role: 'cancel' }
+            ]
+        })
+            .then(function (actionSheetEl) {
+            actionSheetEl.present();
+        });
+    };
     UnitDetailPage.prototype.onEditUnit = function () {
-        console.log("edit specific unit details");
+        var _this = this;
+        console.log("edit this unit details");
         this.modalCtrl
-            .create({ component: _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_4__["EditUnitComponent"] })
+            .create({ component: _edit_unit_edit_unit_component__WEBPACK_IMPORTED_MODULE_7__["EditUnitComponent"] })
             .then(function (modalEl) {
             modalEl.present();
             return modalEl.onDidDismiss();
+        })
+            .then(function (resultData) {
+            console.log(resultData.data, resultData.role);
+            if (resultData.role === 'confirm') {
+                _this.ionViewWillEnter();
+                console.log('edited!');
+            }
+        });
+    };
+    UnitDetailPage.prototype.onEditAllUnits = function () {
+        var _this = this;
+        console.log("edit all same number unit details");
+        this.modalCtrl
+            .create({ component: _edit_all_units_edit_all_units_component__WEBPACK_IMPORTED_MODULE_6__["EditAllUnitsComponent"] })
+            .then(function (modalEl) {
+            modalEl.present();
+            return modalEl.onDidDismiss();
+        })
+            .then(function (resultData) {
+            console.log(resultData.data, resultData.role);
+            if (resultData.role === 'confirm') {
+                _this.ionViewWillEnter();
+                console.log('edited!');
+            }
         });
     };
     UnitDetailPage.prototype.presentPopover = function (e) {
@@ -603,7 +748,7 @@ var UnitDetailPage = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.popoverController.create({
-                            component: _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_5__["FloorplanComponent"],
+                            component: _floorplan_floorplan_component__WEBPACK_IMPORTED_MODULE_8__["FloorplanComponent"],
                             cssClass: 'my-custom-class',
                             event: e,
                         })];
@@ -620,11 +765,22 @@ var UnitDetailPage = /** @class */ (function () {
             });
         });
     };
+    UnitDetailPage.prototype.toggleItem = function (index) {
+        this.expandedItems[index] = !this.expandedItems[index];
+    };
+    UnitDetailPage.prototype.isItemExpanded = function (index) {
+        return this.expandedItems[index];
+    };
     UnitDetailPage.ctorParameters = function () { return [
-        { type: src_app_home_home_service__WEBPACK_IMPORTED_MODULE_3__["HomeService"] },
-        { type: src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["PopoverController"] }
+        { type: src_app_home_home_service__WEBPACK_IMPORTED_MODULE_4__["HomeService"] },
+        { type: src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] }
     ]; };
     UnitDetailPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -632,10 +788,15 @@ var UnitDetailPage = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./unit-detail.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/units/block-detail/unit-detail/unit-detail.page.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./unit-detail.page.scss */ "./src/app/units/block-detail/unit-detail/unit-detail.page.scss")).default]
         }),
-        __metadata("design:paramtypes", [src_app_home_home_service__WEBPACK_IMPORTED_MODULE_3__["HomeService"],
-            src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["PopoverController"]
+        __metadata("design:paramtypes", [src_app_home_home_service__WEBPACK_IMPORTED_MODULE_4__["HomeService"],
+            src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
+            _place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]
             //private router: Router
         ])
     ], UnitDetailPage);
