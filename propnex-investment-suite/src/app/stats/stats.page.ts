@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { StatsDataService } from './stats-data.service';
 import { AlertController } from '@ionic/angular';
+import { FormControl } from '@angular/forms';
 
 declare var Plotly: any;
 
@@ -33,7 +34,26 @@ export class StatsPage implements OnInit {
   expTypeHidden = false;
 
   private pricepsmData;
+  private centralData;
+  private eastData;
+  private neData;
+  private northData;
+  private westData;
+  private meanPredData;
+  private centralPredData;
+  private eastPredData;
+  private nePredData;
+  private northPredData;
+  private westPredData;
   private volumeData;
+
+  filterSelectedItems = ["All Units"];
+  filterListItems = ["All Units", "Central Region", "North Region", "West Region"];
+
+  private data;
+  private configs;
+  private layout;
+  private plot_id = 'price-trends-graph';
 
   constructor(private dataService: StatsDataService, private alertController: AlertController) { }
 
@@ -48,6 +68,40 @@ export class StatsPage implements OnInit {
     this.dataService.getPricepsmData().subscribe(data=>{
       this.pricepsmData = data
     });
+    this.dataService.getMeanPredData().subscribe(data=>{
+      this.meanPredData = data
+    });
+    this.dataService.getCentralData().subscribe(data=>{
+      this.centralData = data
+    });
+    this.dataService.getEastData().subscribe(data=>{
+      this.eastData = data
+    });
+    this.dataService.getNEData().subscribe(data=>{
+      this.neData = data
+    });
+    this.dataService.getNorthData().subscribe(data=>{
+      this.northData = data
+    });
+    this.dataService.getWestData().subscribe(data=>{
+      this.westData = data
+    });
+    this.dataService.getCentralPredData().subscribe(data=>{
+      this.centralPredData = data
+    });
+    this.dataService.getEastPredData().subscribe(data=>{
+      this.eastPredData = data
+    });
+    this.dataService.getNEPredData().subscribe(data=>{
+      this.nePredData = data
+    });
+    this.dataService.getNorthPredData().subscribe(data=>{
+      this.northPredData = data
+    });
+    this.dataService.getWestPredData().subscribe(data=>{
+      this.westPredData = data
+    });
+
     this.dataService.getVolumeData().subscribe(data=>{
       this.volumeData = data
     });
@@ -57,26 +111,58 @@ export class StatsPage implements OnInit {
 
   }
 
+  handleChange(e) {
+    let translate = {"all": [this.pricepsmData, this.meanPredData],
+                  "central": [this.centralData, this.centralPredData],
+                  "north": [this.northData, this.northPredData],
+                  "east": [this.eastData, this.eastPredData],
+                  "ne": [this.neData, this.nePredData],
+                  "west": [this.westData, this.westPredData]};
+    let filter = e.detail.value;
+    this.data = [this.volumeData];
+    for (let i = 0; i < filter.length; i++){
+      this.data.push(translate[filter[i]][0]);
+      this.data.push(translate[filter[i]][1]);
+    }
+
+    Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);
+    console.log(filter);
+    console.log(this.data)
+
+  }
+
+
   ionViewWillEnter(){
     this.pricepsmData["name"] = "Price psm";
+    this.meanPredData["name"] = "Predicted Price psm";
+    this.centralData["name"] = "Central Region Price psm";
+    this.northData["name"] = "North Region Price psm";
+    this.eastData["name"] = "East Region Price psm";
+    this.neData["name"] = "North-East Region Price psm";
+    this.westData["name"] = "West Region Price psm";
+    this.centralPredData["name"] = "Predicted Central Region Price psm";
+    this.northPredData["name"] = "Predicted North Region Price psm";
+    this.eastPredData["name"] = "Predicted East Region Price psm";
+    this.nePredData["name"] = "Predicted North-East Region Price psm";
+    this.westPredData["name"] = "Predicted West Region Price psm";
     this.volumeData["name"] = "Volume";
-    let data = [this.pricepsmData, this.volumeData];
+    this.data = [this.pricepsmData, this.volumeData, this.meanPredData];
 
-    let layout = {
+    this.layout = {
       showlegend: false,
       dragmode: 'pan',
       margin: {l:25, r:15, t:10, b:20},
       width: this.width
     };
 
-    let configs = {
+    this.configs = {
       scrollZoom: false,
       responsive: true,
       displaylogo: false,
       modeBarButtonsToRemove: ['select2d', 'lasso2d', 'zoom2d', 'resetScale2d']
     }
 
-    Plotly.newPlot('price-trends-graph', data, layout, configs);
+    Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);
 
 
     this.count_dataArr = this.count_data.split("\r\n").slice(1,6); 
@@ -142,7 +228,7 @@ export class StatsPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Price and Volume Trends',
       subHeader: 'How is this calculated?',
-      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented.',
+      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented. \n\n Predictions are calculated using deep learning artificial intelligence.',
       buttons: ['OK'],
     });
 
