@@ -112,7 +112,7 @@ export class AuthPage implements OnInit, OnDestroy {
   async presentEmailAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
-      message: 'Invalid email!',
+      message: 'Incorrect email!',
       buttons: ['OK'],
     });
 
@@ -122,7 +122,7 @@ export class AuthPage implements OnInit, OnDestroy {
   async presentPasswordAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
-      message: 'Invalid password!',
+      message: 'Incorrect password!',
       buttons: ['OK'],
     });
 
