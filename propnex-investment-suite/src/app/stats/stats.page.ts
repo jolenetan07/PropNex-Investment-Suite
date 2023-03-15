@@ -33,7 +33,7 @@ export class StatsPage implements OnInit {
   expLocHidden = false;
   expTypeHidden = false;
 
-  private pricepsmData;
+  private pricepsfData;
   private centralData;
   private eastData;
   private neData;
@@ -65,8 +65,8 @@ export class StatsPage implements OnInit {
     this.dataService.getMaxData().subscribe(data=>{this.max_data = data});
     this.dataService.getMaxTypeData().subscribe(data=>{this.maxT_data = data});
 
-    this.dataService.getPricepsmData().subscribe(data=>{
-      this.pricepsmData = data
+    this.dataService.getPricepsfData().subscribe(data=>{
+      this.pricepsfData = data
     });
     this.dataService.getMeanPredData().subscribe(data=>{
       this.meanPredData = data
@@ -112,7 +112,7 @@ export class StatsPage implements OnInit {
   }
 
   handleChange(e) {
-    let translate = {"all": [this.pricepsmData, this.meanPredData],
+    let translate = {"all": [this.pricepsfData, this.meanPredData],
                   "central": [this.centralData, this.centralPredData],
                   "north": [this.northData, this.northPredData],
                   "east": [this.eastData, this.eastPredData],
@@ -133,20 +133,20 @@ export class StatsPage implements OnInit {
 
 
   ionViewWillEnter(){
-    this.pricepsmData["name"] = "Price psm";
-    this.meanPredData["name"] = "Predicted Price psm";
-    this.centralData["name"] = "Central Region Price psm";
-    this.northData["name"] = "North Region Price psm";
-    this.eastData["name"] = "East Region Price psm";
-    this.neData["name"] = "North-East Region Price psm";
-    this.westData["name"] = "West Region Price psm";
-    this.centralPredData["name"] = "Predicted Central Region Price psm";
-    this.northPredData["name"] = "Predicted North Region Price psm";
-    this.eastPredData["name"] = "Predicted East Region Price psm";
-    this.nePredData["name"] = "Predicted North-East Region Price psm";
-    this.westPredData["name"] = "Predicted West Region Price psm";
+    this.pricepsfData["name"] = "Price psf";
+    this.meanPredData["name"] = "Predicted Price psf";
+    this.centralData["name"] = "Central Region Price psf";
+    this.northData["name"] = "North Region Price psf";
+    this.eastData["name"] = "East Region Price psf";
+    this.neData["name"] = "North-East Region Price psf";
+    this.westData["name"] = "West Region Price psf";
+    this.centralPredData["name"] = "Predicted Central Region Price psf";
+    this.northPredData["name"] = "Predicted North Region Price psf";
+    this.eastPredData["name"] = "Predicted East Region Price psf";
+    this.nePredData["name"] = "Predicted North-East Region Price psf";
+    this.westPredData["name"] = "Predicted West Region Price psf";
     this.volumeData["name"] = "Volume";
-    this.data = [this.pricepsmData, this.volumeData, this.meanPredData];
+    this.data = [this.pricepsfData, this.volumeData, this.meanPredData];
 
     this.layout = {
       showlegend: false,
@@ -208,7 +208,7 @@ export class StatsPage implements OnInit {
     // console.log(this.count_data);
     // console.log(this.avg_data);
     // console.log(this.max_data);
-    // console.log(this.pricepsmData)
+    // console.log(this.pricepsfData)
   }
 
   async countInfoClick() {
@@ -228,7 +228,7 @@ export class StatsPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Price and Volume Trends',
       subHeader: 'How is this calculated?',
-      message: 'All transactions are averaged by month, then the average price per square meter and volume of transactions each month are presented. \n\n Predictions are calculated using deep learning artificial intelligence.',
+      message: 'All transactions are averaged by month, then the average price per square feet and volume of transactions each month are presented. \n\n Predictions are calculated using deep learning artificial intelligence.',
       buttons: ['OK'],
     });
 
@@ -240,7 +240,7 @@ export class StatsPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Most Expensive Units',
       subHeader: 'How is this calculated?',
-      message: 'All transactions over the last 6 months are grouped by their region/type, and the most expensive transaction by price per square meter is presented.',
+      message: 'All transactions over the last 6 months are grouped by their region/type, and the most expensive transaction by price per square feet is presented.',
       buttons: ['OK'],
     });
 
