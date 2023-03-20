@@ -151,7 +151,7 @@ export class StatsPage implements OnInit {
     this.layout = {
       showlegend: false,
       dragmode: 'pan',
-      margin: {l:25, r:15, t:10, b:20},
+      margin: {l:30, r:15, t:10, b:20},
       width: this.width
     };
 
