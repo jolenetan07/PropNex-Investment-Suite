@@ -28,6 +28,8 @@ export class UnitsPage implements OnInit {
 
   loadedFBRecs: fbRec[];
   private fbRecsSub: Subscription;
+  recItem: fbRec;
+  findRecs: string[];
 
   constructor(
     private authService: AuthService,
@@ -55,15 +57,27 @@ export class UnitsPage implements OnInit {
 
     });
 
+    this.placeService.fetchFBRecs().subscribe(() => {
+
+    });
+
   }
 
   handleChange(event) {
+    
     const query = event.target.value;
     //console.log(query);
     //this.result  = this.homeService.getPlace(query);
     this.result  = this.loadedFBPostals.find(p => p.postal === query);
-    this.placeService.currPlace = this.result;
     //console.log(this.result);
+    if (this.result) {
+      this.placeService.currPlace = this.result;
+      this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
+      //console.log(this.recItem);
+      this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      //console.log(findRecs);
+    }
+
   }
 
   onSelectPlace() {
@@ -81,11 +95,11 @@ export class UnitsPage implements OnInit {
       });
   }
 
-  fetchRec() {
-    this.placeService.fetchFBRecs().subscribe(() => {
+  // fetchRec() {
+  //   this.placeService.fetchFBRecs().subscribe(() => {
 
-    });
-  }
+  //   });
+  // }
 
   ngOnDestroy() {
     if (this.fbPostalsSub) {
