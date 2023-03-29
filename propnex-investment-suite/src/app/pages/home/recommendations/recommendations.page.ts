@@ -45,17 +45,21 @@ export class RecommendationsPage implements OnInit {
 
   ngOnInit() {
     this.currUser = this.authService.currFbUser;
+    this.displayedPlaces = this.authService.currFbUser.personalRec;
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
-    })
+    });
     this.fbRecsSub = this.placeService.fbRecs.subscribe(fbRecs => {
       this.loadedFBRecs = fbRecs;
-    })
+    });
+    
     //this.personalRecPlaces = this.authService.currFbUser.personalRec;
     //this.generalRecPlaces = this.authService.currFbUser.generalRec;
   }
 
   ionViewWillEnter() {
+    this.currUser = this.authService.currFbUser;
+    this.displayedPlaces = this.authService.currFbUser.personalRec;
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });

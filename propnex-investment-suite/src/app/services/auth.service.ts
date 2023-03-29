@@ -160,7 +160,7 @@ export class AuthService {
         }),
         tap(users => {
           //console.log(users[0]);
-          console.log(users);
+          //console.log(users);
           this._fbUsers.next(users);
         })
       );
@@ -254,6 +254,7 @@ export class AuthService {
 
         let newRecArr = oldPlace.personalRec || [];
         newRecArr = newRecArr.concat(newRecs);
+        let uniqueRecArr = Array.from(new Set(newRecArr));
         
         updatedUsers[updatedUserIndex] = new fbUser(
           oldPlace.email,
@@ -261,7 +262,7 @@ export class AuthService {
           oldPlace.generalRec,
           oldPlace.name,
           oldPlace.password,
-          newRecArr,
+          uniqueRecArr,
           oldPlace.userType
         );
         this.currFbUser = updatedUsers[updatedUserIndex];
