@@ -5,7 +5,7 @@ export class fbUser {
       public generalRec: fbPostal[],
       public name: string,
       public password: string,
-      public personalRec: fbPostal[],
+      public personalRec: string[],
       public userType: string
     ) {}
   }

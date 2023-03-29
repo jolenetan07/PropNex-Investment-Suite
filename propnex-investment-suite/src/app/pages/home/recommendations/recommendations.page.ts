@@ -15,15 +15,20 @@ import { PlaceService } from 'src/app/services/place.service';
   styleUrls: ['./recommendations.page.scss'],
 })
 export class RecommendationsPage implements OnInit {
+  selectedView: string = 'personal';
   currUser: fbUser;
   //loadedPlaces?: Place[];
   //displayedPlaces?: Place[];
-  loadedPlaces?: fbPostal[];
-  displayedPlaces?: fbPostal[];
+  loadedPlaces?: fbPostal[] | string[];
+  //displayedPlaces?: fbPostal[] | string[];
   //result;
   loadedFBPostals: fbPostal[];
   private fbPostalsSub: Subscription;
   result: fbPostal;
+
+  personalRecPlaces?: string[];
+  generalRecPlaces?: fbPostal[];
+  displayedPlaces?: fbPostal[] | string[];
 
   constructor(
     private homeService: HomeService,
@@ -38,8 +43,8 @@ export class RecommendationsPage implements OnInit {
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
     })
-    this.loadedPlaces = this.authService.currFbUser.personalRec;
-    this.displayedPlaces = this.loadedPlaces;
+    //this.personalRecPlaces = this.authService.currFbUser.personalRec;
+    //this.generalRecPlaces = this.authService.currFbUser.generalRec;
   }
 
   ionViewWillEnter() {

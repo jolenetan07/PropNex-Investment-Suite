@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["auth-auth-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-auth-auth-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth.page.html":
-/*!***************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth.page.html ***!
-  \***************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/auth/auth.page.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/auth/auth.page.html ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,10 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/auth/auth.module.ts":
-/*!*************************************!*\
-  !*** ./src/app/auth/auth.module.ts ***!
-  \*************************************/
+/***/ "./src/app/pages/auth/auth.module.ts":
+/*!*******************************************!*\
+  !*** ./src/app/pages/auth/auth.module.ts ***!
+  \*******************************************/
 /*! exports provided: AuthPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var _auth_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./auth.page */ "./src/app/auth/auth.page.ts");
+/* harmony import */ var _auth_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./auth.page */ "./src/app/pages/auth/auth.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,23 +68,23 @@ var AuthPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/auth/auth.page.scss":
-/*!*************************************!*\
-  !*** ./src/app/auth/auth.page.scss ***!
-  \*************************************/
+/***/ "./src/app/pages/auth/auth.page.scss":
+/*!*******************************************!*\
+  !*** ./src/app/pages/auth/auth.page.scss ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvYXV0aC5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2F1dGgvYXV0aC5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
-/***/ "./src/app/auth/auth.page.ts":
-/*!***********************************!*\
-  !*** ./src/app/auth/auth.page.ts ***!
-  \***********************************/
+/***/ "./src/app/pages/auth/auth.page.ts":
+/*!*****************************************!*\
+  !*** ./src/app/pages/auth/auth.page.ts ***!
+  \*****************************************/
 /*! exports provided: AuthPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -285,7 +285,7 @@ var AuthPage = /** @class */ (function () {
         // }
     };
     AuthPage.ctorParameters = function () { return [
-        { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
@@ -293,10 +293,10 @@ var AuthPage = /** @class */ (function () {
     AuthPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-auth',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./auth.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth.page.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./auth.page.scss */ "./src/app/auth/auth.page.scss")).default]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./auth.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/auth/auth.page.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./auth.page.scss */ "./src/app/pages/auth/auth.page.scss")).default]
         }),
-        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]
@@ -311,4 +311,4 @@ var AuthPage = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=auth-auth-module.js.map
+//# sourceMappingURL=pages-auth-auth-module.js.map
