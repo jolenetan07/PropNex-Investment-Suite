@@ -286,7 +286,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var _pages_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/auth/auth.guard */ "./src/app/pages/auth/auth.guard.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -298,21 +298,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var routes = [
     { path: '', redirectTo: 'auth', pathMatch: 'full' },
-    { path: 'auth', loadChildren: function () { return __webpack_require__.e(/*! import() | pages-auth-auth-module */ "pages-auth-auth-module").then(__webpack_require__.bind(null, /*! ./pages/auth/auth.module */ "./src/app/pages/auth/auth.module.ts")).then(function (m) { return m.AuthPageModule; }); } },
+    { path: 'auth', loadChildren: function () { return __webpack_require__.e(/*! import() | auth-auth-module */ "auth-auth-module").then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(function (m) { return m.AuthPageModule; }); } },
     {
         path: 'home',
-        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-home-home-module */ "pages-home-home-module").then(__webpack_require__.bind(null, /*! ./pages/home/home.module */ "./src/app/pages/home/home.module.ts")).then(function (m) { return m.HomePageModule; }); },
-        canLoad: [_pages_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+        loadChildren: function () { return __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(function (m) { return m.HomePageModule; }); },
+        canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     },
     {
         path: 'stats',
-        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-stats-stats-module */ "pages-stats-stats-module").then(__webpack_require__.bind(null, /*! ./pages/stats/stats.module */ "./src/app/pages/stats/stats.module.ts")).then(function (m) { return m.StatsPageModule; }); },
-        canLoad: [_pages_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+        loadChildren: function () { return __webpack_require__.e(/*! import() | stats-stats-module */ "stats-stats-module").then(__webpack_require__.bind(null, /*! ./stats/stats.module */ "./src/app/stats/stats.module.ts")).then(function (m) { return m.StatsPageModule; }); },
+        canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     },
     {
         path: 'units',
-        loadChildren: function () { return Promise.all(/*! import() | pages-units-units-module */[__webpack_require__.e("default~favourites-favourites-module~main-main-module~pages-units-units-module~recommendations-recom~65a86ca3"), __webpack_require__.e("pages-units-units-module")]).then(__webpack_require__.bind(null, /*! ./pages/units/units.module */ "./src/app/pages/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
-        canLoad: [_pages_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+        loadChildren: function () { return Promise.all(/*! import() | units-units-module */[__webpack_require__.e("default~favourites-favourites-module~main-main-module~recommendations-recommendations-module~units-u~e708acb9"), __webpack_require__.e("units-units-module")]).then(__webpack_require__.bind(null, /*! ./units/units.module */ "./src/app/units/units.module.ts")).then(function (m) { return m.UnitsPageModule; }); },
+        canLoad: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -346,7 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -389,7 +389,7 @@ var AppComponent = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
         { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
         { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
-        { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
+        { type: _auth_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
     ]; };
     AppComponent = __decorate([
@@ -400,7 +400,7 @@ var AppComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
-            _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"],
+            _auth_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AppComponent);
     return AppComponent;
@@ -467,10 +467,10 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/auth/auth.guard.ts":
-/*!******************************************!*\
-  !*** ./src/app/pages/auth/auth.guard.ts ***!
-  \******************************************/
+/***/ "./src/app/auth/auth.guard.ts":
+/*!************************************!*\
+  !*** ./src/app/auth/auth.guard.ts ***!
+  \************************************/
 /*! exports provided: AuthGuard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -479,7 +479,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -504,14 +504,14 @@ var AuthGuard = /** @class */ (function () {
         return this.authService.userIsAuthenticated;
     };
     AuthGuard.ctorParameters = function () { return [
-        { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+        { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
     ]; };
     AuthGuard = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AuthGuard);
     return AuthGuard;
 }());
@@ -520,184 +520,10 @@ var AuthGuard = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/auth/firebase.model.ts":
-/*!**********************************************!*\
-  !*** ./src/app/pages/auth/firebase.model.ts ***!
-  \**********************************************/
-/*! exports provided: fbUser, fbPostal, fbUnit, fbRec, fbTrans */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUser", function() { return fbUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbPostal", function() { return fbPostal; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUnit", function() { return fbUnit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbRec", function() { return fbRec; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbTrans", function() { return fbTrans; });
-var fbUser = /** @class */ (function () {
-    function fbUser(email, favourites, generalRec, name, password, personalRec, userType) {
-        this.email = email;
-        this.favourites = favourites;
-        this.generalRec = generalRec;
-        this.name = name;
-        this.password = password;
-        this.personalRec = personalRec;
-        this.userType = userType;
-    }
-    return fbUser;
-}());
-
-var fbPostal = /** @class */ (function () {
-    function fbPostal(name, postal, imageUrl, units) {
-        this.name = name;
-        this.postal = postal;
-        this.imageUrl = imageUrl;
-        this.units = units;
-    }
-    return fbPostal;
-}());
-
-var fbUnit = /** @class */ (function () {
-    function fbUnit(bedrooms, floorplan, size, unitNumber) {
-        this.bedrooms = bedrooms;
-        this.floorplan = floorplan;
-        this.size = size;
-        this.unitNumber = unitNumber;
-    }
-    return fbUnit;
-}());
-
-var fbRec = /** @class */ (function () {
-    function fbRec(place, rec1, rec2, rec3) {
-        this.place = place;
-        this.rec1 = rec1;
-        this.rec2 = rec2;
-        this.rec3 = rec3;
-    }
-    return fbRec;
-}());
-
-var fbTrans = /** @class */ (function () {
-    function fbTrans(area, dateOfSale, flatModel, floorMax, floorMin, privatePublic, projectName, remainingLease, salePrice, type, transID) {
-        this.area = area;
-        this.dateOfSale = dateOfSale;
-        this.flatModel = flatModel;
-        this.floorMax = floorMax;
-        this.floorMin = floorMin;
-        this.privatePublic = privatePublic;
-        this.projectName = projectName;
-        this.remainingLease = remainingLease;
-        this.salePrice = salePrice;
-        this.type = type;
-        this.transID = transID;
-    }
-    return fbTrans;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pages/auth/user.model.ts":
-/*!******************************************!*\
-  !*** ./src/app/pages/auth/user.model.ts ***!
-  \******************************************/
-/*! exports provided: User */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-var User = /** @class */ (function () {
-    function User(id, username, password, firstname, lastname, income, type, units) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.income = income;
-        this.type = type;
-        this.units = units;
-    }
-    return User;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/pages/units/units.model.ts":
-/*!********************************************!*\
-  !*** ./src/app/pages/units/units.model.ts ***!
-  \********************************************/
-/*! exports provided: Unit, UnitAll */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Unit", function() { return Unit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitAll", function() { return UnitAll; });
-var Unit = /** @class */ (function () {
-    function Unit(id, unitNum, addressProjectName, areaSqm, dateOfSale, flatModel, floorMax, floorMin, privatePublic, remainingLease2022, salePrice, type) {
-        this.id = id;
-        this.unitNum = unitNum;
-        this.addressProjectName = addressProjectName;
-        this.areaSqm = areaSqm;
-        this.dateOfSale = dateOfSale;
-        this.flatModel = flatModel;
-        this.floorMax = floorMax;
-        this.floorMin = floorMin;
-        this.privatePublic = privatePublic;
-        this.remainingLease2022 = remainingLease2022;
-        this.salePrice = salePrice;
-        this.type = type;
-    }
-    return Unit;
-}());
-
-var UnitAll = /** @class */ (function () {
-    function UnitAll(
-    // 'Homeowner Race: ',
-    // 'Country Of Citizenship: ',
-    // 'Decorative Style: ',
-    // 'Extension Request: ',
-    // 'Price: ',
-    // 'Title Deed: ',
-    // 'House Age: ',
-    // 'Building Height: ',
-    // 'No. Of Units (total): ',
-    // 'No. Of Units (per floor): ',
-    // 'Room Type: ',
-    // 'Area: ',
-    // 'No Of Rooms: ',
-    // 'No. Of Toilets: ',
-    // 'House Structure: ',
-    // 'Door Facing: ',
-    // 'Room Orientation: ',
-    // 'Corner Unit: ',
-    // 'Ground/Top Floor: ',
-    // 'Western Sun: ',
-    // 'Noisy: ',
-    // 'Refurbished State: ',
-    // 'Landscape From Window: ',
-    // 'Bomb Shelter: ',
-    // 'Open Kitchen: ',
-    // 'Gas Management Fee: ',
-    // 'House Tax: ',
-    // 'Rental Status: '
-    ) {
-    }
-    return UnitAll;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/auth.service.ts":
-/*!******************************************!*\
-  !*** ./src/app/services/auth.service.ts ***!
-  \******************************************/
+/***/ "./src/app/auth/auth.service.ts":
+/*!**************************************!*\
+  !*** ./src/app/auth/auth.service.ts ***!
+  \**************************************/
 /*! exports provided: AuthService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -705,12 +531,12 @@ var UnitAll = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _pages_auth_user_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/auth/user.model */ "./src/app/pages/auth/user.model.ts");
+/* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user.model */ "./src/app/auth/user.model.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _pages_auth_firebase_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/auth/firebase.model */ "./src/app/pages/auth/firebase.model.ts");
-/* harmony import */ var _pages_units_units_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/units/units.model */ "./src/app/pages/units/units.model.ts");
+/* harmony import */ var _firebase_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./firebase.model */ "./src/app/auth/firebase.model.ts");
+/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../units/units.model */ "./src/app/units/units.model.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -755,12 +581,12 @@ var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
         this._userIsAuthenticated = false;
-        this._currUser = new _pages_auth_user_model__WEBPACK_IMPORTED_MODULE_1__["User"]('u1', 'jerryliu123', 'password321', 'Jerry', 'Liu', 10000, 'seller', 
+        this._currUser = new _user_model__WEBPACK_IMPORTED_MODULE_1__["User"]('u1', 'jerryliu123', 'password321', 'Jerry', 'Liu', 10000, 'seller', 
         //'buyer',
         [
-            new _pages_units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
-            new _pages_units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
-            new _pages_units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u1', '03-01', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u2', '03-02', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
+            new _units_units_model__WEBPACK_IMPORTED_MODULE_6__["Unit"]('u3', '03-03', '142 Bedok Reservoir Rd', 134, '2018-04', '', 5, 1, 'Public', 'Freehold', 1700000, 'HDB'),
         ]);
         this._fbUsers = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
     }
@@ -826,7 +652,7 @@ var AuthService = /** @class */ (function () {
             var users = [];
             for (var key in resData) {
                 if (resData.hasOwnProperty(key)) {
-                    users.push(new _pages_auth_firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](resData[key].email, resData[key].favourites, resData[key].generalRec, resData[key].name, resData[key].password, resData[key].personalRec, resData[key].userType));
+                    users.push(new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](resData[key].email, resData[key].favourites, resData[key].generalRec, resData[key].name, resData[key].password, resData[key].personalRec, resData[key].userType));
                 }
             }
             return users;
@@ -838,7 +664,7 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.addUser = function (email, name, password) {
         var _this = this;
-        var newUser = new _pages_auth_firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](email, [], [], name, password, [], 'user');
+        var newUser = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](email, [], [], name, password, [], 'user');
         return this.http
             .post('https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json', __assign({}, newUser))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (resData) {
@@ -861,7 +687,7 @@ var AuthService = /** @class */ (function () {
             var updatedUserIndex = users.findIndex(function (u) { return u.email === targetEmail; });
             updatedUsers = __spreadArrays(users);
             var oldPlace = updatedUsers[updatedUserIndex];
-            updatedUsers[updatedUserIndex] = new _pages_auth_firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, oldPlace.favourites, oldPlace.generalRec, newName, newPassword, oldPlace.personalRec, oldPlace.userType);
+            updatedUsers[updatedUserIndex] = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, oldPlace.favourites, oldPlace.generalRec, newName, newPassword, oldPlace.personalRec, oldPlace.userType);
             _this.currFbUser = updatedUsers[updatedUserIndex];
             return _this.http.put("https://propnexfyp-user.asia-southeast1.firebasedatabase.app/" + updatedUserIndex + ".json", __assign({}, updatedUsers[updatedUserIndex]));
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
@@ -884,7 +710,7 @@ var AuthService = /** @class */ (function () {
             var oldPlace = updatedUsers[updatedUserIndex];
             var newFavArr = oldPlace.favourites || [];
             newFavArr = newFavArr.concat(newPlace);
-            updatedUsers[updatedUserIndex] = new _pages_auth_firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, newFavArr, oldPlace.generalRec, oldPlace.name, oldPlace.password, oldPlace.personalRec, oldPlace.userType);
+            updatedUsers[updatedUserIndex] = new _firebase_model__WEBPACK_IMPORTED_MODULE_5__["fbUser"](oldPlace.email, newFavArr, oldPlace.generalRec, oldPlace.name, oldPlace.password, oldPlace.personalRec, oldPlace.userType);
             _this.currFbUser = updatedUsers[updatedUserIndex];
             return _this.http.put("https://propnexfyp-user.asia-southeast1.firebasedatabase.app/" + updatedUserIndex + ".json", __assign({}, updatedUsers[updatedUserIndex]));
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
@@ -905,6 +731,169 @@ var AuthService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AuthService);
     return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/firebase.model.ts":
+/*!****************************************!*\
+  !*** ./src/app/auth/firebase.model.ts ***!
+  \****************************************/
+/*! exports provided: fbUser, fbPostal, fbUnit, fbTrans */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUser", function() { return fbUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbPostal", function() { return fbPostal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbUnit", function() { return fbUnit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fbTrans", function() { return fbTrans; });
+var fbUser = /** @class */ (function () {
+    function fbUser(email, favourites, generalRec, name, password, personalRec, userType) {
+        this.email = email;
+        this.favourites = favourites;
+        this.generalRec = generalRec;
+        this.name = name;
+        this.password = password;
+        this.personalRec = personalRec;
+        this.userType = userType;
+    }
+    return fbUser;
+}());
+
+var fbPostal = /** @class */ (function () {
+    function fbPostal(name, postal, imageUrl, units) {
+        this.name = name;
+        this.postal = postal;
+        this.imageUrl = imageUrl;
+        this.units = units;
+    }
+    return fbPostal;
+}());
+
+var fbUnit = /** @class */ (function () {
+    function fbUnit(bedrooms, floorplan, size, unitNumber) {
+        this.bedrooms = bedrooms;
+        this.floorplan = floorplan;
+        this.size = size;
+        this.unitNumber = unitNumber;
+    }
+    return fbUnit;
+}());
+
+var fbTrans = /** @class */ (function () {
+    function fbTrans(area, dateOfSale, flatModel, floorMax, floorMin, privatePublic, projectName, remainingLease, salePrice, type, transID) {
+        this.area = area;
+        this.dateOfSale = dateOfSale;
+        this.flatModel = flatModel;
+        this.floorMax = floorMax;
+        this.floorMin = floorMin;
+        this.privatePublic = privatePublic;
+        this.projectName = projectName;
+        this.remainingLease = remainingLease;
+        this.salePrice = salePrice;
+        this.type = type;
+        this.transID = transID;
+    }
+    return fbTrans;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/user.model.ts":
+/*!************************************!*\
+  !*** ./src/app/auth/user.model.ts ***!
+  \************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User(id, username, password, firstname, lastname, income, type, units) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.income = income;
+        this.type = type;
+        this.units = units;
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/units/units.model.ts":
+/*!**************************************!*\
+  !*** ./src/app/units/units.model.ts ***!
+  \**************************************/
+/*! exports provided: Unit, UnitAll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Unit", function() { return Unit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitAll", function() { return UnitAll; });
+var Unit = /** @class */ (function () {
+    function Unit(id, unitNum, addressProjectName, areaSqm, dateOfSale, flatModel, floorMax, floorMin, privatePublic, remainingLease2022, salePrice, type) {
+        this.id = id;
+        this.unitNum = unitNum;
+        this.addressProjectName = addressProjectName;
+        this.areaSqm = areaSqm;
+        this.dateOfSale = dateOfSale;
+        this.flatModel = flatModel;
+        this.floorMax = floorMax;
+        this.floorMin = floorMin;
+        this.privatePublic = privatePublic;
+        this.remainingLease2022 = remainingLease2022;
+        this.salePrice = salePrice;
+        this.type = type;
+    }
+    return Unit;
+}());
+
+var UnitAll = /** @class */ (function () {
+    function UnitAll(
+    // 'Homeowner Race: ',
+    // 'Country Of Citizenship: ',
+    // 'Decorative Style: ',
+    // 'Extension Request: ',
+    // 'Price: ',
+    // 'Title Deed: ',
+    // 'House Age: ',
+    // 'Building Height: ',
+    // 'No. Of Units (total): ',
+    // 'No. Of Units (per floor): ',
+    // 'Room Type: ',
+    // 'Area: ',
+    // 'No Of Rooms: ',
+    // 'No. Of Toilets: ',
+    // 'House Structure: ',
+    // 'Door Facing: ',
+    // 'Room Orientation: ',
+    // 'Corner Unit: ',
+    // 'Ground/Top Floor: ',
+    // 'Western Sun: ',
+    // 'Noisy: ',
+    // 'Refurbished State: ',
+    // 'Landscape From Window: ',
+    // 'Bomb Shelter: ',
+    // 'Open Kitchen: ',
+    // 'Gas Management Fee: ',
+    // 'House Tax: ',
+    // 'Rental Status: '
+    ) {
+    }
+    return UnitAll;
 }());
 
 

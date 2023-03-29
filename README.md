@@ -4,11 +4,8 @@
 * Built using the ionic-angular framework
 * Supports both web and mobile (ios & android) platforms.
 
-
 ## How to Run
 * In a fresh pull of the repo, `cd propnex-investment-suite`
-* delete 'node_modules' folder and run `npm install`
-* `ng build`
 
 **Web**
 * `ionic serve` runs app on browser (localhost) with live reload feature
@@ -32,23 +29,9 @@
 * alternatively, `ionic capacitor run ios` or `ionic capacitor run ios -l`
 
 
-## Project Structure
-propnex-investment-suite
-|- src
-    |- app
-        |- pages    -- contains the various pages of the app
-            |- auth     -- contains logic to build the login/signup page 
-            |- home     -- contains all the logic and internal page folders to build the home page 
-            |- stats    -- contains logic to build the statistical insights page 
-            |- units    -- contains the all the logic, internal page folders and components to build the find place page
-        |- services     -- contains the various services used by the app
-    |- assets   -- contains images and other assets used in the app
-    |- theme    -- contains styling and theming configuration files for the app
-    |- global.scss  -- global stylesheet used to define styles that apply to the entire app
-|
-|- node_module  -- contains all third-party dependencies and libraries that the app uses
-|
-|-package.json  -- configuration file that contains information about the project and its dependencies
+
+
+
 
 
 

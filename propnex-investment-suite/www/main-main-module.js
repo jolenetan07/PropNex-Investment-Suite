@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main-main-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/edit-profile/edit-profile.component.html":
-/*!****************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/edit-profile/edit-profile.component.html ***!
-  \****************************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/edit-profile/edit-profile.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/edit-profile/edit-profile.component.html ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,10 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/main.page.html":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/main.page.html ***!
-  \**************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/main.page.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/main.page.html ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -26,23 +26,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/edit-profile/edit-profile.component.scss":
-/*!**************************************************************************!*\
-  !*** ./src/app/pages/home/main/edit-profile/edit-profile.component.scss ***!
-  \**************************************************************************/
+/***/ "./src/app/home/main/edit-profile/edit-profile.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/home/main/edit-profile/edit-profile.component.scss ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvbWFpbi9lZGl0LXByb2ZpbGUvZWRpdC1wcm9maWxlLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbWFpbi9lZGl0LXByb2ZpbGUvZWRpdC1wcm9maWxlLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/edit-profile/edit-profile.component.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/pages/home/main/edit-profile/edit-profile.component.ts ***!
-  \************************************************************************/
+/***/ "./src/app/home/main/edit-profile/edit-profile.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/home/main/edit-profile/edit-profile.component.ts ***!
+  \******************************************************************/
 /*! exports provided: EditProfileComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -52,7 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,16 +104,16 @@ var EditProfileComponent = /** @class */ (function () {
         this.modalCtrl.dismiss({ message: 'Changes saved' }, 'confirm');
     };
     EditProfileComponent.ctorParameters = function () { return [
-        { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }
     ]; };
     EditProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-edit-profile',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./edit-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/edit-profile/edit-profile.component.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./edit-profile.component.scss */ "./src/app/pages/home/main/edit-profile/edit-profile.component.scss")).default]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./edit-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/edit-profile/edit-profile.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./edit-profile.component.scss */ "./src/app/home/main/edit-profile/edit-profile.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+        __metadata("design:paramtypes", [src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
     ], EditProfileComponent);
     return EditProfileComponent;
@@ -123,10 +123,10 @@ var EditProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/main-routing.module.ts":
-/*!********************************************************!*\
-  !*** ./src/app/pages/home/main/main-routing.module.ts ***!
-  \********************************************************/
+/***/ "./src/app/home/main/main-routing.module.ts":
+/*!**************************************************!*\
+  !*** ./src/app/home/main/main-routing.module.ts ***!
+  \**************************************************/
 /*! exports provided: MainPageRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainPageRoutingModule", function() { return MainPageRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var _main_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.page */ "./src/app/pages/home/main/main.page.ts");
+/* harmony import */ var _main_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.page */ "./src/app/home/main/main.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -167,10 +167,10 @@ var MainPageRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/main.module.ts":
-/*!************************************************!*\
-  !*** ./src/app/pages/home/main/main.module.ts ***!
-  \************************************************/
+/***/ "./src/app/home/main/main.module.ts":
+/*!******************************************!*\
+  !*** ./src/app/home/main/main.module.ts ***!
+  \******************************************/
 /*! exports provided: MainPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -181,9 +181,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var _main_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main-routing.module */ "./src/app/pages/home/main/main-routing.module.ts");
-/* harmony import */ var _main_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.page */ "./src/app/pages/home/main/main.page.ts");
-/* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ "./src/app/pages/home/main/edit-profile/edit-profile.component.ts");
+/* harmony import */ var _main_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main-routing.module */ "./src/app/home/main/main-routing.module.ts");
+/* harmony import */ var _main_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.page */ "./src/app/home/main/main.page.ts");
+/* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ "./src/app/home/main/edit-profile/edit-profile.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -219,23 +219,23 @@ var MainPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/main.page.scss":
-/*!************************************************!*\
-  !*** ./src/app/pages/home/main/main.page.scss ***!
-  \************************************************/
+/***/ "./src/app/home/main/main.page.scss":
+/*!******************************************!*\
+  !*** ./src/app/home/main/main.page.scss ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-icon {\n  font-size: 88px;\n}\n\n.wrap-heading {\n  word-wrap: break-word;\n  white-space: normal !important;\n  width: auto !important;\n  height: auto !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qb2xlbmV0YW4vRG9jdW1lbnRzL0dpdEh1Yi9qb2xlbmV0YW4wNy5naXRodWIuaW8vcHJvcG5leC1pbnZlc3RtZW50LXN1aXRlL3NyYy9hcHAvcGFnZXMvaG9tZS9tYWluL21haW4ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9ob21lL21haW4vbWFpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0FDQ0o7O0FERUE7RUFDRSxxQkFBQTtFQUNBLDhCQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaG9tZS9tYWluL21haW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWljb24ge1xuICAgIGZvbnQtc2l6ZTogODhweDtcbiAgfVxuICBcbi53cmFwLWhlYWRpbmcge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWwgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG8gIWltcG9ydGFudDtcbiAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG59IiwiaW9uLWljb24ge1xuICBmb250LXNpemU6IDg4cHg7XG59XG5cbi53cmFwLWhlYWRpbmcge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWwgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG8gIWltcG9ydGFudDtcbiAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-icon {\n  font-size: 88px;\n}\n\n.wrap-heading {\n  word-wrap: break-word;\n  white-space: normal !important;\n  width: auto !important;\n  height: auto !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9qb2xlbmV0YW4vRG9jdW1lbnRzL0dpdEh1Yi9qb2xlbmV0YW4wNy5naXRodWIuaW8vcHJvcG5leC1pbnZlc3RtZW50LXN1aXRlL3NyYy9hcHAvaG9tZS9tYWluL21haW4ucGFnZS5zY3NzIiwic3JjL2FwcC9ob21lL21haW4vbWFpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxlQUFBO0FDQ0o7O0FERUE7RUFDRSxxQkFBQTtFQUNBLDhCQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9tYWluL21haW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWljb24ge1xuICAgIGZvbnQtc2l6ZTogODhweDtcbiAgfVxuICBcbi53cmFwLWhlYWRpbmcge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWwgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG8gIWltcG9ydGFudDtcbiAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG59IiwiaW9uLWljb24ge1xuICBmb250LXNpemU6IDg4cHg7XG59XG5cbi53cmFwLWhlYWRpbmcge1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWwgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG8gIWltcG9ydGFudDtcbiAgaGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG59Il19 */");
 
 /***/ }),
 
-/***/ "./src/app/pages/home/main/main.page.ts":
-/*!**********************************************!*\
-  !*** ./src/app/pages/home/main/main.page.ts ***!
-  \**********************************************/
+/***/ "./src/app/home/main/main.page.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/main/main.page.ts ***!
+  \****************************************/
 /*! exports provided: MainPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -245,10 +245,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var src_app_services_place_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/place.service */ "./src/app/services/place.service.ts");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../home.service */ "./src/app/pages/home/home.service.ts");
-/* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ "./src/app/pages/home/main/edit-profile/edit-profile.component.ts");
+/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
+/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../home.service */ "./src/app/home/home.service.ts");
+/* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ "./src/app/home/main/edit-profile/edit-profile.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -321,22 +321,22 @@ var MainPage = /** @class */ (function () {
     };
     MainPage.ctorParameters = function () { return [
         { type: _home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"] },
-        { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
-        { type: src_app_services_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"] }
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"] }
     ]; };
     MainPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-main',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./main.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/main/main.page.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./main.page.scss */ "./src/app/pages/home/main/main.page.scss")).default]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./main.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/main/main.page.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./main.page.scss */ "./src/app/home/main/main.page.scss")).default]
         }),
         __metadata("design:paramtypes", [_home_service__WEBPACK_IMPORTED_MODULE_5__["HomeService"],
-            src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            src_app_services_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"]])
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_4__["PlaceService"]])
     ], MainPage);
     return MainPage;
 }());

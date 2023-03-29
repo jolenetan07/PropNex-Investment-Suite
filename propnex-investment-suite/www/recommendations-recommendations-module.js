@@ -1,22 +1,22 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["recommendations-recommendations-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/recommendations/recommendations.page.html":
-/*!************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/recommendations/recommendations.page.html ***!
-  \************************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/recommendations/recommendations.page.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/recommendations/recommendations.page.html ***!
+  \******************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>Discover</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-segment [(ngModel)]=\"selectedView\" (ionChange)=\"onFilterUpdate($event)\">\n    <ion-segment-button value=\"personal\">For You</ion-segment-button>\n    <ion-segment-button value=\"trend\">Trending</ion-segment-button>\n  </ion-segment>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-list *ngIf=\"selectedView === 'personal'\">\n          <ion-item *ngFor=\"let place of displayedPlaces\" detail>{{recPlace}}</ion-item>\n        </ion-list>\n\n        <ion-list *ngIf=\"selectedView === 'trend'\">\n          <ion-item-sliding *ngFor=\"let place of displayedPlaces\" #slidingRecos>\n            <ion-item \n              detail \n              (click)=\"onClickPlace(place.postal)\" \n              button\n            >\n              <ion-thumbnail slot=\"start\">\n                <!-- <ion-img [src]=\"place.imageUrl\"></ion-img> -->\n                <ion-img src=\"assets/placeholders/property.jpeg\"></ion-img>\n              </ion-thumbnail>\n              <ion-label>\n                <h2>{{ place.name }}</h2>\n                <p>Singapore {{ place.postal}}</p>\n              </ion-label>\n            </ion-item>\n\n            <ion-item-options side=\"end\">\n              <ion-item-option color=\"tertiary\" (click)=\"onAddPlace(place.postal, slidingRecos)\">\n                <ion-icon name=\"star\" slot=\"icon-only\"></ion-icon>\n              </ion-item-option>\n            </ion-item-options>\n          </ion-item-sliding>\n        </ion-list>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>Discover</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-segment value=\"personal\" (ionChange)=\"onFilterUpdate($event)\">\n    <ion-segment-button value=\"personal\">For You</ion-segment-button>\n    <ion-segment-button value=\"trend\">Trending</ion-segment-button>\n  </ion-segment>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-list>\n          <ion-item-sliding *ngFor=\"let place of displayedPlaces\" #slidingRecos>\n            <ion-item \n              detail \n              (click)=\"onClickPlace(place.postal)\" \n              button\n            >\n              <ion-thumbnail slot=\"start\">\n                <!-- <ion-img [src]=\"place.imageUrl\"></ion-img> -->\n                <ion-img src=\"assets/placeholders/property.jpeg\"></ion-img>\n              </ion-thumbnail>\n              <ion-label>\n                <h2>{{ place.name }}</h2>\n                <p>Singapore {{ place.postal}}</p>\n              </ion-label>\n            </ion-item>\n\n            <ion-item-options side=\"end\">\n              <ion-item-option color=\"tertiary\" (click)=\"onAddPlace(place.postal, slidingRecos)\">\n                <ion-icon name=\"star\" slot=\"icon-only\"></ion-icon>\n              </ion-item-option>\n            </ion-item-options>\n          </ion-item-sliding>\n        </ion-list>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n");
 
 /***/ }),
 
-/***/ "./src/app/pages/home/recommendations/recommendations-routing.module.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/pages/home/recommendations/recommendations-routing.module.ts ***!
-  \******************************************************************************/
+/***/ "./src/app/home/recommendations/recommendations-routing.module.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/home/recommendations/recommendations-routing.module.ts ***!
+  \************************************************************************/
 /*! exports provided: RecommendationsPageRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecommendationsPageRoutingModule", function() { return RecommendationsPageRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var _recommendations_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recommendations.page */ "./src/app/pages/home/recommendations/recommendations.page.ts");
+/* harmony import */ var _recommendations_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recommendations.page */ "./src/app/home/recommendations/recommendations.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,10 +57,10 @@ var RecommendationsPageRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/home/recommendations/recommendations.module.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/pages/home/recommendations/recommendations.module.ts ***!
-  \**********************************************************************/
+/***/ "./src/app/home/recommendations/recommendations.module.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/home/recommendations/recommendations.module.ts ***!
+  \****************************************************************/
 /*! exports provided: RecommendationsPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -71,8 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var _recommendations_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./recommendations-routing.module */ "./src/app/pages/home/recommendations/recommendations-routing.module.ts");
-/* harmony import */ var _recommendations_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./recommendations.page */ "./src/app/pages/home/recommendations/recommendations.page.ts");
+/* harmony import */ var _recommendations_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./recommendations-routing.module */ "./src/app/home/recommendations/recommendations-routing.module.ts");
+/* harmony import */ var _recommendations_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./recommendations.page */ "./src/app/home/recommendations/recommendations.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -106,23 +106,23 @@ var RecommendationsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/home/recommendations/recommendations.page.scss":
-/*!**********************************************************************!*\
-  !*** ./src/app/pages/home/recommendations/recommendations.page.scss ***!
-  \**********************************************************************/
+/***/ "./src/app/home/recommendations/recommendations.page.scss":
+/*!****************************************************************!*\
+  !*** ./src/app/home/recommendations/recommendations.page.scss ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvcmVjb21tZW5kYXRpb25zL3JlY29tbWVuZGF0aW9ucy5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVjb21tZW5kYXRpb25zL3JlY29tbWVuZGF0aW9ucy5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
-/***/ "./src/app/pages/home/recommendations/recommendations.page.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/pages/home/recommendations/recommendations.page.ts ***!
-  \********************************************************************/
+/***/ "./src/app/home/recommendations/recommendations.page.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/home/recommendations/recommendations.page.ts ***!
+  \**************************************************************/
 /*! exports provided: RecommendationsPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -130,11 +130,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecommendationsPage", function() { return RecommendationsPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../home.service */ "./src/app/pages/home/home.service.ts");
+/* harmony import */ var _home_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../home.service */ "./src/app/home/home.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm5/ionic-angular.js");
-/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var src_app_services_place_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/place.service */ "./src/app/services/place.service.ts");
+/* harmony import */ var src_app_units_place_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/units/place.service */ "./src/app/units/place.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,7 +196,6 @@ var RecommendationsPage = /** @class */ (function () {
         this.router = router;
         this.placeService = placeService;
         this.alertController = alertController;
-        this.selectedView = 'personal';
     }
     RecommendationsPage.prototype.ngOnInit = function () {
         var _this = this;
@@ -204,8 +203,8 @@ var RecommendationsPage = /** @class */ (function () {
         this.fbPostalsSub = this.placeService.fbPostals.subscribe(function (fbPostals) {
             _this.loadedFBPostals = fbPostals;
         });
-        //this.personalRecPlaces = this.authService.currFbUser.personalRec;
-        //this.generalRecPlaces = this.authService.currFbUser.generalRec;
+        this.loadedPlaces = this.authService.currFbUser.personalRec;
+        this.displayedPlaces = this.loadedPlaces;
     };
     RecommendationsPage.prototype.ionViewWillEnter = function () {
         this.placeService.fetchFBPostals().subscribe(function () {
@@ -270,21 +269,21 @@ var RecommendationsPage = /** @class */ (function () {
     };
     RecommendationsPage.ctorParameters = function () { return [
         { type: _home_service__WEBPACK_IMPORTED_MODULE_1__["HomeService"] },
-        { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-        { type: src_app_services_place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"] },
+        { type: src_app_units_place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
     ]; };
     RecommendationsPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-recommendations',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./recommendations.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/recommendations/recommendations.page.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./recommendations.page.scss */ "./src/app/pages/home/recommendations/recommendations.page.scss")).default]
+            template: __importDefault(__webpack_require__(/*! raw-loader!./recommendations.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/recommendations/recommendations.page.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./recommendations.page.scss */ "./src/app/home/recommendations/recommendations.page.scss")).default]
         }),
         __metadata("design:paramtypes", [_home_service__WEBPACK_IMPORTED_MODULE_1__["HomeService"],
-            src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            src_app_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            src_app_services_place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"],
+            src_app_units_place_service__WEBPACK_IMPORTED_MODULE_5__["PlaceService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
     ], RecommendationsPage);
     return RecommendationsPage;
