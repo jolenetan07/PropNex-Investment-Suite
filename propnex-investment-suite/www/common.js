@@ -84,10 +84,10 @@ var hostContext=function(r,t){return t.closest(r)!==null};var createColorClasses
 
 /***/ }),
 
-/***/ "./src/app/home/home.service.ts":
-/*!**************************************!*\
-  !*** ./src/app/home/home.service.ts ***!
-  \**************************************/
+/***/ "./src/app/pages/home/home.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/pages/home/home.service.ts ***!
+  \********************************************/
 /*! exports provided: HomeService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -95,8 +95,8 @@ var hostContext=function(r,t){return t.closest(r)!==null};var createColorClasses
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeService", function() { return HomeService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../units/units.model */ "./src/app/units/units.model.ts");
-/* harmony import */ var _place_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./place.model */ "./src/app/home/place.model.ts");
+/* harmony import */ var _units_units_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../units/units.model */ "./src/app/pages/units/units.model.ts");
+/* harmony import */ var _place_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./place.model */ "./src/app/pages/home/place.model.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -234,10 +234,10 @@ var HomeService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/home/place.model.ts":
-/*!*************************************!*\
-  !*** ./src/app/home/place.model.ts ***!
-  \*************************************/
+/***/ "./src/app/pages/home/place.model.ts":
+/*!*******************************************!*\
+  !*** ./src/app/pages/home/place.model.ts ***!
+  \*******************************************/
 /*! exports provided: Place */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
