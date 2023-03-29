@@ -3,7 +3,7 @@ import { HomeService } from '../home.service';
 import { Place } from '../place.model';
 import { SegmentChangeEventDetail } from '@ionic/core';
 import { AlertController, IonItemSliding } from '@ionic/angular';
-import { fbPostal, fbUser } from 'src/app/pages/auth/firebase.model';
+import { fbPostal, fbRec, fbUser } from 'src/app/pages/auth/firebase.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -30,6 +30,11 @@ export class RecommendationsPage implements OnInit {
   generalRecPlaces?: fbPostal[];
   displayedPlaces?: fbPostal[] | string[];
 
+  loadedFBRecs: fbRec[];
+  private fbRecsSub: Subscription;
+  recItem: fbRec;
+  findRecs: string[];
+
   constructor(
     private homeService: HomeService,
     private authService: AuthService,
@@ -43,12 +48,18 @@ export class RecommendationsPage implements OnInit {
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
     })
+    this.fbRecsSub = this.placeService.fbRecs.subscribe(fbRecs => {
+      this.loadedFBRecs = fbRecs;
+    })
     //this.personalRecPlaces = this.authService.currFbUser.personalRec;
     //this.generalRecPlaces = this.authService.currFbUser.generalRec;
   }
 
   ionViewWillEnter() {
     this.placeService.fetchFBPostals().subscribe(() => {
+
+    });
+    this.placeService.fetchFBRecs().subscribe(() => {
 
     });
   } 
@@ -76,12 +87,18 @@ export class RecommendationsPage implements OnInit {
       if (favPlace) {
         this.presentFavAlert();
       } else {
-        this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
+        this.recItem = this.loadedFBRecs.find(p => p.place === targetPlace.name);
+        //console.log(this.recItem);
+        this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+        //console.log(findRecs);
+        this.authService.addFav(this.currUser.email, targetPlace, this.findRecs).subscribe(()=>{
 
         });
       }
     } else {
-      this.authService.addFav(this.currUser.email, targetPlace).subscribe(()=>{
+      this.recItem = this.loadedFBRecs.find(p => p.place === targetPlace.name);
+      this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      this.authService.addFav(this.currUser.email, targetPlace, this.findRecs).subscribe(()=>{
 
       });
     }
@@ -101,6 +118,9 @@ export class RecommendationsPage implements OnInit {
   ngOnDestroy() {
     if (this.fbPostalsSub) {
       this.fbPostalsSub.unsubscribe();
+    }
+    if (this.fbRecsSub) {
+      this.fbRecsSub.unsubscribe();
     }
   }
 

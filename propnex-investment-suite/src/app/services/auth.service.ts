@@ -5,6 +5,7 @@ import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, delay, switchMap } from 'rxjs/operators';
 import { fbTrans, fbPostal, fbUser } from '../pages/auth/firebase.model';
 import { Unit } from '../pages/units/units.model';
+import { PlaceService } from './place.service';
 
 @Injectable({
   providedIn: 'root'
@@ -100,7 +101,8 @@ export class AuthService {
   // }
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private placeService: PlaceService
   ) {}
 
   login() {
@@ -224,7 +226,14 @@ export class AuthService {
     );
   }
 
-  addFav(targetEmail: string, newPlace: fbPostal) {
+  // addRec(newPlace: fbPostal) {
+  //   let recitem: string[];
+  //   let recList = this.placeService.fetchFBRecs()
+  //   //recItem = this.placeService._fbRecs.find(p => p.place === this.placeService.currPlace.name);
+
+  // }
+
+  addFav(targetEmail: string, newPlace: fbPostal, newRecs: string[]) {
     let updatedUsers: fbUser[];
     return this.fbUsers.pipe(
       take(1),
@@ -242,6 +251,9 @@ export class AuthService {
         
         let newFavArr = oldPlace.favourites || [];
         newFavArr = newFavArr.concat(newPlace);
+
+        let newRecArr = oldPlace.personalRec || [];
+        newRecArr = newRecArr.concat(newRecs);
         
         updatedUsers[updatedUserIndex] = new fbUser(
           oldPlace.email,
@@ -249,7 +261,7 @@ export class AuthService {
           oldPlace.generalRec,
           oldPlace.name,
           oldPlace.password,
-          oldPlace.personalRec,
+          newRecArr,
           oldPlace.userType
         );
         this.currFbUser = updatedUsers[updatedUserIndex];
