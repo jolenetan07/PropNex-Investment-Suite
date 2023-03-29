@@ -118,36 +118,20 @@
               </ion-item>
 
               <ion-item 
-                class="ion-no-padding" 
-                detail 
+                class="ion-no-padding"  
                 *ngIf="currUser.personalRec && currUser.personalRec.length > 0"
-                (click)="onClickPlace(currUser.personalRec[0].postal)" 
-                button
               >
-                <ion-thumbnail slot="start">
-                  <!-- <ion-img [src]="currUser.personalRec[0].imageUrl"></ion-img> -->
-                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
-                </ion-thumbnail>
                 <ion-label>
-                  <h2>{{ currUser.personalRec[0].name }}</h2>
-                  <p>Singapore {{ currUser.personalRec[0].postal}}</p>
+                  <h2>{{ currUser.personalRec[0] }}</h2>
                 </ion-label>
               </ion-item>
 
               <ion-item 
-                class="ion-no-padding" 
-                detail 
+                class="ion-no-padding"  
                 *ngIf="currUser.personalRec && currUser.personalRec.length > 1"
-                (click)="onClickPlace(currUser.personalRec[1].postal)" 
-                button
               >
-                <ion-thumbnail slot="start">
-                  <!-- <ion-img [src]="currUser.personalRec[1].imageUrl"></ion-img> -->
-                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
-                </ion-thumbnail>
                 <ion-label>
-                  <h2>{{ currUser.personalRec[1].name }}</h2>
-                  <p>Singapore {{ currUser.personalRec[1].postal}}</p>
+                  <h2>{{ currUser.personalRec[1] }}</h2>
                 </ion-label>
               </ion-item>
             </ion-list>
