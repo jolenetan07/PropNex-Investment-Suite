@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { fbPostal, fbUser } from '../auth/firebase.model';
+import { fbPostal, fbRec, fbUser } from '../auth/firebase.model';
 import { User } from '../auth/user.model';
 import { HomeService } from '../home/home.service';
 import { Place } from '../home/place.model';
@@ -26,6 +26,9 @@ export class UnitsPage implements OnInit {
   private fbPostalsSub: Subscription;
   result: fbPostal;
 
+  loadedFBRecs: fbRec[];
+  private fbRecsSub: Subscription;
+
   constructor(
     private authService: AuthService,
     //private homeService: HomeService,
@@ -40,6 +43,10 @@ export class UnitsPage implements OnInit {
 
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
+    })
+
+    this.fbRecsSub = this.placeService.fbRecs.subscribe(fbRecs => {
+      this.loadedFBRecs = fbRecs;
     })
   }
 
@@ -74,9 +81,18 @@ export class UnitsPage implements OnInit {
       });
   }
 
+  fetchRec() {
+    this.placeService.fetchFBRecs().subscribe(() => {
+
+    });
+  }
+
   ngOnDestroy() {
     if (this.fbPostalsSub) {
       this.fbPostalsSub.unsubscribe();
+    }
+    if (this.fbRecsSub) {
+      this.fbRecsSub.unsubscribe();
     }
   }
 }

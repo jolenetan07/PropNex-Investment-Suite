@@ -7,6 +7,8 @@
 
 ## How to Run
 * In a fresh pull of the repo, `cd propnex-investment-suite`
+* delete 'node_modules' folder and run `npm install`
+* `ng build`
 
 **Web**
 * `ionic serve` runs app on browser (localhost) with live reload feature

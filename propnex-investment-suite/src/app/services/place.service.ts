@@ -2,18 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
-import { fbPostal, fbUnit } from '../pages/auth/firebase.model';
+import { fbPostal, fbRec, fbUnit } from '../pages/auth/firebase.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlaceService {
   private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
+  private _fbRecs = new BehaviorSubject<fbRec[]>([]);
   private _currPlace: fbPostal;
   private _currUnit: fbUnit;
 
   get fbPostals() {
     return this._fbPostals.asObservable();
+  }
+
+  get fbRecs() {
+    return this._fbRecs.asObservable();
   }
 
   set currPlace(currPlace: fbPostal) {
@@ -64,6 +69,37 @@ export class PlaceService {
           //console.log(postals[0]);
           //console.log(postals);
           this._fbPostals.next(postals);
+        })
+      );
+  }
+
+  fetchFBRecs() {
+    console.log("fetch recommendations data");
+    return this.http
+      .get(
+        `https://propnex-recommendations.asia-southeast1.firebasedatabase.app/.json`
+      )
+      .pipe(
+        map(resData => {
+          const places: fbRec[] = [];
+          for (const key in resData) {
+            if (resData.hasOwnProperty(key)) {
+              places.push(
+                new fbRec(
+                  resData[key].place, 
+                  resData[key].rec1, 
+                  resData[key].rec2,
+                  resData[key].rec3
+                )
+              );
+            }
+          }
+          return places;
+        }),
+        tap(places => {
+          //console.log(postals[0]);
+          console.log(places);
+          this._fbRecs.next(places);
         })
       );
   }

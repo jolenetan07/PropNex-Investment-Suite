@@ -33,6 +33,12 @@
 
     <ion-row>
       <ion-col>
+        <ion-button (click)="fetchRec()">Test Rec</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
         <ion-list>
           <ion-item *ngIf="result">
             <ion-label *ngIf="result.name === undefined">

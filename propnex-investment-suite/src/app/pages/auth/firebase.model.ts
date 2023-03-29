@@ -28,6 +28,15 @@ export class fbUser {
     ) {}
   }
 
+  export class fbRec {
+    constructor(
+      public place: string,
+      public rec1: string,
+      public rec2: string,
+      public rec3: string,
+    ) {}
+  }
+
   export class fbTrans {
     constructor(
       public area: string,
