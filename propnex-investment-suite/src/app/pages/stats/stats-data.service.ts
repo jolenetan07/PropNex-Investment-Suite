@@ -15,7 +15,7 @@ export class StatsDataService {
   private readonly maxT_URL = 'assets/stats/max_by_type.csv';
 
   
-  private readonly price_psm_URL = 'assets/stats/price_psm_graph.json';
+  private readonly price_psf_URL = 'assets/stats/price_psf_graph.json';
   private readonly central_URL = 'assets/stats/Central_Region.json';
   private readonly east_URL = 'assets/stats/East_Region.json';
   private readonly ne_URL = 'assets/stats/North_East_Region.json';
@@ -32,9 +32,9 @@ export class StatsDataService {
 
   constructor(protected http: HttpClient) { }
 
-  getPricepsmData(){
-    console.log("Fetch price psm data from assets");
-    return this.http.get(this.price_psm_URL);
+  getPricepsfData(){
+    console.log("Fetch price psf data from assets");
+    return this.http.get(this.price_psf_URL);
   }
 
   getMeanPredData(){
