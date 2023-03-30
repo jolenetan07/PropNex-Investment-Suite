@@ -4,31 +4,23 @@ import { fbUnit } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 import { FloorplanModalComponent } from '../floorplan-modal/floorplan-modal.component';
 
-
 @Component({
   selector: 'app-floorplan',
   templateUrl: './floorplan.component.html',
   styleUrls: ['./floorplan.component.scss'],
 })
-
-
 export class FloorplanComponent implements OnInit {
-  
   currUnit: fbUnit;
-
 
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
 
-
   ngOnInit() {
     this.currUnit = this.placeService.currUnit;
   }
 
-
-  // expand floorplan
   onExpand() {
     this.modalCtrl
     .create({ component: FloorplanModalComponent })
@@ -37,6 +29,5 @@ export class FloorplanComponent implements OnInit {
       return modalEl.onDidDismiss();
     });
   }
-
 
 }

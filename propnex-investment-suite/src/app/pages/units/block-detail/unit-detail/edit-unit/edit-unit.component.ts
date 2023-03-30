@@ -4,26 +4,21 @@ import { ModalController } from '@ionic/angular';
 import { fbPostal, fbUnit } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 
-
 @Component({
   selector: 'app-edit-unit',
   templateUrl: './edit-unit.component.html',
   styleUrls: ['./edit-unit.component.scss'],
 })
-
-
 export class EditUnitComponent implements OnInit {
 
   editUnitForm: FormGroup;
   currPlace: fbPostal;
   currUnit: fbUnit;
 
-
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
-
 
   ngOnInit() {
     this.currPlace = this.placeService.currPlace;
@@ -120,15 +115,10 @@ export class EditUnitComponent implements OnInit {
     });
   }
 
-
-  // cancel edit unit 
   onCancel() {
-    console.log("cancel edit unit");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
-
-  // submit edit unit form
   submitEditUnit() {
     if (!this.editUnitForm.valid) {
       return;
@@ -136,17 +126,17 @@ export class EditUnitComponent implements OnInit {
 
     let newBedrooms = this.editUnitForm.value.bedrooms;
     let newSize = this.editUnitForm.value.size;
+
     let newUnit = new fbUnit(newBedrooms, this.currUnit.floorplan, newSize, this.currUnit.unitNumber);
 
     this.placeService.editUnit(this.currPlace.postal, this.currUnit.unitNumber ,newUnit).subscribe(()=>{
 
     });
     
+    //this.editUnitForm.reset();
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
-
-  // TODO :: upload floorplan image
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }

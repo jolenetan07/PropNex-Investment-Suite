@@ -133,7 +133,6 @@ export class PlaceService {
 
   // edit existing place
   editBlock(targetPostal: string, newName: string) {
-    console.log(targetPostal, newName);
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
       take(1),

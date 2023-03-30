@@ -1,27 +1,23 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController  } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { fbUser } from './firebase.model';
-
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-
-
 export class AuthPage implements OnInit, OnDestroy {
+  
+  isLoading = false;
   isLogin = true;
-
   result: fbUser;
-
   loadedFBUsers: fbUser[];
   private fbUsersSub: Subscription;
-
 
   constructor(
     private authService: AuthService, 
@@ -29,13 +25,11 @@ export class AuthPage implements OnInit, OnDestroy {
     private alertController: AlertController
   ) { }
 
-
   ngOnInit() {
     this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
       this.loadedFBUsers = fbUsers;
     })
   }
-
 
   ionViewWillEnter() {
     this.authService.fetchFBUsers().subscribe(() => {
@@ -43,13 +37,10 @@ export class AuthPage implements OnInit, OnDestroy {
     });
   }
 
-
-  // submit login / signup form
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
     }
-
     const email = form.value.email;
     const password = form.value.password;
     const name = form.value.name;
@@ -59,9 +50,10 @@ export class AuthPage implements OnInit, OnDestroy {
     if (this.isLogin) {
       // send request to login servers
       this.result = this.loadedFBUsers.find(u => u.email === email);
-      
       if (this.result) {
+        
         if (this.result.password === password) {
+          
           this.authService.currFbUser = this.result;
           this.authService.login();
           this.router.navigateByUrl('/home/tabs/main');
@@ -73,19 +65,18 @@ export class AuthPage implements OnInit, OnDestroy {
       } else {
         // invalid email
         this.presentEmailAlert();
+        
       }
     } else {
       // send request to signup servers
       this.authService.addUser(email, name, password).subscribe(() => {
-      });
 
+      });
       this.isLogin = true;
       this.router.navigateByUrl('/auth');
     }
   }
 
-
-  // wrong email alert
   async presentEmailAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
@@ -96,8 +87,6 @@ export class AuthPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-
-  // wrong password alert
   async presentPasswordAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
@@ -108,12 +97,9 @@ export class AuthPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-
-  // check if login / signup
   onSwitchAuthMode() {
     this.isLogin = !this.isLogin;
   }
-
 
   ngOnDestroy() {
     if (this.fbUsersSub) {
