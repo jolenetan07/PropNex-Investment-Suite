@@ -4,15 +4,20 @@ import { BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { fbPostal, fbRec, fbUnit } from '../pages/auth/firebase.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class PlaceService {
+
   private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
   private _fbRecs = new BehaviorSubject<fbRec[]>([]);
   private _currPlace: fbPostal;
   private _currUnit: fbUnit;
 
+  
   get fbPostals() {
     return this._fbPostals.asObservable();
   }
@@ -21,29 +26,31 @@ export class PlaceService {
     return this._fbRecs.asObservable();
   }
 
-  set currPlace(currPlace: fbPostal) {
-    this._currPlace = currPlace;
-  }
-
   get currPlace() {
     return this._currPlace;
-  }
-
-  set currUnit(currUnit: fbUnit) {
-    this._currUnit = currUnit;
   }
 
   get currUnit() {
     return this._currUnit;
   }
 
+
+  set currPlace(currPlace: fbPostal) {
+    this._currPlace = currPlace;
+  }
+
+  set currUnit(currUnit: fbUnit) {
+    this._currUnit = currUnit;
+  }
+
+
   constructor(
     private http: HttpClient
   ) { }
 
 
+  // fetch place data
   fetchFBPostals() {
-    console.log("fetch postal data");
     return this.http
       .get(
         `https://propnexfyp-postals-test.asia-southeast1.firebasedatabase.app/.json`
@@ -66,15 +73,14 @@ export class PlaceService {
           return postals;
         }),
         tap(postals => {
-          //console.log(postals[0]);
-          //console.log(postals);
           this._fbPostals.next(postals);
         })
       );
   }
 
+
+  // fetch recommendation data
   fetchFBRecs() {
-    console.log("fetch recommendations data");
     return this.http
       .get(
         `https://propnex-recommendations.asia-southeast1.firebasedatabase.app/.json`
@@ -97,13 +103,13 @@ export class PlaceService {
           return places;
         }),
         tap(places => {
-          //console.log(postals[0]);
-          //console.log(places);
           this._fbRecs.next(places);
         })
       );
   }
 
+
+  // add new place
   addBlock(name: string, postal: string) {
     const newBlock = new fbPostal(
       name,
@@ -125,6 +131,7 @@ export class PlaceService {
   }
 
 
+  // edit existing place
   editBlock(targetPostal: string, newName: string) {
     console.log(targetPostal, newName);
     let updatedUsers: fbPostal[];
@@ -158,6 +165,7 @@ export class PlaceService {
     );
   }
 
+  // add new unit in a place
   addUnit(targetPostal: string, unitNumber: string, bedrooms: string, size: string) {
     let updatedPlaces: fbPostal[];
     return this.fbPostals.pipe(
@@ -201,6 +209,8 @@ export class PlaceService {
     );
   }
 
+
+  // edit existing unit in a place
   editUnit(targetPostal: string, targetUnitNum: string, newUnit: fbUnit) {
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
@@ -238,6 +248,7 @@ export class PlaceService {
     );
   }
 
+  // edit all units with same unit number in a place
   editAllUnit(targetPostal: string, targetUnitNum: string, newBedrooms: string, newSize: string) {
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
@@ -288,4 +299,6 @@ export class PlaceService {
       })
     );
   }
+
+
 }
