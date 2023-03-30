@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AuthPage } from './auth.page';
 
+
 const routes: Routes = [
   {
     path: '',
     component: AuthPage
   }
 ];
+
 
 @NgModule({
   imports: [
@@ -21,4 +23,6 @@ const routes: Routes = [
   ],
   declarations: [AuthPage]
 })
+
+
 export class AuthPageModule {}

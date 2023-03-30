@@ -4,21 +4,26 @@ import { ModalController } from '@ionic/angular';
 import { fbPostal, fbUnit } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 
+
 @Component({
   selector: 'app-edit-all-units',
   templateUrl: './edit-all-units.component.html',
   styleUrls: ['./edit-all-units.component.scss'],
 })
+
+
 export class EditAllUnitsComponent implements OnInit {
 
   editAllUnitForm: FormGroup;
   currPlace: fbPostal;
   currUnit: fbUnit;
 
+
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
+
 
   ngOnInit() {
     this.currPlace = this.placeService.currPlace;
@@ -115,10 +120,15 @@ export class EditAllUnitsComponent implements OnInit {
     });
   }
 
+
+  // cancel edit all units with same unit number
   onCancel() {
+    console.log("cancel edit all units");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
+
+  // submit edit all units with same unit number form
   submitEditAllUnit() {
     if (!this.editAllUnitForm.valid) {
       return;
@@ -131,10 +141,11 @@ export class EditAllUnitsComponent implements OnInit {
 
     });
     
-    //this.editAllUnitForm.reset();
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
+  
+  // TODO :: upload floorplan image
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }

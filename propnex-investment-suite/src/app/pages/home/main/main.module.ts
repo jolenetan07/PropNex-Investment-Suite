@@ -6,6 +6,7 @@ import { MainPageRoutingModule } from './main-routing.module';
 import { MainPage } from './main.page';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,4 +17,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
   ],
   declarations: [MainPage, EditProfileComponent]
 })
+
+
 export class MainPageModule {}
