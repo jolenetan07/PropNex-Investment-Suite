@@ -61,4 +61,5 @@ export class EditBlockComponent implements OnInit {
     console.log("choose block image to upload")
   }
 
+  
 }

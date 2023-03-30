@@ -13,6 +13,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './block-detail.page.html',
   styleUrls: ['./block-detail.page.scss'],
 })
+
+
 export class BlockDetailPage implements OnInit {
 
   currUser: fbUser;

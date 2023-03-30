@@ -12,6 +12,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
   templateUrl: './main.page.html',
   styleUrls: ['./main.page.scss'],
 })
+
+
 export class MainPage implements OnInit {
 
   currUser: fbUser;
@@ -61,6 +63,7 @@ export class MainPage implements OnInit {
       });
   }
 
+
   // navigate to selected place details page
   onClickPlace(postalCode: string) {
     this.result  = this.loadedFBPostals.find(p => p.postal === postalCode);
@@ -74,5 +77,6 @@ export class MainPage implements OnInit {
       this.fbPostalsSub.unsubscribe();
     }
   }
+
 
 }

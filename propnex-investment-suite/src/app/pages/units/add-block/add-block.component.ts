@@ -62,5 +62,6 @@ export class AddBlockComponent implements OnInit {
   uploadBlockImage() {
     console.log("choose block image to upload")
   }
+  
 
 }

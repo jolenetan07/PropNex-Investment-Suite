@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { fbPostal, fbUser } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -59,6 +58,7 @@ export class FavouritesPage implements OnInit {
     this.loadedFavPlaces = this.currUser.favourites;
   } 
 
+  
   // naivgate to selected place details page
   onClickPlace(postalCode: string) {
     this.result  = this.loadedFBPostals.find(p => p.postal === postalCode);

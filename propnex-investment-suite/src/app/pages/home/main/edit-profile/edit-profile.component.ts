@@ -62,4 +62,6 @@ export class EditProfileComponent implements OnInit {
     
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
+
+  
 }
