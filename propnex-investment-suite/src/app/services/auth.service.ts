@@ -1,108 +1,37 @@
 import { Injectable } from '@angular/core';
-import { User } from '../pages/auth/user.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, of } from 'rxjs';
-import { take, map, tap, delay, switchMap } from 'rxjs/operators';
-import { fbTrans, fbPostal, fbUser } from '../pages/auth/firebase.model';
-import { Unit } from '../pages/units/units.model';
-import { PlaceService } from './place.service';
+import { take, map, tap, switchMap } from 'rxjs/operators';
+import { fbPostal, fbUser } from '../pages/auth/firebase.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
+
   private _userIsAuthenticated = false;
-
   private _currFbUser: fbUser;
-
-  set currFbUser(currFbUser: fbUser) {
-    this._currFbUser = currFbUser;
-  }
+  private _fbUsers = new BehaviorSubject<fbUser[]>([]);
 
   get currFbUser() {
     return this._currFbUser;
   }
 
-  private _currUser = new User(
-    'u1',
-    'jerryliu123',
-    'password321',
-    'Jerry',
-    'Liu',
-    10000,
-    'seller',
-    //'buyer',
-    [
-      new Unit(
-        'u1',
-        '03-01',
-        '142 Bedok Reservoir Rd',
-        134,
-        '2018-04',
-        '',
-        5,
-        1,
-        'Public',
-        'Freehold',
-        1700000,
-        'HDB'
-        ),
-  
-      new Unit(
-        'u2',
-        '03-02',
-        '142 Bedok Reservoir Rd',
-        134,
-        '2018-04',
-        '',
-        5,
-        1,
-        'Public',
-        'Freehold',
-        1700000,
-        'HDB'
-        ),
-  
-        new Unit(
-          'u3',
-          '03-03',
-          '142 Bedok Reservoir Rd',
-          134,
-          '2018-04',
-          '',
-          5,
-          1,
-          'Public',
-          'Freehold',
-          1700000,
-          'HDB'
-          ),
-      ]
-  );
-
   get userIsAuthenticated() {
     return this._userIsAuthenticated;
   }
-
-  private _fbUsers = new BehaviorSubject<fbUser[]>([]);
-  //private _fbPostals = new BehaviorSubject<fbPostal[]>([]);
-  //private _fbTrans = new BehaviorSubject<fbTrans[]>([]);
 
   get fbUsers() {
     return this._fbUsers.asObservable();
   }
 
-  // get fbPostals() {
-  //   return this._fbPostals.asObservable();
-  // }
-
-  // get fbTrans() {
-  //   return this._fbTrans.asObservable();
-  // }
+  set currFbUser(currFbUser: fbUser) {
+    this._currFbUser = currFbUser;
+  }
 
   constructor(
     private http: HttpClient,
-    private placeService: PlaceService
   ) {}
 
   login() {
@@ -113,27 +42,8 @@ export class AuthService {
     this._userIsAuthenticated = false;
   }
 
-  get currentUser() {
-    return this._currUser;
-  }
-
-  // editUser(
-  //   current: User,
-  //   _username: string,
-  //   _password: string,
-  //   _firstname: string,
-  //   _lastname: string,
-  //   _income: number
-  // ) {
-  //   current.username = _username;
-  //   current.password = _password;
-  //   current.firstname = _firstname;
-  //   current.lastname = _lastname;
-  //   current.income = _income;
-  // }
-
+  // fetch user data
   fetchFBUsers() {
-    console.log("fetch user data");
     return this.http
       .get(
         'https://propnexfyp-user.asia-southeast1.firebasedatabase.app/.json'
@@ -159,13 +69,12 @@ export class AuthService {
           return users;
         }),
         tap(users => {
-          //console.log(users[0]);
-          //console.log(users);
           this._fbUsers.next(users);
         })
       );
   }
 
+  // add new user
   addUser(email: string, name: string, password: string) {
     const newUser = new fbUser(
       email,
@@ -190,6 +99,7 @@ export class AuthService {
       );
   }
 
+  // edit existing user
   editUser(targetEmail: string, newName: string, newPassword: string) {
     let updatedUsers: fbUser[];
     return this.fbUsers.pipe(
@@ -226,13 +136,7 @@ export class AuthService {
     );
   }
 
-  // addRec(newPlace: fbPostal) {
-  //   let recitem: string[];
-  //   let recList = this.placeService.fetchFBRecs()
-  //   //recItem = this.placeService._fbRecs.find(p => p.place === this.placeService.currPlace.name);
-
-  // }
-
+  // add to favourites
   addFav(targetEmail: string, newPlace: fbPostal, newRecs: string[]) {
     let updatedUsers: fbUser[];
     return this.fbUsers.pipe(
@@ -277,6 +181,7 @@ export class AuthService {
     );
   }
 
+  // remove from favourites
   removeFav(userInd: number, placeInd: number) {
     return this.http
       .delete(
@@ -284,65 +189,4 @@ export class AuthService {
       );
   }
 
-  // fetchFBPostals() {
-  //   //console.log("fetch postal data");
-  //   // return this.http
-  //   //   .get(
-  //   //     `https://propnexfyp-postals.asia-southeast1.firebasedatabase.app/.json`
-  //   //   )
-  //   //   .pipe(
-  //   //     map(resData => {
-  //   //       const postals: fbPostal[] = [];
-  //   //       for (const key in resData) {
-  //   //         if (resData.hasOwnProperty(key)) {
-  //   //           postals.push(new fbPostal(resData[key][0], resData[key][1]));
-  //   //         }
-  //   //       }
-  //   //       return postals;
-  //   //     }),
-  //   //     tap(postals => {
-  //   //       //console.log(postals[0]);
-  //   //       //console.log(postals);
-  //   //       this._fbPostals.next(postals);
-  //   //     })
-  //   //   );
-  // }
-
-  // fetchFBTrans() {
-  //   console.log("fetch transaction data");
-  //   // return this.http
-  //   //   .get(
-  //   //     'https://real-estate-fyp-transactions.asia-southeast1.firebasedatabase.app/data.json'
-  //   //   )
-  //   //   .pipe(
-  //   //     map(resData => {
-  //   //       const trans = [];
-  //   //       for (const key in resData) {
-  //   //         if (resData.hasOwnProperty(key)) {
-  //   //           trans.push(
-  //   //             new fbTrans(
-  //   //               resData[key]["Area (Sqm)"],
-  //   //               resData[key]["Date of Sale"],
-  //   //               resData[key]["Flat_model"],
-  //   //               resData[key]["Floor_max"],
-  //   //               resData[key]["Floor_min"],
-  //   //               resData[key]["Private_Public"],
-  //   //               resData[key]["Project Name"],
-  //   //               resData[key]["Remaining Lease (2022)"],
-  //   //               resData[key]["Sale Price"],
-  //   //               resData[key]["Type"],
-  //   //               resData[key]["transID"]
-  //   //             )
-  //   //           );
-  //   //         }
-  //   //       }
-  //   //       return trans;
-  //   //     }),
-  //   //     tap(trans => {
-  //   //       //console.log(trans[0]);
-  //   //       //console.log(trans);
-  //   //       this._fbTrans.next(trans);
-  //   //     })
-  //   //   );
-  // }
 }
