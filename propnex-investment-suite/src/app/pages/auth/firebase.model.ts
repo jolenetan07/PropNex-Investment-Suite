@@ -1,3 +1,4 @@
+// user model
 export class fbUser {
     constructor(
       public email: string,
@@ -10,6 +11,8 @@ export class fbUser {
     ) {}
   }
 
+
+  // place model
   export class fbPostal {
     constructor(
       public name: string,
@@ -19,6 +22,8 @@ export class fbUser {
     ) {}
   }
 
+
+  // unit model
   export class fbUnit {
     constructor(
       public bedrooms: string,
@@ -28,6 +33,8 @@ export class fbUser {
     ) {}
   }
 
+
+  // recommendation model
   export class fbRec {
     constructor(
       public place: string,
@@ -37,18 +44,3 @@ export class fbUser {
     ) {}
   }
 
-  export class fbTrans {
-    constructor(
-      public area: string,
-      public dateOfSale: string,
-      public flatModel: string,
-      public floorMax: string,
-      public floorMin: string,
-      public privatePublic: string,
-      public projectName: string,
-      public remainingLease: string,
-      public salePrice: string,
-      public type: string,
-      public transID: string,
-    ) {}
-  }

@@ -7,12 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-list>
-          <!-- <ion-item-sliding *ngFor="let place of currUser.favourites" #slidingFavourites> -->
           <ion-item-sliding *ngFor="let place of loadedFavPlaces" #slidingFavourites>
             <ion-item 
               detail 
@@ -36,9 +36,7 @@
             </ion-item-options>
           </ion-item-sliding>
         </ion-list>
-
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

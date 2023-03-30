@@ -4,11 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { fbPostal, fbUser } from 'src/app/pages/auth/firebase.model';
-import { User } from 'src/app/pages/auth/user.model';
 import { PlaceService } from 'src/app/services/place.service';
-import { Unit } from 'src/app/pages/units/units.model';
-import { HomeService } from '../home.service';
-import { Place } from '../place.model';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @Component({
@@ -17,44 +13,38 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
   styleUrls: ['./main.page.scss'],
 })
 export class MainPage implements OnInit {
-  loadedFavPlaces: Place[];
-  loadedRecPlaces: Place[];
-  //currUser: User;
-  currUser: fbUser;
 
+  currUser: fbUser;
   loadedFBPostals: fbPostal[];
   private fbPostalsSub: Subscription;
   result: fbPostal;
 
+
   constructor(
-    private homeService: HomeService,
     private authService: AuthService,
     private modalCtrl: ModalController,
     private router: Router,
     private placeService: PlaceService
   ) { }
 
-  ngOnInit() {
-    // this.authService.fetchFBUsers().subscribe(() => {
 
-    // });
-    // this.currUser = this.authService.currentUser;
+  ngOnInit() {
     this.currUser = this.authService.currFbUser;
-    this.loadedFavPlaces = this.homeService.favPlaces;
-    this.loadedRecPlaces = this.homeService.personalRecPlaces;
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
     })
   }
+
 
   ionViewWillEnter() {
     this.currUser = this.authService.currFbUser;
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
-
   }
 
+
+  // edit user profile
   onEditProfile() {
     this.modalCtrl
       .create({ component: EditProfileComponent })
@@ -71,12 +61,14 @@ export class MainPage implements OnInit {
       });
   }
 
+  // navigate to selected place details page
   onClickPlace(postalCode: string) {
     this.result  = this.loadedFBPostals.find(p => p.postal === postalCode);
     this.placeService.currPlace = this.result;
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
+  
   ngOnDestroy() {
     if (this.fbPostalsSub) {
       this.fbPostalsSub.unsubscribe();
