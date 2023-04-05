@@ -112,17 +112,23 @@ export class StatsPage implements OnInit {
   }
 
   handleChange(e) {
-    let translate = {"all": [this.pricepsfData, this.meanPredData],
+    let translate = {"vol": [this.volumeData],
+                  "all": [this.pricepsfData, this.meanPredData],
                   "central": [this.centralData, this.centralPredData],
                   "north": [this.northData, this.northPredData],
                   "east": [this.eastData, this.eastPredData],
                   "ne": [this.neData, this.nePredData],
                   "west": [this.westData, this.westPredData]};
     let filter = e.detail.value;
-    this.data = [this.volumeData];
+    this.data = [];
     for (let i = 0; i < filter.length; i++){
-      this.data.push(translate[filter[i]][0]);
-      this.data.push(translate[filter[i]][1]);
+      if (filter[i] == "vol"){
+        this.data.push(translate[filter[i]][0]);
+      }
+      else{
+        this.data.push(translate[filter[i]][0]);
+        this.data.push(translate[filter[i]][1]);
+      }
     }
 
     Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);

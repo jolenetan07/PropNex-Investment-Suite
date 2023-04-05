@@ -22,7 +22,8 @@
             <ion-list>
               <ion-item>
                 <ion-text slot="start"> Filter: </ion-text>
-                <ion-select placeholder="All" [multiple]="true" [value]="['all']" (ionChange)="handleChange($event)">
+                <ion-select placeholder="All" [multiple]="true" [value]="['vol', 'all']" (ionChange)="handleChange($event)">
+                  <ion-select-option value="vol">Volume</ion-select-option>
                   <ion-select-option value="all">All Units</ion-select-option>
                   <ion-select-option value="central">Central District</ion-select-option>
                   <ion-select-option value="east">East District</ion-select-option>
