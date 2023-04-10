@@ -41,8 +41,7 @@
             </ion-label>
 
             <ion-thumbnail *ngIf="result.name !== undefined" slot="start">
-              <ion-img *ngIf="result.imageUrl" [src]="result.imageUrl"></ion-img>
-              <ion-img *ngIf="!result.imageUrl" src="assets/placeholders/property.jpeg"></ion-img>
+              <ion-img [src]="result.imageUrl"></ion-img>
             </ion-thumbnail>
             
             <ion-label 
