@@ -36,19 +36,3 @@ export class fbUser {
       public rec3: string,
     ) {}
   }
-
-  export class fbTrans {
-    constructor(
-      public area: string,
-      public dateOfSale: string,
-      public flatModel: string,
-      public floorMax: string,
-      public floorMin: string,
-      public privatePublic: string,
-      public projectName: string,
-      public remainingLease: string,
-      public salePrice: string,
-      public type: string,
-      public transID: string,
-    ) {}
-  }
