@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, switchMap } from 'rxjs/operators';
 import { fbPostal, fbUser } from '../pages/auth/firebase.model';
-import { PlaceService } from './place.service';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   private _userIsAuthenticated = false;
 
@@ -34,8 +34,7 @@ export class AuthService {
 
 
   constructor(
-    private http: HttpClient,
-    private placeService: PlaceService
+    private http: HttpClient
   ) {}
 
 
