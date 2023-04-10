@@ -24,13 +24,11 @@
 * `Dimensions: ` select desired device from dropdown list (eg. iPhone 12 Pro)<br>
 
 *Method 2 - android only (Android Studio)*
-* `ng build`
 * `ionic capacitor add android`
 * `ionic capacitor copy android` 
 * alternatively, `ionic capacitor run android` or `ionic capacitor run android -l`<br>
 
 *Method 3 - ios only (XCode)*
-* `ng build`
 * `ionic capacitor add ios`
 * `ionic capacitor copy ios` 
 * alternatively, `ionic capacitor run ios` or `ionic capacitor run ios -l`<br>
