@@ -7,13 +7,11 @@ import { fbPostal, fbRec, fbUser } from '../auth/firebase.model';
 import { AddBlockComponent } from './add-block/add-block.component';
 import { PlaceService } from '../../services/place.service';
 
-
 @Component({
   selector: 'app-units',
   templateUrl: './units.page.html',
   styleUrls: ['./units.page.scss'],
 })
-
 
 export class UnitsPage implements OnInit {
 
@@ -47,7 +45,6 @@ export class UnitsPage implements OnInit {
     })
   }
 
-
   ionViewWillEnter() {
     this.placeService.fetchFBPostals().subscribe(() => {
 
@@ -59,11 +56,9 @@ export class UnitsPage implements OnInit {
 
   }
 
-
-  // search for place
+  // retrieve place using postal
   handleChange(event) {
     const query = event.target.value;
-    
     this.result  = this.loadedFBPostals.find(p => p.postal === query);
 
     if (this.result) {
@@ -71,18 +66,16 @@ export class UnitsPage implements OnInit {
       this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
       this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
     }
+
   }
 
-
-  // navigate to selected place details page
+  // navigate to place details page
   onSelectPlace() {
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
-
   // add new place
   onAddBlock() {
-    console.log("add new block");
     this.modalCtrl
       .create({ component: AddBlockComponent })
       .then(modalEl => {
@@ -90,7 +83,6 @@ export class UnitsPage implements OnInit {
         return modalEl.onDidDismiss();
       });
   }
-
 
   ngOnDestroy() {
     if (this.fbPostalsSub) {

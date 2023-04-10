@@ -9,7 +9,6 @@ import { FloorplanComponent } from './floorplan/floorplan.component';
 import { FloorplanModalComponent } from './floorplan-modal/floorplan-modal.component';
 import { EditAllUnitsComponent } from './edit-all-units/edit-all-units.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -20,6 +19,5 @@ import { EditAllUnitsComponent } from './edit-all-units/edit-all-units.component
   ],
   declarations: [UnitDetailPage, EditUnitComponent, EditAllUnitsComponent, FloorplanComponent, FloorplanModalComponent]
 })
-
 
 export class UnitDetailPageModule {}

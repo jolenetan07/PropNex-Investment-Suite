@@ -18,9 +18,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-img [src]="currUnit.floorplan">
-        <!-- <ion-img src="assets/placeholders/floorplan.png"> -->
-      </ion-img>
+        <ion-img *ngIf="!currUnit.floorplan" src="assets/placeholders/floorplan.png"></ion-img>
+        <ion-img *ngIf="currUnit.floorplan" [src]="currUnit.floorplan"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>

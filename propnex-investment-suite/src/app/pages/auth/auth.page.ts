@@ -6,15 +6,14 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { fbUser } from './firebase.model';
 
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
 
-
 export class AuthPage implements OnInit, OnDestroy {
+
   isLogin = true;
 
   result: fbUser;
@@ -36,20 +35,17 @@ export class AuthPage implements OnInit, OnDestroy {
     })
   }
 
-
   ionViewWillEnter() {
     this.authService.fetchFBUsers().subscribe(() => {
 
     });
   }
 
-
   // submit login / signup form
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
     }
-
     const email = form.value.email;
     const password = form.value.password;
     const name = form.value.name;
@@ -57,47 +53,47 @@ export class AuthPage implements OnInit, OnDestroy {
     form.reset();
 
     if (this.isLogin) {
-      // send request to login servers
+      // login
       this.result = this.loadedFBUsers.find(u => u.email === email);
-      
       if (this.result) {
+        
         if (this.result.password === password) {
+          
           this.authService.currFbUser = this.result;
           this.authService.login();
           this.router.navigateByUrl('/home/tabs/main');
         } else {
-          // invalid password
+          // incorrect password
           this.presentPasswordAlert();
           
         }
       } else {
         // invalid email
         this.presentEmailAlert();
+        
       }
     } else {
-      // send request to signup servers
+      // signup
       this.authService.addUser(email, name, password).subscribe(() => {
-      });
 
+      });
       this.isLogin = true;
       this.router.navigateByUrl('/auth');
     }
   }
 
-
-  // wrong email alert
+  // present invalid email alert
   async presentEmailAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
-      message: 'Incorrect email!',
+      message: 'Invalid email!',
       buttons: ['OK'],
     });
 
     await alert.present();
   }
 
-
-  // wrong password alert
+  // present incorrect password alert
   async presentPasswordAlert() {
     const alert = await this.alertController.create({
       header: 'Authentication Failed',
@@ -108,12 +104,10 @@ export class AuthPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-
-  // check if login / signup
+  // switch between login / signup mode
   onSwitchAuthMode() {
     this.isLogin = !this.isLogin;
   }
-
 
   ngOnDestroy() {
     if (this.fbUsersSub) {

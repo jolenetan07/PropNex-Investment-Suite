@@ -4,11 +4,9 @@ import { BehaviorSubject, of } from 'rxjs';
 import { take, map, tap, switchMap } from 'rxjs/operators';
 import { fbPostal, fbUser } from '../pages/auth/firebase.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class AuthService {
 
@@ -29,14 +27,13 @@ export class AuthService {
     return this._fbUsers.asObservable();
   }
 
-
   set currFbUser(currFbUser: fbUser) {
     this._currFbUser = currFbUser;
   }
 
 
   constructor(
-    private http: HttpClient,
+    private http: HttpClient
   ) {}
 
 
@@ -44,11 +41,9 @@ export class AuthService {
     this._userIsAuthenticated = true;
   }
 
-
   logout() {
     this._userIsAuthenticated = false;
   }
-
 
   // fetch user data
   fetchFBUsers() {
@@ -82,7 +77,6 @@ export class AuthService {
       );
   }
 
-
   // add new user
   addUser(email: string, name: string, password: string) {
     const newUser = new fbUser(
@@ -107,7 +101,6 @@ export class AuthService {
         })
       );
   }
-
 
   // edit existing user
   editUser(targetEmail: string, newName: string, newPassword: string) {
@@ -146,8 +139,7 @@ export class AuthService {
     );
   }
 
-
-  // add to favourites
+  // add place to users' favourites
   addFav(targetEmail: string, newPlace: fbPostal, newRecs: string[]) {
     let updatedUsers: fbUser[];
     return this.fbUsers.pipe(
@@ -192,14 +184,11 @@ export class AuthService {
     );
   }
 
-
-  // remove from favourites
+  // remove place from users' favourites
   removeFav(userInd: number, placeInd: number) {
     return this.http
       .delete(
         `https://propnexfyp-user.asia-southeast1.firebasedatabase.app/${userInd}/favourites/${placeInd}.json`
       );
   }
-
-
 }

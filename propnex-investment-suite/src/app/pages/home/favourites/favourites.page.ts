@@ -6,16 +6,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { fbPostal, fbUser } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 
-
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.page.html',
   styleUrls: ['./favourites.page.scss'],
 })
 
-
 export class FavouritesPage implements OnInit {
-
+  
   currUser: fbUser;
   loadedFBPostals: fbPostal[];
   private fbPostalsSub: Subscription;
@@ -45,7 +43,6 @@ export class FavouritesPage implements OnInit {
     this.loadedFavPlaces = this.currUser.favourites;
   }
 
-
   ionViewWillEnter() {
     this.fbUsersSub = this.authService.fbUsers.subscribe(fbUsers => {
       this.loadedFBUsers = fbUsers;
@@ -58,16 +55,14 @@ export class FavouritesPage implements OnInit {
     this.loadedFavPlaces = this.currUser.favourites;
   } 
 
-  
-  // naivgate to selected place details page
+  // navigate to place details
   onClickPlace(postalCode: string) {
     this.result  = this.loadedFBPostals.find(p => p.postal === postalCode);
     this.placeService.currPlace = this.result;
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
-
-  // remove selected place from favourites
+  // remove place from favourites
   onRemovePlace(postalCode: string, slidingEl: IonItemSliding) {
     slidingEl.close();
     let targetdUserIndex = this.loadedFBUsers.findIndex(u => u.email === this.currUser.email);
@@ -77,7 +72,6 @@ export class FavouritesPage implements OnInit {
 
     });
   }
-
 
   ngOnDestroy() {
     if (this.fbPostalsSub) {
@@ -89,5 +83,4 @@ export class FavouritesPage implements OnInit {
     }
   }
 
-  
 }

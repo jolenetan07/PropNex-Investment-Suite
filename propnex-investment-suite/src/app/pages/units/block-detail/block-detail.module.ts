@@ -7,7 +7,6 @@ import { BlockDetailPage } from './block-detail.page';
 import { AddUnitComponent } from './add-unit/add-unit.component';
 import { EditBlockComponent } from './edit-block/edit-block.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +17,5 @@ import { EditBlockComponent } from './edit-block/edit-block.component';
   ],
   declarations: [BlockDetailPage, AddUnitComponent, EditBlockComponent]
 })
-
 
 export class BlockDetailPageModule {}

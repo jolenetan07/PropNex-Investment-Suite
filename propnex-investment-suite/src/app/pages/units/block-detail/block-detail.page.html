@@ -18,12 +18,12 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <ion-grid>
+  <ion-grid *ngIf="currPlace">
     <ion-row>
       <ion-col class="ion-no-padding">
-        <ion-img [src]="currPlace.imageUrl"></ion-img>
+        <ion-img *ngIf="!currPlace.imageUrl" src="assets/placeholders/property.jpeg"></ion-img>
+        <ion-img *ngIf="currPlace.imageUrl" [src]="currPlace.imageUrl"></ion-img>
     </ion-col>
     </ion-row>
 

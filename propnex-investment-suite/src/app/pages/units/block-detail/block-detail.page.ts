@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./block-detail.page.scss'],
 })
 
-
 export class BlockDetailPage implements OnInit {
 
   currUser: fbUser;
@@ -46,47 +45,45 @@ export class BlockDetailPage implements OnInit {
         this.navCtrl.navigateBack('/units');
         return;
       }
+
+      this.currPlace = this.placeService.currPlace;
+      
     });
 
     this.fbRecsSub = this.placeService.fbRecs.subscribe(fbRecs => {
       this.loadedFBRecs = fbRecs;
     })
-  }
 
+  }
 
   ionViewWillEnter() {
     this.currPlace = this.placeService.currPlace;
-    
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
-    
     this.placeService.fetchFBRecs().subscribe(() => {
 
     });
+
   }
 
-
-  // search for unit
+  // retrieve unit using unit number
   handleChange(event) {
     const query = event.target.value;
-
     if (this.currPlace.units) {
       this.result  = this.currPlace.units.find(p => p.unitNumber === query);
     }
-
     this.placeService.currUnit = this.result;
   }
 
-
-  // navigate to selected unit details page
+  // navigate to unit details page
   onSelectUnit() {
     this.router.navigate(['/', 'units', this.currPlace.postal, this.result.unitNumber]);
   }
 
-
-  // add new unit / edit exiting place action sheet
+  // edit existing place / add new unit action sheet
   onEditBlockOptions() {
+
     this.actionSheetCtrl.create({
       header: 'Please Choose',
       buttons: [
@@ -110,8 +107,7 @@ export class BlockDetailPage implements OnInit {
     });
   }
 
-
-  // edit existing place
+  // edit existing place 
   onEditBlock() {
     this.modalCtrl
       .create({ component: EditBlockComponent })
@@ -123,11 +119,9 @@ export class BlockDetailPage implements OnInit {
         console.log(resultData.data, resultData.role);
         if (resultData.role === 'confirm') {
           this.ionViewWillEnter();
-          console.log('edited!');
         }
       });
   }
-
 
   // add new unit
   onAddUnit() {
@@ -139,35 +133,34 @@ export class BlockDetailPage implements OnInit {
       });
   }
 
-
-  // add place to favourites
   addToFav(postalCode: string) {
-    // check if user has any favourites
+    /*
+      check if already in fav
+      if yes, dont add 
+      if no, add
+    */
     if (this.currUser.favourites && this.currUser.favourites.length > 0) {
       this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
-      // check if place already in favourites
       if (this.favPlace) {
         this.presentFavAlert();
-      } else { // place not in favourites, add
+      } else {
         this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
         this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
-        
         this.authService.addFav(this.currUser.email, this.placeService.currPlace, this.findRecs).subscribe(()=>{
 
         });
       }
-    } else { // user no favourites, add
+    } else {
       this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
       this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
-      
       this.authService.addFav(this.currUser.email, this.placeService.currPlace, this.findRecs).subscribe(()=>{
 
       });
     }
+    
   }
 
-
-  // favourite already exist alert
+  // present place already in favourites alert
   async presentFavAlert() {
     const alert = await this.alertController.create({
       header: 'Already Exist',
@@ -178,12 +171,10 @@ export class BlockDetailPage implements OnInit {
     await alert.present();
   }
 
-
   ngOnDestroy() {
     if (this.fbRecsSub) {
       this.fbRecsSub.unsubscribe();
     }
   }
 
-  
 }

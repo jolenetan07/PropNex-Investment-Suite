@@ -4,13 +4,11 @@ import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { fbUser } from 'src/app/pages/auth/firebase.model';
 
-
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-
 
 export class EditProfileComponent implements OnInit {
 
@@ -40,14 +38,12 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
-
-  // cancel edit profile
+  // cancel edit profile 
   onCancel() {
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
-
-  // edit profile form
+  // submit edit profile 
   onEditProfile() {
     if (!this.form.valid) {
       return;
@@ -62,6 +58,4 @@ export class EditProfileComponent implements OnInit {
     
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
-
-  
 }

@@ -4,11 +4,9 @@ import { BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { fbPostal, fbRec, fbUnit } from '../pages/auth/firebase.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class PlaceService {
 
@@ -17,7 +15,7 @@ export class PlaceService {
   private _currPlace: fbPostal;
   private _currUnit: fbUnit;
 
-  
+
   get fbPostals() {
     return this._fbPostals.asObservable();
   }
@@ -33,7 +31,6 @@ export class PlaceService {
   get currUnit() {
     return this._currUnit;
   }
-
 
   set currPlace(currPlace: fbPostal) {
     this._currPlace = currPlace;
@@ -78,7 +75,6 @@ export class PlaceService {
       );
   }
 
-
   // fetch recommendation data
   fetchFBRecs() {
     return this.http
@@ -108,7 +104,6 @@ export class PlaceService {
       );
   }
 
-
   // add new place
   addBlock(name: string, postal: string) {
     const newBlock = new fbPostal(
@@ -130,10 +125,8 @@ export class PlaceService {
       );
   }
 
-
   // edit existing place
   editBlock(targetPostal: string, newName: string) {
-    console.log(targetPostal, newName);
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
       take(1),
@@ -165,7 +158,7 @@ export class PlaceService {
     );
   }
 
-  // add new unit in a place
+  // add new unit to existing place
   addUnit(targetPostal: string, unitNumber: string, bedrooms: string, size: string) {
     let updatedPlaces: fbPostal[];
     return this.fbPostals.pipe(
@@ -209,8 +202,7 @@ export class PlaceService {
     );
   }
 
-
-  // edit existing unit in a place
+  // edit existing unit in existing place
   editUnit(targetPostal: string, targetUnitNum: string, newUnit: fbUnit) {
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
@@ -248,7 +240,7 @@ export class PlaceService {
     );
   }
 
-  // edit all units with same unit number in a place
+  // edit all existing units with same unit number in existing place
   editAllUnit(targetPostal: string, targetUnitNum: string, newBedrooms: string, newSize: string) {
     let updatedUsers: fbPostal[];
     return this.fbPostals.pipe(
@@ -299,6 +291,4 @@ export class PlaceService {
       })
     );
   }
-
-
 }

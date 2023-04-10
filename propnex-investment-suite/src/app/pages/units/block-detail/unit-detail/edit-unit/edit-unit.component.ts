@@ -4,13 +4,11 @@ import { ModalController } from '@ionic/angular';
 import { fbPostal, fbUnit } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 
-
 @Component({
   selector: 'app-edit-unit',
   templateUrl: './edit-unit.component.html',
   styleUrls: ['./edit-unit.component.scss'],
 })
-
 
 export class EditUnitComponent implements OnInit {
 
@@ -120,13 +118,10 @@ export class EditUnitComponent implements OnInit {
     });
   }
 
-
-  // cancel edit unit 
+  // cancel edit unit
   onCancel() {
-    console.log("cancel edit unit");
     this.modalCtrl.dismiss(null, 'cancel');
   }
-
 
   // submit edit unit form
   submitEditUnit() {
@@ -136,6 +131,7 @@ export class EditUnitComponent implements OnInit {
 
     let newBedrooms = this.editUnitForm.value.bedrooms;
     let newSize = this.editUnitForm.value.size;
+
     let newUnit = new fbUnit(newBedrooms, this.currUnit.floorplan, newSize, this.currUnit.unitNumber);
 
     this.placeService.editUnit(this.currPlace.postal, this.currUnit.unitNumber ,newUnit).subscribe(()=>{
@@ -145,8 +141,7 @@ export class EditUnitComponent implements OnInit {
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
-
-  // TODO :: upload floorplan image
+  // upload floorplan image
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }

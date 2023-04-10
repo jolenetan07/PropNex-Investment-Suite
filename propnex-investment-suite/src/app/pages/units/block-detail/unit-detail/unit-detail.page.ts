@@ -8,13 +8,11 @@ import { EditAllUnitsComponent } from './edit-all-units/edit-all-units.component
 import { EditUnitComponent } from './edit-unit/edit-unit.component';
 import { FloorplanComponent } from './floorplan/floorplan.component';
 
-
 @Component({
   selector: 'app-unit-detail',
   templateUrl: './unit-detail.page.html',
   styleUrls: ['./unit-detail.page.scss'],
 })
-
 
 export class UnitDetailPage implements OnInit {
 
@@ -66,30 +64,29 @@ export class UnitDetailPage implements OnInit {
 
   ngOnInit() {
     this.currUser = this.authService.currFbUser;
-
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('unitNumId')) {
         this.navCtrl.navigateBack('/units');
         return;
       }
-      
       this.currPlace = this.placeService.currPlace;
       this.currUnit = this.placeService.currUnit;
+      
     });
+
   }
 
   ionViewWillEnter() {
     this.currPlace = this.placeService.currPlace;
     this.currUnit = this.placeService.currUnit;
     this.placeService.fetchFBPostals().subscribe(() => {
-
     });
 
   }
 
-
-  // edit this existing unit / edit all existing units with same unit number action sheet
+  // edit unit / edit all units with same numbers action sheet
   onEditUnitOptions() {
+
     this.actionSheetCtrl.create({
       header: 'Please Choose',
       buttons: [
@@ -114,9 +111,8 @@ export class UnitDetailPage implements OnInit {
   }
 
 
-  // edit this unit
+  // edit this unit 
   onEditUnit() {
-    console.log("edit this unit details");
     this.modalCtrl
     .create({ component: EditUnitComponent })
     .then(modalEl => {
@@ -124,18 +120,14 @@ export class UnitDetailPage implements OnInit {
       return modalEl.onDidDismiss();
     })
     .then(resultData => {
-      console.log(resultData.data, resultData.role);
       if (resultData.role === 'confirm') {
         this.ionViewWillEnter();
-        console.log('edited!');
       }
     });
   }
 
-
-  // edit all units with same unit number
+  // edit all units with same numbers
   onEditAllUnits() {
-    console.log("edit all same number unit details");
     this.modalCtrl
     .create({ component: EditAllUnitsComponent })
     .then(modalEl => {
@@ -143,15 +135,14 @@ export class UnitDetailPage implements OnInit {
       return modalEl.onDidDismiss();
     })
     .then(resultData => {
-      console.log(resultData.data, resultData.role);
       if (resultData.role === 'confirm') {
         this.ionViewWillEnter();
-        console.log('edited!');
       }
     });
+
   }
 
-  // floorplan popover
+  // present floorplan popover
   async presentPopover(e: Event) {
     const popover = await this.popoverController.create({
       component: FloorplanComponent,
@@ -162,18 +153,17 @@ export class UnitDetailPage implements OnInit {
     await popover.present();
 
     const { role } = await popover.onDidDismiss();
+
   }
  
-  // check if unit detail list expanded / collapsed
+  // toggle between expand and collapse list
   toggleItem(index: number) {
     this.expandedItems[index] = !this.expandedItems[index];
   }
 
-
-  // expand unit detail list
+  // check if list is expanded or collapsed
   isItemExpanded(index: number) {
     return this.expandedItems[index];
   }
-  
   
 }

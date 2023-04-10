@@ -29,8 +29,8 @@
               button
             >
               <ion-thumbnail slot="start">
-                <!-- <ion-img [src]="place.imageUrl"></ion-img> -->
-                <ion-img src="assets/placeholders/property.jpeg"></ion-img>
+                <ion-img *ngIf="!place.imageUrl" src="assets/placeholders/property.jpeg"></ion-img>
+                <ion-img *ngIf="place.imageUrl" [src]="place.imageUrl"></ion-img>
               </ion-thumbnail>
               <ion-label>
                 <h2>{{ place.name }}</h2>

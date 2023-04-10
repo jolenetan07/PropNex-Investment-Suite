@@ -3,13 +3,11 @@ import { ModalController } from '@ionic/angular';
 import { fbUnit } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from 'src/app/services/place.service';
 
-
 @Component({
   selector: 'app-floorplan-modal',
   templateUrl: './floorplan-modal.component.html',
   styleUrls: ['./floorplan-modal.component.scss'],
 })
-
 
 export class FloorplanModalComponent implements OnInit {
   
@@ -26,12 +24,9 @@ export class FloorplanModalComponent implements OnInit {
     this.currUnit = this.placeService.currUnit;
   }
 
-
-  // collapse floor plan
+  // collapse floorplan
   onCancel() {
-    console.log("close floor plan");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  
 }

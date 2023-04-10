@@ -6,7 +6,6 @@ import { UnitsPageRoutingModule } from './units-routing.module';
 import { UnitsPage } from './units.page';
 import { AddBlockComponent } from './add-block/add-block.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +16,5 @@ import { AddBlockComponent } from './add-block/add-block.component';
   ],
   declarations: [UnitsPage, AddBlockComponent]
 })
-
 
 export class UnitsPageModule {}

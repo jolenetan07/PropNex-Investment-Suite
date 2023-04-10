@@ -4,13 +4,11 @@ import { ModalController } from '@ionic/angular';
 import { fbPostal } from 'src/app/pages/auth/firebase.model';
 import { PlaceService } from '../../../../services/place.service';
 
-
 @Component({
   selector: 'app-add-unit',
   templateUrl: './add-unit.component.html',
   styleUrls: ['./add-unit.component.scss'],
 })
-
 
 export class AddUnitComponent implements OnInit {
 
@@ -121,19 +119,16 @@ export class AddUnitComponent implements OnInit {
     });
   }
 
-
   // cancel add unit
   onCancel() {
     this.modalCtrl.dismiss(null, 'cancel');
   }
-
 
   // submit add unit form
   submitAddUnit() {
     if (!this.addUnitForm.valid) {
       return;
     }
-
     const unitNumber = this.addUnitForm.value.unitNumber;
     const bedrooms = this.addUnitForm.value.bedrooms;
     const size = this.addUnitForm.value.size;
@@ -146,11 +141,9 @@ export class AddUnitComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-
-  // TODO :: upload floorplan image
+  // upload floorplan image
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }
-
 
 }

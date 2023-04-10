@@ -13,7 +13,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
   styleUrls: ['./main.page.scss'],
 })
 
-
 export class MainPage implements OnInit {
 
   currUser: fbUser;
@@ -37,16 +36,15 @@ export class MainPage implements OnInit {
     })
   }
 
-
   ionViewWillEnter() {
     this.currUser = this.authService.currFbUser;
     this.placeService.fetchFBPostals().subscribe(() => {
 
     });
+
   }
 
-
-  // edit user profile
+  // navigate to edit user profile form
   onEditProfile() {
     this.modalCtrl
       .create({ component: EditProfileComponent })
@@ -55,28 +53,22 @@ export class MainPage implements OnInit {
         return modalEl.onDidDismiss();
       })
       .then(resultData => {
-        console.log(resultData.data, resultData.role);
         if (resultData.role === 'confirm') {
           this.ionViewWillEnter();
-          console.log('edited!');
         }
       });
   }
 
-
-  // navigate to selected place details page
+  // navigate to place details page
   onClickPlace(postalCode: string) {
     this.result  = this.loadedFBPostals.find(p => p.postal === postalCode);
     this.placeService.currPlace = this.result;
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
-  
   ngOnDestroy() {
     if (this.fbPostalsSub) {
       this.fbPostalsSub.unsubscribe();
     }
   }
-
-
 }
