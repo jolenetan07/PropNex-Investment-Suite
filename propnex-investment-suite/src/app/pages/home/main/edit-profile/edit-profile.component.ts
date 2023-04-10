@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { fbUser } from 'src/app/pages/auth/firebase.model';
-import { User } from 'src/app/pages/auth/user.model';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
+
 export class EditProfileComponent implements OnInit {
-  //currUser: User;
+
   currUser: fbUser;
   form: FormGroup;
+
 
   constructor(
     private authService: AuthService,
     private modalCtrl: ModalController
   ) { }
 
+
   ngOnInit() {
-    // this.currUser = this.authService.currentUser;
     this.currUser = this.authService.currFbUser;
     this.form = new FormGroup({
       email: new FormControl(this.currUser.email, {
@@ -38,10 +38,12 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  // cancel edit profile 
   onCancel() {
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
+  // submit edit profile 
   onEditProfile() {
     if (!this.form.valid) {
       return;
@@ -54,7 +56,6 @@ export class EditProfileComponent implements OnInit {
 
     });
     
-
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 }

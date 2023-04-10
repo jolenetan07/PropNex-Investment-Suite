@@ -8,20 +8,24 @@ import { PlaceService } from 'src/app/services/place.service';
   templateUrl: './floorplan-modal.component.html',
   styleUrls: ['./floorplan-modal.component.scss'],
 })
+
 export class FloorplanModalComponent implements OnInit {
+  
   currUnit: fbUnit;
+
 
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
 
+
   ngOnInit() {
     this.currUnit = this.placeService.currUnit;
   }
 
+  // collapse floorplan
   onCancel() {
-    console.log("close floor plan");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 

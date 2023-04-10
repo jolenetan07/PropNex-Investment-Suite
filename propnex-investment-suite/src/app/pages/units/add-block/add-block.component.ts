@@ -8,14 +8,17 @@ import { PlaceService } from '../../../services/place.service';
   templateUrl: './add-block.component.html',
   styleUrls: ['./add-block.component.scss'],
 })
+
 export class AddBlockComponent implements OnInit {
 
   addBlockForm: FormGroup;
+
 
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
+
 
   ngOnInit() {
     this.addBlockForm = new FormGroup({
@@ -28,11 +31,12 @@ export class AddBlockComponent implements OnInit {
     });
   }
 
+  // cancel add place
   onCancel() {
-    console.log("cancel add block");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
+  // submit add block form
   submitAddBlock() {
     if (!this.addBlockForm.valid) {
       return;
@@ -40,7 +44,6 @@ export class AddBlockComponent implements OnInit {
     const projectName = this.addBlockForm.value.projectName;
     const postalCode = this.addBlockForm.value.postalCode;
     
-    console.log(projectName, postalCode);
     this.placeService.addBlock(projectName, postalCode).subscribe(() => {
 
     });
@@ -48,8 +51,8 @@ export class AddBlockComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  // upload place image
   uploadBlockImage() {
     console.log("choose block image to upload")
   }
-
 }

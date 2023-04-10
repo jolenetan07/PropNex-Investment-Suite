@@ -13,7 +13,7 @@ import { fbUser } from './firebase.model';
 })
 
 export class AuthPage implements OnInit, OnDestroy {
-  isLoading = false;
+
   isLogin = true;
 
   result: fbUser;

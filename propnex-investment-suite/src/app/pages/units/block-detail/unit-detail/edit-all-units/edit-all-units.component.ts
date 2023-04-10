@@ -9,16 +9,19 @@ import { PlaceService } from 'src/app/services/place.service';
   templateUrl: './edit-all-units.component.html',
   styleUrls: ['./edit-all-units.component.scss'],
 })
+
 export class EditAllUnitsComponent implements OnInit {
 
   editAllUnitForm: FormGroup;
   currPlace: fbPostal;
   currUnit: fbUnit;
 
+
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
+
 
   ngOnInit() {
     this.currPlace = this.placeService.currPlace;
@@ -115,11 +118,12 @@ export class EditAllUnitsComponent implements OnInit {
     });
   }
 
+  // cancel edit all units with same numbers
   onCancel() {
-    console.log("cancel edit all units");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
+  // submit all units with same numbers form
   submitEditAllUnit() {
     if (!this.editAllUnitForm.valid) {
       return;
@@ -128,17 +132,14 @@ export class EditAllUnitsComponent implements OnInit {
     let newBedrooms = this.editAllUnitForm.value.bedrooms;
     let newSize = this.editAllUnitForm.value.size;
 
-    
-
-    console.log(newBedrooms, newSize);
     this.placeService.editAllUnit(this.currPlace.postal, this.currUnit.unitNumber ,newBedrooms, newSize).subscribe(()=>{
 
     });
     
-    //this.editAllUnitForm.reset();
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
+  // upload floorplan image
   uploadFloorPlanImage() {
     console.log("choose floor plan image to upload")
   }

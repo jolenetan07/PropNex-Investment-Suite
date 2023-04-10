@@ -3,12 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSheetController, AlertController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { fbPostal, fbRec, fbUnit, fbUser } from 'src/app/pages/auth/firebase.model';
-import { User } from 'src/app/pages/auth/user.model';
-import { HomeService } from 'src/app/pages/home/home.service';
-import { Place } from 'src/app/pages/home/place.model';
-import { AddBlockComponent } from '../add-block/add-block.component';
 import { PlaceService } from '../../../services/place.service';
-import { Unit } from '../units.model';
 import { AddUnitComponent } from './add-unit/add-unit.component';
 import { EditBlockComponent } from './edit-block/edit-block.component';
 import { Subscription } from 'rxjs';
@@ -18,33 +13,30 @@ import { Subscription } from 'rxjs';
   templateUrl: './block-detail.page.html',
   styleUrls: ['./block-detail.page.scss'],
 })
+
 export class BlockDetailPage implements OnInit {
-  // currUser: User;
+
   currUser: fbUser;
-  isLoading = false;
-  //place: Place;
   currPlace: fbPostal;
-  places: Place[];
-  units: Unit[];
   result: fbUnit;
   favPlace: fbPostal;
-
   loadedFBRecs: fbRec[];
   private fbRecsSub: Subscription;
   recItem: fbRec;
   findRecs: string[];
 
+
   constructor(
     private authService: AuthService,
     private navCtrl: NavController,
     private route: ActivatedRoute,
-    private homeService: HomeService,
     private router: Router,
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
     private placeService: PlaceService,
     private alertController: AlertController
   ) { }
+
 
   ngOnInit() {
     this.currUser = this.authService.currFbUser;
@@ -53,11 +45,8 @@ export class BlockDetailPage implements OnInit {
         this.navCtrl.navigateBack('/units');
         return;
       }
-      this.isLoading = true;
-      //this.place = this.homeService.getPlace(paramMap.get('postalId'));
-      //this.place = this.homeService.allPlaces.find((p) => p.postal === paramMap.get("postalId"));
+
       this.currPlace = this.placeService.currPlace;
-      this.isLoading = false;
       
     });
 
@@ -65,8 +54,6 @@ export class BlockDetailPage implements OnInit {
       this.loadedFBRecs = fbRecs;
     })
 
-    this.places = this.homeService.allPlaces;
-    this.units = this.homeService.getBlockUnits();
   }
 
   ionViewWillEnter() {
@@ -80,27 +67,22 @@ export class BlockDetailPage implements OnInit {
 
   }
 
-
-
+  // retrieve unit using unit number
   handleChange(event) {
     const query = event.target.value;
-    console.log(query);
-    //this.units = this.homeService.getBlockUnits(query);
-    //this.result  = this.homeService.searchUnit('470142',query);
     if (this.currPlace.units) {
       this.result  = this.currPlace.units.find(p => p.unitNumber === query);
     }
     this.placeService.currUnit = this.result;
-    console.log(this.result);
   }
 
+  // navigate to unit details page
   onSelectUnit() {
-    // to change
     this.router.navigate(['/', 'units', this.currPlace.postal, this.result.unitNumber]);
   }
 
+  // edit existing place / add new unit action sheet
   onEditBlockOptions() {
-    console.log("choose to add new unit to block or edit block details");
 
     this.actionSheetCtrl.create({
       header: 'Please Choose',
@@ -125,6 +107,7 @@ export class BlockDetailPage implements OnInit {
     });
   }
 
+  // edit existing place 
   onEditBlock() {
     this.modalCtrl
       .create({ component: EditBlockComponent })
@@ -136,11 +119,11 @@ export class BlockDetailPage implements OnInit {
         console.log(resultData.data, resultData.role);
         if (resultData.role === 'confirm') {
           this.ionViewWillEnter();
-          console.log('edited!');
         }
       });
   }
 
+  // add new unit
   onAddUnit() {
     this.modalCtrl
       .create({ component: AddUnitComponent })
@@ -151,9 +134,11 @@ export class BlockDetailPage implements OnInit {
   }
 
   addToFav(postalCode: string) {
-    // check if already in fav
-    // if yes, dont add (alert?)
-    // if no, add
+    /*
+      check if already in fav
+      if yes, dont add 
+      if no, add
+    */
     if (this.currUser.favourites && this.currUser.favourites.length > 0) {
       this.favPlace  = this.currUser.favourites.find(p => p.postal === postalCode);
       if (this.favPlace) {
@@ -173,9 +158,9 @@ export class BlockDetailPage implements OnInit {
       });
     }
     
-
   }
 
+  // present place already in favourites alert
   async presentFavAlert() {
     const alert = await this.alertController.create({
       header: 'Already Exist',

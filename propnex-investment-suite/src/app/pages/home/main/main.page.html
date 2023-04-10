@@ -14,7 +14,6 @@
         <ion-card>
           <ion-card-header class="ion-text-center">
             <ion-card-subtitle class="ion-text-left ion-margin-bottom">Welcome Back,</ion-card-subtitle>
-            <!-- <ion-card-title>{{currUser.firstname}} {{currUser.lastname}}</ion-card-title> -->
             <ion-card-title>{{currUser.name}}</ion-card-title>
             <ion-icon name="person-circle"></ion-icon>
           </ion-card-header>
@@ -52,8 +51,8 @@
                 button
               >
                 <ion-thumbnail slot="start">
-                  <!-- <ion-img [src]="currUser.favourites[0].imageUrl"></ion-img> -->
-                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
+                  <ion-img *ngIf="!currUser.favourites[0].imageUrl" src="assets/placeholders/property.jpeg"></ion-img>
+                  <ion-img *ngIf="currUser.favourites[0].imageUrl" [src]="currUser.favourites[0].imageUrl"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{ currUser.favourites[0].name }}</h2>
@@ -70,11 +69,11 @@
                 button
               >
                 <ion-thumbnail slot="start">
-                  <!-- <ion-img [src]="currUser.favourites[1].imageUrl"></ion-img> -->
-                  <ion-img src="assets/placeholders/property.jpeg"></ion-img>
+                  <ion-img *ngIf="!currUser.favourites[1].imageUrl" src="assets/placeholders/property.jpeg"></ion-img>
+                  <ion-img *ngIf="currUser.favourites[1].imageUrl" [src]="currUser.favourites[1].imageUrl"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
-                  <h2>{{ loadedFavPlaces[1].name }}</h2>
+                  <h2>{{ currUser.favourites[1].name }}</h2>
                   <p>Singapore {{ currUser.favourites[1].postal}}</p>
                 </ion-label>
               </ion-item>

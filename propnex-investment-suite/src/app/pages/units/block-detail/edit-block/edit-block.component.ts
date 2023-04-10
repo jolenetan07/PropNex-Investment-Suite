@@ -9,16 +9,19 @@ import { PlaceService } from '../../../../services/place.service';
   templateUrl: './edit-block.component.html',
   styleUrls: ['./edit-block.component.scss'],
 })
+
 export class EditBlockComponent implements OnInit {
 
   editBlockForm: FormGroup;
   currPlace: fbPostal;
+
 
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
 
+  
   ngOnInit() {
     this.currPlace = this.placeService.currPlace;
     this.editBlockForm = new FormGroup({
@@ -28,11 +31,12 @@ export class EditBlockComponent implements OnInit {
     });
   }
 
+  // cancel edit place
   onCancel() {
-    console.log("cancel edit block");
     this.modalCtrl.dismiss(null, 'cancel');
   }
 
+  // submit edit place form
   submitEditBlock() {
     if (!this.editBlockForm.valid) {
       return;
@@ -44,11 +48,10 @@ export class EditBlockComponent implements OnInit {
 
     });
     
-    //console.log("block edited");
-    //this.editBlockForm.reset();
     this.modalCtrl.dismiss({ message: 'Changes saved'}, 'confirm');
   }
 
+  // upload place image
   uploadBlockImage() {
     console.log("choose block image to upload")
   }

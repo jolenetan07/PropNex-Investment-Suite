@@ -4,44 +4,37 @@ import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { fbPostal, fbRec, fbUser } from '../auth/firebase.model';
-import { User } from '../auth/user.model';
-import { HomeService } from '../home/home.service';
-import { Place } from '../home/place.model';
 import { AddBlockComponent } from './add-block/add-block.component';
 import { PlaceService } from '../../services/place.service';
-import { Unit } from './units.model';
 
 @Component({
   selector: 'app-units',
   templateUrl: './units.page.html',
   styleUrls: ['./units.page.scss'],
 })
-export class UnitsPage implements OnInit {
-  //currUser: User;
-  currUser: fbUser;
-  //loadedPlaces: Place[];
-  // result: Place;
 
+export class UnitsPage implements OnInit {
+
+  currUser: fbUser;
   loadedFBPostals: fbPostal[];
   private fbPostalsSub: Subscription;
   result: fbPostal;
-
   loadedFBRecs: fbRec[];
   private fbRecsSub: Subscription;
   recItem: fbRec;
   findRecs: string[];
 
+
   constructor(
     private authService: AuthService,
-    //private homeService: HomeService,
     private router: Router,
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
 
+
   ngOnInit() {
     this.currUser = this.authService.currFbUser;
-    //this.loadedPlaces = this.homeService.allPlaces;
 
     this.fbPostalsSub = this.placeService.fbPostals.subscribe(fbPostals => {
       this.loadedFBPostals = fbPostals;
@@ -63,30 +56,26 @@ export class UnitsPage implements OnInit {
 
   }
 
+  // retrieve place using postal
   handleChange(event) {
-    
     const query = event.target.value;
-    //console.log(query);
-    //this.result  = this.homeService.getPlace(query);
     this.result  = this.loadedFBPostals.find(p => p.postal === query);
-    //console.log(this.result);
+
     if (this.result) {
       this.placeService.currPlace = this.result;
       this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
-      //console.log(this.recItem);
       this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
-      //console.log(findRecs);
     }
 
   }
 
+  // navigate to place details page
   onSelectPlace() {
-    // this.router.navigate(['/', 'units', 'block-detail']);
     this.router.navigate(['/', 'units', this.result.postal]);
   }
 
+  // add new place
   onAddBlock() {
-    console.log("add new block");
     this.modalCtrl
       .create({ component: AddBlockComponent })
       .then(modalEl => {
@@ -94,12 +83,6 @@ export class UnitsPage implements OnInit {
         return modalEl.onDidDismiss();
       });
   }
-
-  // fetchRec() {
-  //   this.placeService.fetchFBRecs().subscribe(() => {
-
-  //   });
-  // }
 
   ngOnDestroy() {
     if (this.fbPostalsSub) {

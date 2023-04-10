@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { RecommendationsPageRoutingModule } from './recommendations-routing.module';
-
 import { RecommendationsPage } from './recommendations.page';
 
 @NgModule({
@@ -17,4 +14,5 @@ import { RecommendationsPage } from './recommendations.page';
   ],
   declarations: [RecommendationsPage]
 })
+
 export class RecommendationsPageModule {}

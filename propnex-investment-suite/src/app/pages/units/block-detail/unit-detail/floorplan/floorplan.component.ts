@@ -9,18 +9,23 @@ import { FloorplanModalComponent } from '../floorplan-modal/floorplan-modal.comp
   templateUrl: './floorplan.component.html',
   styleUrls: ['./floorplan.component.scss'],
 })
+
 export class FloorplanComponent implements OnInit {
+  
   currUnit: fbUnit;
+
 
   constructor(
     private modalCtrl: ModalController,
     private placeService: PlaceService
   ) { }
 
+
   ngOnInit() {
     this.currUnit = this.placeService.currUnit;
   }
 
+  // expand floorplan
   onExpand() {
     this.modalCtrl
     .create({ component: FloorplanModalComponent })

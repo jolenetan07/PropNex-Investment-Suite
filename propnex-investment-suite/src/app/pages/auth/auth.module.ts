@@ -21,4 +21,5 @@ const routes: Routes = [
   ],
   declarations: [AuthPage]
 })
+
 export class AuthPageModule {}
