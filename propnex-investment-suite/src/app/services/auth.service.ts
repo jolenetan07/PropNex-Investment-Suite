@@ -9,10 +9,9 @@ import { fbPostal, fbUser } from '../pages/auth/firebase.model';
 })
 
 export class AuthService {
+
   private _userIsAuthenticated = false;
-
   private _currFbUser: fbUser;
-
   private _fbUsers = new BehaviorSubject<fbUser[]>([]);
 
 
