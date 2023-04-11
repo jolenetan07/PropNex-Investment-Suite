@@ -37,8 +37,9 @@
 |- ai_models<br>
 &emsp;|- price_prediction     -- contains the price prediction model<br>
 &emsp;|- recommendation_system    -- contains the recommendation system model<br>
+&emsp;|- stats_analysis    -- contains the statistical analysis logic<br>
 |- database_data    -- contains the exported firebase databases<br>
-|-propnex-investment-suite  -- contains the application code<br>
+|- propnex-investment-suite  -- contains the application code<br>
 &emsp;|- src  -- main source folder for the application code<br>
 &emsp;&emsp;|- app  -- contains the application module and components<br>
 &emsp;&emsp;&emsp;|- pages    -- contains the various pages of the app<br>
