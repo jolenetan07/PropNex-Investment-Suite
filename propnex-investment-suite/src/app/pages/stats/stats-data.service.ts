@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StatsDataService {
-  // public csv_data = "default";
 
   private readonly count_URL = 'assets/stats/count_by_district.csv';
   private readonly countT_URL = 'assets/stats/count_by_type.csv';
@@ -33,97 +32,78 @@ export class StatsDataService {
   constructor(protected http: HttpClient) { }
 
   getPricepsfData(){
-    console.log("Fetch price psf data from assets");
     return this.http.get(this.price_psf_URL);
   }
 
   getMeanPredData(){
-    console.log("Fetch mean pred data from assets");
     return this.http.get(this.mean_pred_URL);
   }
 
   getCentralData(){
-    console.log("Fetch central data from assets");
     return this.http.get(this.central_URL);
   }
 
   getEastData(){
-    console.log("Fetch east data from assets");
     return this.http.get(this.east_URL);
   }
 
   getNEData(){
-    console.log("Fetch north-east data from assets");
     return this.http.get(this.ne_URL);
   }
 
   getNorthData(){
-    console.log("Fetch north data from assets");
     return this.http.get(this.north_URL);
   }
 
   getWestData(){
-    console.log("Fetch west data from assets");
     return this.http.get(this.west_URL);
   }
 
   getCentralPredData(){
-    console.log("Fetch central pred data from assets");
     return this.http.get(this.central_pred_URL);
   }
 
   getEastPredData(){
-    console.log("Fetch east pred data from assets");
     return this.http.get(this.east_pred_URL);
   }
 
   getNEPredData(){
-    console.log("Fetch north-east pred data from assets");
     return this.http.get(this.ne_pred_URL);
   }
 
   getNorthPredData(){
-    console.log("Fetch north pred data from assets");
     return this.http.get(this.north_pred_URL);
   }
 
   getWestPredData(){
-    console.log("Fetch west pred data from assets");
     return this.http.get(this.west_pred_URL);
   }
 
   getVolumeData(){
-    console.log("Fetch volume data from assets");
     return this.http.get(this.volume_URL);
   }
 
   getCountData() {
-    console.log("Fetch count stats data from assets");
     return this.http.get(this.count_URL, { responseType: 'text' });
   }
 
   getCountTypeData() {
-    console.log("Fetch count by type stats data from assets");
     return this.http.get(this.countT_URL, { responseType: 'text' });
   }
 
   getAvgData() {
-    console.log("Fetch avg stats data from assets");
     return this.http.get(this.avg_URL, { responseType: 'text' });
   }
 
   getAvgTypeData() {
-    console.log("Fetch avg by type stats data from assets");
     return this.http.get(this.avgT_URL, { responseType: 'text' });
   }
 
   getMaxData() {
-    console.log("Fetch max stats data from assets");
     return this.http.get(this.max_URL, { responseType: 'text' });
   }
 
   getMaxTypeData() {
-    console.log("Fetch max by type stats data from assets");
     return this.http.get(this.maxT_URL, { responseType: 'text' });
   }
 }
