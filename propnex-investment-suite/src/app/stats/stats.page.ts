@@ -12,7 +12,6 @@ declare var Plotly: any;
 })
 export class StatsPage implements OnInit {
   private width: number;
-  // private height;
   public count_data;
   public countT_data;
   public avg_data;
@@ -107,7 +106,6 @@ export class StatsPage implements OnInit {
     });
 
     this.width  = window.innerWidth;
-    // this.height  = window.innerHeight;
 
   }
 
@@ -132,8 +130,6 @@ export class StatsPage implements OnInit {
     }
 
     Plotly.newPlot(this.plot_id, this.data, this.layout, this.configs);
-    console.log(filter);
-    console.log(this.data)
 
   }
 
@@ -210,11 +206,6 @@ export class StatsPage implements OnInit {
       this.maxT_dataArr[i][1] = this.maxT_dataArr[i][1].slice(0,this.maxT_dataArr[i][1].indexOf("."));
     }
     this.maxT_dataArr = this.maxT_dataArr.sort(this.sort2Darray);
-
-    // console.log(this.count_data);
-    // console.log(this.avg_data);
-    // console.log(this.max_data);
-    // console.log(this.pricepsfData)
   }
 
   async countInfoClick() {
@@ -284,19 +275,15 @@ export class StatsPage implements OnInit {
   }
 
   numLocButton(){
-    console.log("numLocButton");
     this.numLocHidden = !this.numLocHidden;
   }
   numTypeButton(){
-    console.log("numTypeButton");
     this.numTypeHidden = !this.numTypeHidden;
   }
   expLocButton(){
-    console.log("ExpLocButton");
     this.expLocHidden = !this.expLocHidden;
   }
   expTypeButton(){
-    console.log("ExpTypeButton");
     this.expTypeHidden = !this.expTypeHidden;
   }
 
