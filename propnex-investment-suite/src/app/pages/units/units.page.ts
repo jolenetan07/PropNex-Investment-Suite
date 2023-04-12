@@ -64,7 +64,12 @@ export class UnitsPage implements OnInit {
     if (this.result) {
       this.placeService.currPlace = this.result;
       this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
-      this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      if (this.recItem) {
+        this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      } else {
+        this.findRecs = []
+      }
+      
     }
 
   }

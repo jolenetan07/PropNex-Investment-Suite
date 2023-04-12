@@ -63,9 +63,18 @@
           <ion-item class="custom-color">
             Similar Places:
           </ion-item>
-          <ion-item *ngFor="let recPlace of findRecs">
-            {{recPlace}}
-          </ion-item>
+          
+          <div *ngIf="findRecs.length == 0">
+            <ion-item>
+              Currently Unavailable
+            </ion-item>
+          </div>
+          
+          <div *ngIf="findRecs.length != 0">
+            <ion-item *ngFor="let recPlace of findRecs">
+              {{recPlace}}
+            </ion-item>
+          </div>
         </ion-list>
       </ion-col>
     </ion-row>
