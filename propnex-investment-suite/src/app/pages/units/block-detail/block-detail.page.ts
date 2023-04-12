@@ -145,14 +145,23 @@ export class BlockDetailPage implements OnInit {
         this.presentFavAlert();
       } else {
         this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
-        this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+        if (this.recItem) {
+          this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+        } else {
+          this.findRecs = [];
+        }
         this.authService.addFav(this.currUser.email, this.placeService.currPlace, this.findRecs).subscribe(()=>{
 
         });
       }
     } else {
       this.recItem = this.loadedFBRecs.find(p => p.place === this.placeService.currPlace.name);
-      this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      if (this.recItem) {
+        this.findRecs = [this.recItem.rec1, this.recItem.rec2, this.recItem.rec3];
+      } else {
+        this.findRecs = [];
+      }
+      
       this.authService.addFav(this.currUser.email, this.placeService.currPlace, this.findRecs).subscribe(()=>{
 
       });

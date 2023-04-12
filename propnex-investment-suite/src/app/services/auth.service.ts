@@ -160,7 +160,9 @@ export class AuthService {
         newFavArr = newFavArr.concat(newPlace);
 
         let newRecArr = oldPlace.personalRec || [];
-        newRecArr = newRecArr.concat(newRecs);
+        if (newRecs.length != 0) {
+          newRecArr = newRecArr.concat(newRecs);
+        }
         let uniqueRecArr = Array.from(new Set(newRecArr));
         
         updatedUsers[updatedUserIndex] = new fbUser(
